@@ -4,14 +4,13 @@ import threading
 from datetime import datetime
 import pandas as pd
 import csv
+import time
 global usernames
 global passwords
 global conn,addr 
 df= pd.read_csv("usernames and passwords.csv")
 usernames=df["Username"].tolist()
 passwords=df["Password"].tolist()
-usernames.append("test")
-
 s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 ip="0.0.0.0"
 port=5555
@@ -28,25 +27,29 @@ def login():
     #3:succesful login
     #01:username not found
     #02:password not found 
-    conn.send(1.encode())
-    user=conn.revc(2048)
+    conn.send(b'1')
+    user=conn.recv(2048)
     while user:
         if user.decode() in usernames:
-            conn.send(2.encode())
-            pas=conn.revc(2048)
+            i=usernames.index(user.decode())
+            print(usernames[i])
+            conn.send(b'2')
+            pas=conn.recv(2048)
             while pas:
-                if pas.decode in passwords:
-                    conn.send(3.encode())
+                if passwords[i]==pas.decode():
+                    conn.send(b'3')
+                    user=None
                     break
                 else:
                     conn.send("02".encode())
-                    pas=conn.revc(2048)
+                    pas=conn.recv(2048)
                     
            
-        else
+        else:
             conn.send("01".encode())
-            user=conn.revc(2048)
-        
+            user=conn.recv(2048)
+            continue
+    
   
 while True:
     data=conn.recv(2048)
