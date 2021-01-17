@@ -1,4 +1,5 @@
 import socket
+#create an idex of reply to command for client server 
 s=socket.socket()
 s.connect(("127.0.0.1",5555))
 s.send("login".encode())
