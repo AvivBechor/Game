@@ -21,6 +21,32 @@ conn,addr=s.accept()
 print("Connected to:", addr)
 def exit():
     conn.close()
+def signup():#this is NOT good, this is just temporary. To do: instead of 2 lists work straight on the df and update it each time u make a new user.
+    #1.1:get username-signup
+    #2.1:get password-signup
+    #3.1:signup succesful
+    #01.1:username already exists
+    #02.1:password already exists 
+    conn.send(b'1.1')
+    user=conn.recv(2048)
+    while user:
+        if user.decode() in usernames:
+            conn.send(b'01.1')
+            user=conn.recv(2048)
+        else:
+            conn.send(b'2.1')
+            pas=conn.recv(2048)
+            while pas:
+                if pas in passwords:
+                    conn.send(b'02.1')
+                    user=conn.recv(2048)
+                else:
+                    uasernames.append(user)
+                    passwords.append(pas)
+                    new=(usernames[-1],passwords[-1])
+                    df.append(new)
+                    
+            
 def login():
     #1:get username
     #2:get password
