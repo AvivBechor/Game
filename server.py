@@ -43,7 +43,6 @@ def signup():#make it a locked action so 2 connections couldnt write to the data
     #2.1:get password-signup
     #3.1:signup succesful
     #01.1:username already exists
-    #02.1:password already exists
     df=pd.read_csv("usernames and passwords.csv")
     conn.send(b'1.1')
     user=conn.recv(2048)
@@ -54,19 +53,13 @@ def signup():#make it a locked action so 2 connections couldnt write to the data
         else:
             conn.send(b'2.1')
             pas=conn.recv(2048)
-            while pas:
-                if pas.decode() in list(df["Password"]):
-                    conn.send(b'02.1')
-                    pas=conn.recv(2048)
-                else:
-                    s=pd.Series({"Username":user.decode(),"Password":pas.decode()})
-                    df=df.append(s,ignore_index=True)
-                    df.to_csv("usernames and passwords.csv",index=False)
-                    conn.send(b'3.1')
-                    pas=None
-                    user=None
-                    print(df)
-                    break
+            s=pd.Series({"Username":user.decode(),"Password":pas.decode()})
+            df=df.append(s,ignore_index=True)
+            df.to_csv("usernames and passwords.csv",index=False)
+            conn.send(b'3.1')
+            user=None
+            print(df)
+            break
                     
 #server
 s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
