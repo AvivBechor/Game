@@ -7,7 +7,10 @@ import csv
 import time
 global conn,addr
 global df
+global lock
+
 df=pd.read_csv("usernames and passwords.csv")
+lock=threading.Lock()
 
 def exit():
     conn.close()
@@ -44,22 +47,27 @@ def signup():#make it a locked action so 2 connections couldnt write to the data
     #3.1:signup succesful
     #01.1:username already exists
     df=pd.read_csv("usernames and passwords.csv")
-    conn.send(b'1.1')
-    user=conn.recv(2048)
-    while user:
-        if user.decode() in list(df["Username"]):
-            conn.send(b'01.1')
-            user=conn.recv(2048)
-        else:
-            conn.send(b'2.1')
-            pas=conn.recv(2048)
-            s=pd.Series({"Username":user.decode(),"Password":pas.decode()})
-            df=df.append(s,ignore_index=True)
-            df.to_csv("usernames and passwords.csv",index=False)
-            conn.send(b'3.1')
-            user=None
-            print(df)
-            break
+    if lock.locked():
+        return False
+    else:
+        lock.acquire()
+        conn.send(b'1.1')
+        user=conn.recv(2048)
+        while user:
+            if user.decode() in list(df["Username"]):
+                conn.send(b'01.1')
+                user=conn.recv(2048)
+            else:
+                conn.send(b'2.1')
+                pas=conn.recv(2048)
+                s=pd.Series({"Username":user.decode(),"Password":pas.decode()})
+                df=df.append(s,ignore_index=True)
+                df.to_csv("usernames and passwords.csv",index=False)
+                conn.send(b'3.1')
+                user=None
+                print(df)
+                lock.release()
+                return True 
                     
 #server
 s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -78,7 +86,9 @@ while True:
     if data.decode()=="exit":
         exit(conn)
         break
-    eval("{}()".format(data.decode()))
+    while not eval("{}()".format(data.decode())):
+        conn.send(b'please try again')
+        data=conn.recv(2048)
     '''
     try:
         eval("{}()".format(data.decode()))
