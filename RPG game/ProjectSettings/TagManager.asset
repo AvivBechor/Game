@@ -13,9 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - player
+  - Traps
+  - collidable
   - 
   - 
   - 
@@ -40,4 +40,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: collidable
+    uniqueID: 1963442399
+    locked: 0
+  - name: traps
+    uniqueID: 2881681331
+    locked: 0
+  - name: palyer
+    uniqueID: 1141786687
     locked: 0

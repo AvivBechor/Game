@@ -47,7 +47,7 @@ def signup():#make it a locked action so 2 connections couldnt write to the data
     #3.1:signup succesful
     #01.1:username already exists
     df=pd.read_csv("usernames and passwords.csv")
-    if lock.locked():
+    if lock.locked(): #lock only at data base write, not all the fuction 
         return False
     else:
         lock.acquire()
