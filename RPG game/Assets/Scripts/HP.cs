@@ -62,6 +62,5 @@ public class HP : MonoBehaviour
             Debug.Log("lol u died");
             playerMovement.dead = true;
         }
-        Debug.Log(healthPoints);
     }
 }
