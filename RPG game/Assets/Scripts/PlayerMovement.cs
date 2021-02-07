@@ -5,6 +5,7 @@ using Assets.Scripts;
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
+    public VectorValue startingPosition;
     public float movementSpeed = 5f;
     public LayerMask collidable;
     public LayerMask Trap;
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         movePoint.parent = null;
+        transform.position = startingPosition.initialValue;
     }
 
     // Update is called once per frame
