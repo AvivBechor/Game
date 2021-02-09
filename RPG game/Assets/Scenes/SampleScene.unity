@@ -232,6 +232,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5862031278966675598, guid: 01ef9607e0ae7ac4ab3ba71477c8c963,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 5862031278966675598, guid: 01ef9607e0ae7ac4ab3ba71477c8c963,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862031278966675598, guid: 01ef9607e0ae7ac4ab3ba71477c8c963,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862031278966675598, guid: 01ef9607e0ae7ac4ab3ba71477c8c963,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01ef9607e0ae7ac4ab3ba71477c8c963, type: 3}
 --- !u!1 &519420028
@@ -1751,3 +1771,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: rpgGame
+  playerPosition: {x: 0, y: 0}
+  playerStorage: {fileID: 11400000, guid: 666abc8338090bd4f84d1ad699adc9dc, type: 2}

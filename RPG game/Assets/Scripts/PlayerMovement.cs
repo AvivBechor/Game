@@ -21,8 +21,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        movePoint.parent = null;
         transform.position = startingPosition.initialValue;
+        movePoint.transform.position = transform.position;
+        movePoint.parent = null;
+        
     }
 
     // Update is called once per frame
