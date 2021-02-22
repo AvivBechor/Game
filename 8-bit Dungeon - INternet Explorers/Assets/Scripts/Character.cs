@@ -6,6 +6,6 @@ using Assets.Scripts;
 [CreateAssetMenu]
 public class Character : ScriptableObject
 {
-    public MaxHp MAXHP;
+    public MaxHp maxHp;
     public string title;
 }

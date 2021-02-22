@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown("space"))
             {
                 isDead = false;
-                CurrentHP.value = character.MAXHP.value;
+                CurrentHP.value = character.maxHp.value;
             }
         }
     }
