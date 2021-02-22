@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     
     private void Start()
     {
+        
         transform.position = startingPosition.initialValue;
         movePoint.transform.position = transform.position;
         movePoint.parent = null;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Assets.Scripts;
 
 public class CreateCharacter : MonoBehaviour
 {
@@ -15,27 +16,26 @@ public class CreateCharacter : MonoBehaviour
     void Start()
     {
         self.onClick.AddListener(Create);
+        Character a = ScriptableObject.CreateInstance<Character>();
     }
 
     void Create()
     {
         if (job.value == 0)
         {
-            character.maxHp.value = 300;
             character.title = "Warrior";
         }
         else if (job.value == 1)
         {
-            character.maxHp.value = 150;
             character.title = "Mage";
         }
         else if (job.value == 2)
         {
-            character.maxHp.value = 1;
             character.title = "Frog";
         }
+        character.init();
         currentHp.value = character.maxHp.value;
         Debug.Log("You are a " + character.title + " with " + character.maxHp.value + " HP.");
-        SceneManager.LoadScene("SampleScene");
+        //SceneManager.LoadScene("SampleScene");
     }
 }

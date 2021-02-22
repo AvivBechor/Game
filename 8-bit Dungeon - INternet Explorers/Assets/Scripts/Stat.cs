@@ -10,7 +10,7 @@ namespace Assets.Scripts
     public abstract class Stat:ScriptableObject
     {
         public int value;
-        public int statMultiplayer;
+        public float statMultiplayer;
         public abstract void levelUp();
     }
 }
