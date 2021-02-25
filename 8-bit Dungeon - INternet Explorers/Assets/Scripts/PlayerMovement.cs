@@ -20,21 +20,46 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        change = Vector2.zero;
-        change.x = Input.GetAxisRaw("Horizontal");
-        change.y = Input.GetAxisRaw("Vertical");
-        if (change != Vector2.zero)
+        if (!player.isAttacking && !player.isDead)
         {
-            player.isMoving = true;
-            MoveCharacter();
-            animator.SetFloat("moveX", change.x);
-            animator.SetFloat("moveY", change.y);
+            change = Vector2.zero;
+            change.x = Input.GetAxisRaw("Horizontal");
+            change.y = Input.GetAxisRaw("Vertical");
+            if (change != Vector2.zero)
+            {
+                player.isMoving = true;
+                MoveCharacter();
+            }
+            else
+            {
+                player.isMoving = false;
+            }
+            if (change.x == 1)
+            {
+                player.rotation = Side.RIGHT;
+                animator.SetFloat("moveX", 1);
+                animator.SetFloat("moveY", 0);
+            }
+            else if (change.x == -1)
+            {
+                player.rotation = Side.LEFT;
+                animator.SetFloat("moveX", -1);
+                animator.SetFloat("moveY", 0);
+            }
+            else if (change.y == 1)
+            {
+                player.rotation = Side.UP;
+                animator.SetFloat("moveY", 1);
+                animator.SetFloat("moveX", 0);
+            }
+            else
+            {
+                player.rotation = Side.DOWN;
+                animator.SetFloat("moveY", -1);
+                animator.SetFloat("moveX", 0);
+            }
+            animator.SetBool("moving", player.isMoving);
         }
-        else
-        {
-            player.isMoving = false;
-        }
-        animator.SetBool("moving", player.isMoving);
     }
 
     void MoveCharacter()
