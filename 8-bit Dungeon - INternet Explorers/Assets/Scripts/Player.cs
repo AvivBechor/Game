@@ -6,7 +6,6 @@ using Assets.Scripts;
 public class Player : MonoBehaviour
 {
     public VectorValue startingPosition;
-    public Transform movePoint;
     public IntStorage CurrentHP;
     public Side rotation = Side.DOWN;
     public Character character;
@@ -16,13 +15,10 @@ public class Player : MonoBehaviour
     public bool isInteracting;
     public bool isAttacking;
     public bool isVunerable;
+    private Vector3 change;
     
     private void Start()
     {
-        
-        transform.position = startingPosition.initialValue;
-        movePoint.transform.position = transform.position;
-        movePoint.parent = null;
         
     }
 
@@ -36,7 +32,6 @@ public class Player : MonoBehaviour
                 isDead = false;
                 CurrentHP.value = character.maxHp.value;
             }
-        }
-    }
-
+        }        
+    }   
 }
