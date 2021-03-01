@@ -15,7 +15,7 @@ TagManager:
   - 
   - Ground
   - Obstacle
-  - 
+  - Attacks
   - 
   - 
   - 
@@ -44,9 +44,12 @@ TagManager:
   - name: Ground
     uniqueID: 2019944783
     locked: 0
-  - name: Player
-    uniqueID: 1574489609
-    locked: 0
   - name: Obstacle
     uniqueID: 2862199623
+    locked: 0
+  - name: Attacks
+    uniqueID: 201912821
+    locked: 0
+  - name: Player
+    uniqueID: 1574489609
     locked: 0

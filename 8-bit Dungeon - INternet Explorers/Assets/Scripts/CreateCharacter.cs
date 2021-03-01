@@ -36,6 +36,6 @@ public class CreateCharacter : MonoBehaviour
         character.init();
         currentHp.value = character.maxHp.value;
         Debug.Log("You are a " + character.title + " with " + character.maxHp.value + " HP.");
-        //SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("SampleScene");
     }
 }

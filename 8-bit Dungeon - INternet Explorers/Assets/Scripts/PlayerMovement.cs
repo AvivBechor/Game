@@ -6,64 +6,65 @@ using Assets.Scripts;
 public class PlayerMovement : MonoBehaviour
 {
     private Player player;
+    public Rigidbody2D myRigidbody;
+    public BoxCollider2D playerCollider;
     public LayerMask obstacle;
+    Animator animator;
+    Vector2 change;
     void Start()
     {
+        animator = GetComponent<Animator>();
         player = GetComponent<Player>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = Vector3.MoveTowards(transform.position, player.movePoint.position, player.moveSpeed * Time.deltaTime);
-        if ((Vector3.Distance(transform.position, player.movePoint.position) <= 0.05f))
+        if (!player.isAttacking && !player.isDead)
         {
-            player.isMoving = false;
-        }
-        else
-        {
-            player.isMoving = true;
-        }
-
-        if (!player.isDead && !player.isMoving)
-        {
-            if (Input.GetKey("w"))
+            change = Vector2.zero;
+            change.x = Input.GetAxisRaw("Horizontal");
+            change.y = Input.GetAxisRaw("Vertical");
+            if (change != Vector2.zero)
             {
-                player.rotation = Side.UP;
-                if (!Physics2D.OverlapCircle(player.movePoint.position + new Vector3(0f, 1f, 0f), .2f, obstacle))
-                {
-
-                    player.movePoint.transform.position += new Vector3(0f, 1f, 0f);
-                }
-                
+                player.isMoving = true;
+                MoveCharacter();
             }
-            else if (Input.GetKey("s"))
+            else
             {
-                player.rotation = Side.DOWN;
-                
-                if (!Physics2D.OverlapCircle(player.movePoint.position + new Vector3(0f, -1f, 0f), .2f, obstacle))
-                {
-                    player.movePoint.transform.position += new Vector3(0f, -1f, 0f);
-                }
-
+                player.isMoving = false;
             }
-            else if (Input.GetKey("d"))
+            if (change.x == 1)
             {
-                player.rotation = Side.RIGHT;            
-                if (!Physics2D.OverlapCircle(player.movePoint.position + new Vector3(1f, 0f, 0f), .2f, obstacle))
-                {
-                    player.movePoint.transform.position += new Vector3(1f, 0f, 0f);
-                }
+                player.rotation = Side.RIGHT;
+                animator.SetFloat("moveX", 1);
+                animator.SetFloat("moveY", 0);
             }
-            else if (Input.GetKey("a"))
+            else if (change.x == -1)
             {
                 player.rotation = Side.LEFT;
-                
-                if (!Physics2D.OverlapCircle(player.movePoint.position + new Vector3(-1f, 0f, 0f), .2f, obstacle))
-                {
-                    player.movePoint.transform.position += new Vector3(-1f, 0f, 0f);
-                }
+                animator.SetFloat("moveX", -1);
+                animator.SetFloat("moveY", 0);
             }
+            else if (change.y == 1)
+            {
+                player.rotation = Side.UP;
+                animator.SetFloat("moveY", 1);
+                animator.SetFloat("moveX", 0);
+            }
+            else
+            {
+                player.rotation = Side.DOWN;
+                animator.SetFloat("moveY", -1);
+                animator.SetFloat("moveX", 0);
+            }
+            animator.SetBool("moving", player.isMoving);
         }
+    }
+
+    void MoveCharacter()
+    {
+        Vector3 diff = change.normalized * player.moveSpeed * Time.deltaTime;
+        myRigidbody.MovePosition(transform.position + diff);
     }
 }
