@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4302359805788490775}
   - component: {fileID: 6678834975819626039}
   - component: {fileID: 4071020493753797010}
-  - component: {fileID: 1671730708}
+  - component: {fileID: 8053872305059620931}
   m_Layer: 10
   m_Name: MeleeAttack
   m_TagString: Untagged
@@ -68,7 +68,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8265568282887687733}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -131,7 +131,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1671730708
+--- !u!114 &8053872305059620931
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,5 +143,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c445e92016d650468155118fd403c67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifespan: 2
-  self: {fileID: 8265568282887687733}
+  lifespan: 0.5
+  parent: {fileID: 0}
