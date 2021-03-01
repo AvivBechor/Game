@@ -19,23 +19,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(LEFT_CLICK) && !player.isAttacking)
         {
-            player.isAttacking = true;
-            if (player.rotation == Side.UP)
-            {
-                Object.Instantiate(attack.attack, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation);
-            }
-            else if (player.rotation == Side.DOWN)
-            {
-                Object.Instantiate(attack.attack, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z), transform.rotation);
-            }
-            else if (player.rotation == Side.RIGHT)
-            {
-                Object.Instantiate(attack.attack, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), transform.rotation);
-            }
-            else
-            {
-                Object.Instantiate(attack.attack, new Vector3(transform.position.x - 1, transform.position.y, transform.position.z), transform.rotation);
-            }
+            //player.isAttacking = true;            
 
         }
     }
