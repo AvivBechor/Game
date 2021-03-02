@@ -11,6 +11,7 @@ public class CreateCharacter : MonoBehaviour
     public Button self;
     public Character character;
     public IntStorage currentHp;
+    public IntStorage currentRecourse;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,7 @@ public class CreateCharacter : MonoBehaviour
         }
         character.init();
         currentHp.value = character.maxHp.value;
+        currentRecourse.value = character.recourseStorage.value;
         Debug.Log("You are a " + character.title + " with " + character.maxHp.value + " HP.");
         SceneManager.LoadScene("SampleScene");
     }

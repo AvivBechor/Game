@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef74a8fbd7a8b7b439ce45f93e2b2e2a, type: 3}
   m_Name: Player Attack
   m_EditorClassIdentifier: 
-  attack: {fileID: 8265568282887687733, guid: 37fec8c960965b84a815f8e895800aa8, type: 3}
+  attack: {fileID: 2050524784123410141, guid: e421fa705cecd1e40a1ea34c74af9d6c, type: 3}

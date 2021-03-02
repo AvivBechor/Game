@@ -15,29 +15,16 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(LEFT_CLICK) && !player.isAttacking)
+        if (Input.GetMouseButtonDown(LEFT_CLICK) && !player.isAttacking && player.CurrentRecource.value >= player.character.attackRecourseCost)
         {
+            player.CurrentRecource.value -= player.character.attackRecourseCost;
             //Set the player to be attacking and stop his walking animation
             player.isAttacking = true;
             player.isMoving = false;
             //Create the attack object on the player
             GameObject o = Object.Instantiate(attack.attack, transform.position, transform.rotation);
             //Change the attack object's position based on the player's rotation
-            switch(player.rotation)
-            {               
-                case Side.UP:
-                    o.transform.position += new Vector3(0, 1, 0);
-                    break;
-                case Side.DOWN:
-                    o.transform.position += new Vector3(0, -1, 0);
-                    break;
-                case Side.LEFT:
-                    o.transform.position += new Vector3(-1, 0, 0);
-                    break;
-                case Side.RIGHT:
-                    o.transform.position += new Vector3(1, 0, 0);
-                    break;
-            }
+            o.transform.position += player.getRotationVector();
             //Bind the attack object to the player that cast it.
             o.GetComponent<Attack>().parent = GetComponent<Player>();
         }

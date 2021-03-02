@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingPosition: {fileID: 11400000, guid: fde7982f1c16b8f4781f00f97f56782a, type: 2}
   CurrentHP: {fileID: 11400000, guid: ba76cd6fd55478947904973cdb21e9a9, type: 2}
+  CurrentRecource: {fileID: 11400000, guid: 7b1cc3a43352a234b86fa1fcff8ef47f, type: 2}
   rotation: 1
   character: {fileID: 11400000, guid: 2acebff4bc837a743a392b0548747d71, type: 2}
   moveSpeed: 4

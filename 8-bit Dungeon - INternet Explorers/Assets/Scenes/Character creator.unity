@@ -662,6 +662,7 @@ MonoBehaviour:
   self: {fileID: 511093008}
   character: {fileID: 11400000, guid: 2acebff4bc837a743a392b0548747d71, type: 2}
   currentHp: {fileID: 11400000, guid: ba76cd6fd55478947904973cdb21e9a9, type: 2}
+  currentRecourse: {fileID: 11400000, guid: 7b1cc3a43352a234b86fa1fcff8ef47f, type: 2}
 --- !u!1 &535719070
 GameObject:
   m_ObjectHideFlags: 0
