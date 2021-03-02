@@ -67,10 +67,11 @@
     <Compile Include="Assets\ScriptableObjects\Character.cs" />
     <Compile Include="Assets\ScriptableObjects\IntStorage.cs" />
     <Compile Include="Assets\ScriptableObjects\VectorValue.cs" />
+    <Compile Include="Assets\Scripts\Attack.cs" />
     <Compile Include="Assets\Scripts\CreateCharacter.cs" />
     <Compile Include="Assets\Scripts\MaxHp.cs" />
-    <Compile Include="Assets\Scripts\MeleeAttack.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\PlayerAnimatorController.cs" />
     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Stat.cs" />

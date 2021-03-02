@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     public bool isInteracting;
     public bool isAttacking;
     public bool isVunerable;
-    private Vector3 change;
     
     private void Start()
     {
@@ -24,14 +23,11 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if(CurrentHP.value <= 0)
-        {
-            isDead = true;
-            if (Input.GetKeyDown("space"))
-            {
-                isDead = false;
-                CurrentHP.value = character.maxHp.value;
-            }
-        }        
-    }   
+        
+    }
+
+    public bool canMove()
+    {
+        return !isAttacking && !isDead && !isInteracting;
+    }
 }

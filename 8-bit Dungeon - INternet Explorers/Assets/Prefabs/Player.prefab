@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 9109332589083546155}
   - component: {fileID: 9109332589083546154}
   - component: {fileID: 9109332589083546150}
+  - component: {fileID: 9109332589083546156}
+  - component: {fileID: -1967555576147627777}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -72,9 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 9109332589083546155}
   playerCollider: {fileID: 9109332589083546154}
-  obstacle:
-    serializedVersion: 2
-    m_Bits: 512
+  change: {x: 0, y: 0}
 --- !u!212 &9109332588975417275
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -191,3 +191,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9109332589083546156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9109332588975417279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ac9e0a575ad094ebc4803b89d5fffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 11400000, guid: 3d8be3e9fcc1dec42b3863e2b9b2a692, type: 2}
+--- !u!114 &-1967555576147627777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9109332588975417279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2291ac9969a9e4346aed8b7eae199279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
