@@ -71,6 +71,7 @@
     <Compile Include="Assets\ScriptableObjects\Stat.cs" />
     <Compile Include="Assets\ScriptableObjects\VectorValue.cs" />
     <Compile Include="Assets\Scripts\Attack.cs" />
+    <Compile Include="Assets\Scripts\Client.cs" />
     <Compile Include="Assets\Scripts\CreateCharacter.cs" />
     <Compile Include="Assets\Scripts\DummyScript.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
