@@ -28,25 +28,32 @@ public class Inventory : MonoBehaviour
     public void AddItem(Item item)
     {
         if (item != null) {
+            //Look for inventory slot containing an item of the same type as the input that is not full
             var res = inventoryPanel
                     .GetComponentsInChildren<ItemContainerScript>()
-                    .FirstOrDefault(i => compareItemType(i, item));
+                    .FirstOrDefault(i => findAvailableSlot(i, item));
 
             Debug.Log("res" + res);
+            //If we found and object, add one to the count
             if (res)
             {
                 res.count++;
             }
+            //If we didn't
             else
             {
+                //look for the earliest empty slot
                 var emptySlot = inventoryPanel.GetComponentsInChildren<ItemContainerScript>()
                     .Where(i => i.item == null)
                     .FirstOrDefault();
+                //If we find it, set its item to the input and set the count to one
                 if(emptySlot)
                 {
                     emptySlot.count = 1;
                     emptySlot.item = item;
-                } else
+                }
+                //If we didn't declane that there's no place for the item and the inventory is full
+                else
                 {
                     Debug.Log("Inventory is full");
                 }
@@ -54,22 +61,25 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public bool compareItemType(ItemContainerScript first, Item second)
+    public bool findAvailableSlot(ItemContainerScript container, Item item)
     {
-        if(first.item == null)
+        //If the slot has no item, ignore it
+        if(container.item == null)
         {
-            Debug.Log("ITEM IS NULL");
+            //Debug.Log("ITEM IS NULL");
             return false;
         }
-        if(first.count == first.item.stackLimit)
+        //If the slot is full, ignore it
+        if(container.count == container.item.stackLimit)
         {
-            Debug.Log(first.count + ",,,," + first.item.stackLimit);
-            Debug.Log("NO SPACE IN STACK");
+            //Debug.Log(container.count + ",,,," + container.item.stackLimit);
+            //Debug.Log("NO SPACE IN STACK");
             return false;
         }
-        if(!first.item.GetType().Equals(second.GetType()))
+        //If the slot has an item of a different type, ignore it
+        if(!container.item.GetType().Equals(item.GetType()))
         {
-            Debug.Log("NOT EQUAL");
+            //Debug.Log("NOT EQUAL");
             return false;
         }
         return true;
