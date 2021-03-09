@@ -66,6 +66,7 @@
     <Compile Include="Assets\ScriptableObjects\AttackHolder.cs" />
     <Compile Include="Assets\ScriptableObjects\Character.cs" />
     <Compile Include="Assets\ScriptableObjects\IntStorage.cs" />
+    <Compile Include="Assets\ScriptableObjects\ItemsContainer.cs" />
     <Compile Include="Assets\ScriptableObjects\MaxHp.cs" />
     <Compile Include="Assets\ScriptableObjects\RecourseStorage.cs" />
     <Compile Include="Assets\ScriptableObjects\Stat.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Assets\Scripts\Attack.cs" />
     <Compile Include="Assets\Scripts\CreateCharacter.cs" />
     <Compile Include="Assets\Scripts\DummyScript.cs" />
+    <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Item scripts\BananaScript.cs" />
     <Compile Include="Assets\Scripts\Item scripts\FrogScript.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />

@@ -9,7 +9,7 @@ public class ItemContainerScript : MonoBehaviour, IPointerClickHandler
     public Item item;
     public int count;
 
-    public void Start()
+    public void SetSprite()
     {
         GetComponent<Image>().sprite = item.sprite;
     }
