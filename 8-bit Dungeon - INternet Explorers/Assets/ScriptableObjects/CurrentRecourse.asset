@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f67980c653e6814cae25dcd86b95f67, type: 3}
   m_Name: CurrentRecourse
   m_EditorClassIdentifier: 
-  value: 1000
+  value: 0

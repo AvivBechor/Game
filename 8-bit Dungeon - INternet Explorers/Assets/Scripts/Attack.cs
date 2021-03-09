@@ -38,7 +38,6 @@ public class Attack : MonoBehaviour
     void move()
     {
         Vector3 step = speed * direction * Time.deltaTime;
-        Debug.Log(step);
         transform.position += step;
     }
 }
