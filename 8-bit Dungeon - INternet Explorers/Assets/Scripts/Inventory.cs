@@ -28,60 +28,48 @@ public class Inventory : MonoBehaviour
     public void AddItem(Item item)
     {
         if (item != null) {
-            //Look for inventory slot containing an item of the same type as the input that is not full
+            //Look for an inventory slot that can contain the item
             var res = inventoryPanel
                     .GetComponentsInChildren<ItemContainerScript>()
-                    .FirstOrDefault(i => findAvailableSlot(i, item));
-
-            Debug.Log("res" + res);
-            //If we found and object, add one to the count
+                    .FirstOrDefault(i => CanContain(i, item));           
+            //If we found one
             if (res)
             {
+                //If the slot is empty, set its item and set its sprite
+                if (res.item == null)
+                {
+                    res.item = item;
+                    res.SetSprite();
+                }
+                //In either case, add one to its count
                 res.count++;
             }
-            //If we didn't
+            //If we didn't find a slot, the inventory is full
             else
             {
-                //look for the earliest empty slot
-                var emptySlot = inventoryPanel.GetComponentsInChildren<ItemContainerScript>()
-                    .Where(i => i.item == null)
-                    .FirstOrDefault();
-                //If we find it, set its item to the input and set the count to one
-                if(emptySlot)
-                {
-                    emptySlot.count = 1;
-                    emptySlot.item = item;
-                }
-                //If we didn't declane that there's no place for the item and the inventory is full
-                else
-                {
-                    Debug.Log("Inventory is full");
-                }
+                Debug.Log("No space");
             }
         }
     }
 
-    public bool findAvailableSlot(ItemContainerScript container, Item item)
+    public bool CanContain(ItemContainerScript container, Item item)
     {
-        //If the slot has no item, ignore it
+        //If the slot has no item, it can fit 
         if(container.item == null)
         {
-            //Debug.Log("ITEM IS NULL");
-            return false;
+            return true;
         }
         //If the slot is full, ignore it
         if(container.count == container.item.stackLimit)
         {
-            //Debug.Log(container.count + ",,,," + container.item.stackLimit);
-            //Debug.Log("NO SPACE IN STACK");
             return false;
         }
         //If the slot has an item of a different type, ignore it
         if(!container.item.GetType().Equals(item.GetType()))
         {
-            //Debug.Log("NOT EQUAL");
             return false;
         }
+        //If the slot contains an item of the same type and is not full, it can fit
         return true;
     }
 }
