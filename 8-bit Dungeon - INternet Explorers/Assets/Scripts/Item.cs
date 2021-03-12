@@ -9,13 +9,5 @@ public class Item : MonoBehaviour
     public int id;
     public Sprite sprite;
     public int stackLimit;
-
-    public Item(string name, int id, Sprite sprite, int stackLimit, string description) 
-    {
-        this.name = name;
-        this.id = id;
-        this.sprite = sprite;
-        this.stackLimit = stackLimit;
-        this.description = description;
-    }
+    public int type;
 }

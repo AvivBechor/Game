@@ -6,7 +6,6 @@ using System.Linq;
 
 public class Inventory : MonoBehaviour
 {
-    public GameObject inventoryPanel;
     public Item test;
 
     void Start()
@@ -25,11 +24,11 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void AddItem(Item item)
+    public int AddItem(Item item)
     {
         if (item != null) {
             //Look for an inventory slot that can contain the item
-            var res = inventoryPanel
+            var res = this
                     .GetComponentsInChildren<ItemContainerScript>()
                     .FirstOrDefault(i => CanContain(i, item));           
             //If we found one
@@ -47,9 +46,24 @@ public class Inventory : MonoBehaviour
             //If we didn't find a slot, the inventory is full
             else
             {
-                Debug.Log("No space");
+                return 0;
             }
+            return 1;
         }
+        return 0;
+    }
+
+    public int RemoveItem(Item item)
+    {
+        var res = this
+                    .GetComponentsInChildren<ItemContainerScript>()
+                    .FirstOrDefault(i => CanContain(i, item));
+        if(res)
+        {
+            res.item = null;
+            return 1;
+        }
+        return 0;
     }
 
     public bool CanContain(ItemContainerScript container, Item item)

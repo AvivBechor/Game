@@ -11,16 +11,28 @@ public class ItemContainerScript : MonoBehaviour, IPointerClickHandler
 
     public void SetSprite()
     {
-        GetComponent<Image>().sprite = item.sprite;
+        if(item)
+        {
+            GetComponent<Image>().sprite = item.sprite;
+        } 
+        else
+        {
+            GetComponent<Image>().sprite = null;
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         int tap = eventData.clickCount;
 
-        if(item is UsableItem && tap == 2)
+        if(item is UseableItem && tap == 2)
         {
-            ((UsableItem)item).Use();
+            ((UseableItem)item).Use();
+            if(--count == 0)
+            {
+                item = null;
+            }
         }
+       
     }
 }

@@ -40,11 +40,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 25917666522896914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b6c93fdc642d6b4fb1480013c8723fd, type: 3}
+  m_Script: {fileID: 11500000, guid: c2440436063993347b9a6372da4fbf8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   name: Frog
-  description: DOG
+  description: USELSS
   id: 1
   sprite: {fileID: 21300000, guid: 249230eea0d1740f58df58df278ef6a8, type: 3}
   stackLimit: 5

@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Banana
+  description: return to monke s
   id: 0
   sprite: {fileID: 21300000, guid: ae95722a82f8046e083d79839425b46f, type: 3}
   stackLimit: 20
