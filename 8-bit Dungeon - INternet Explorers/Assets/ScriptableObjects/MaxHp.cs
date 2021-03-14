@@ -10,6 +10,7 @@ namespace Assets.Scripts
     [CreateAssetMenu]
     public class MaxHp : Stat
     {
+        public MaxHp(int value, float statMultiplayer) : base(value, statMultiplayer) { }
         public override void levelUp()
         {
             throw new NotImplementedException(); // some algorithm to determine how much u get per level depending on your level and title.

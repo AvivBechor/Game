@@ -10,19 +10,18 @@ using Newtonsoft.Json.Linq;
 [CreateAssetMenu]
 public class Character : ScriptableObject
 {
-    public MaxHp maxHp;
-    public RecourseStorage recourseStorage;
+    //public MaxHp maxHp;
+    //public RecourseStorage recourseStorage;
+    public Dictionary<String, Stat> stats = new Dictionary<String, Stat>();
     public string title;
     public int attackRecourseCost;
 
     public void init()
     {
         string file = File.ReadAllText(Directory.GetCurrentDirectory() + @"\Assets\Game Data\classes.json");
-        JObject o = JObject.Parse(file);
-        this.maxHp.value = o.Value<JObject>(title).Value<JObject>("HP").Value<int>("Base");
-        this.maxHp.statMultiplayer = o.Value<JObject>(title).Value<JObject>("HP").Value<float>("LvlMult");
-        this.recourseStorage.value = o.Value<JObject>(title).Value<JObject>("Recourse").Value<int>("Base");
-        this.recourseStorage.statMultiplayer = o.Value<JObject>(title).Value<JObject>("Recourse").Value<float>("LvlMult");
-        this.attackRecourseCost = o.Value<JObject>(title).Value<JObject>("AttackCost").Value<int>("Cost");
+        JObject o = JObject.Parse(file).Value<JObject>(title);
+        stats.Add("MaxHP", new MaxHp(o.Value<JObject>("HP").Value<int>("Base"), o.Value<JObject>("HP").Value<float>("LvlMult")));
+        stats.Add("MaxRecourse", new RecourseStorage(o.Value<JObject>("Recourse").Value<int>("Base"), o.Value<JObject>("Recourse").Value<float>("LvlMult")));
+        attackRecourseCost = o.Value<JObject>("AttackCost").Value<int>("Cost");
     }
 }

@@ -29,7 +29,7 @@ public class Inventory : MonoBehaviour
         if (item != null) {
             //Look for an inventory slot that can contain the item
             var res = this
-                    .GetComponentsInChildren<ItemContainerScript>()
+                    .GetComponentsInChildren<ItemContainer>()
                     .FirstOrDefault(i => CanContain(i, item));           
             //If we found one
             if (res)
@@ -56,7 +56,7 @@ public class Inventory : MonoBehaviour
     public int RemoveItem(Item item)
     {
         var res = this
-                    .GetComponentsInChildren<ItemContainerScript>()
+                    .GetComponentsInChildren<ItemContainer>()
                     .FirstOrDefault(i => CanContain(i, item));
         if(res)
         {
@@ -66,7 +66,7 @@ public class Inventory : MonoBehaviour
         return 0;
     }
 
-    public bool CanContain(ItemContainerScript container, Item item)
+    public bool CanContain(ItemContainer container, Item item)
     {
         //If the slot has no item, it can fit 
         if(container.item == null)

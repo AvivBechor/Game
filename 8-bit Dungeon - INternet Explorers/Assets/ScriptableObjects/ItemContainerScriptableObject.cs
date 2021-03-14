@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ItemContainerScriptableObject : ScriptableObject
 {
-    public ItemContainerScript container;
+    public ItemContainer container;
 
 }

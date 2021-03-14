@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BootsOfSlownessScript : Equipment
+public class BootsOfSlownessScript : Boots
 {
     public void Start()
     {
-        stats.Add("Defense", 5);
-        stats.Add("Speed", -2);
+        stats.Add("MaxHP", 100);
     }
 }

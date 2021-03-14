@@ -1,16 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using Assets.Scripts;
 
 public class EquipmentManager : MonoBehaviour
 {
-    public ItemContainerScript armorContainer;
-    public ItemContainerScript bootsContainer;
-    public ItemContainerScript acceceryContainer;
-    public ItemContainerScript handOneContainer;
-    public ItemContainerScript handTwoContainer;
-    public ItemContainerScript consumableContainer;
+    public ArmorSlot armorContainer;
+    public BootsSlot bootsContainer;
+    public AccessorySlot accessorContainer;
+    public HandSlot handOneContainer;
+    public HandSlot handTwoContainer;
+    public PotionSlot consumableContainer;
     public Player player;
 
-
+    public void apply(Item New, Item Old)
+    {
+        Debug.Log("new is " + New);
+        Debug.Log("old is " + Old);
+        if (New != null)
+        {
+            foreach (KeyValuePair<string, int> entry in ((Equipment)New).stats)
+            {
+                player.character.stats[entry.Key].mod += entry.Value;
+            }
+        }
+        if (Old != null)
+        {
+            foreach (KeyValuePair<string, int> entry in ((Equipment)Old).stats)
+            {
+                player.character.stats[entry.Key].mod -= entry.Value;
+            }
+        }
+    }
+    
 }

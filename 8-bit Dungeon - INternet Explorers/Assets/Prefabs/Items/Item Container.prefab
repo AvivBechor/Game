@@ -151,8 +151,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f53ed70e09366e04da5eb5c9f964be66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDragging: 0
-  itemContainers:
-    serializedVersion: 2
-    m_Bits: 0
-  cam: {fileID: 0}
+  equipmentManager: {fileID: 4111321574660702748, guid: 86c1790f9b89df441b008e36330d6e3d,
+    type: 3}
