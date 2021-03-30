@@ -22,6 +22,7 @@ public class EquipmentManager : MonoBehaviour
         {
             foreach (KeyValuePair<string, int> entry in ((Equipment)New).stats)
             {
+                Debug.Log("entry"+entry);
                 player.character.stats[entry.Key].mod += entry.Value;
             }
         }
