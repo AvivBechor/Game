@@ -11,6 +11,11 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
     private Vector3 pos;
     public EquipmentManager equipmentManager;
 
+    public void Start()
+    {
+        equipmentManager =  gameObject.GetComponentInParent<EquipmentManager>();
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
         if (!isDragging)
@@ -123,6 +128,7 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
             {
                 ((Equipment)(otherItemContainer.item)).isEquipped = true;
             }
+            Debug.Log("em:" + equipmentManager + ", otheritem:" + otherItemContainer + ", actual" + actualItemContainer);
             equipmentManager.apply(otherItemContainer.item, actualItemContainer.item);
         }
         
