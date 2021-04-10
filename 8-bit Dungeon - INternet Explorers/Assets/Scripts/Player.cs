@@ -17,16 +17,6 @@ public class Player : MonoBehaviour
     public bool isAttacking;
     public bool isVunerable;
     
-    private void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-      
-    }
-
     public bool canMove()
     {
         return !isAttacking && !isDead && !isInteracting;

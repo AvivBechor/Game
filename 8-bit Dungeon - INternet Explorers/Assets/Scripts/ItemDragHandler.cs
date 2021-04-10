@@ -13,11 +13,14 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void Start()
     {
-        equipmentManager =  gameObject.GetComponentInParent<EquipmentManager>();
+        
+        equipmentManager = gameObject.GetComponentInParent<EquipmentManager>();
+        Debug.Log(equipmentManager);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        Debug.Log("ELI"); 
         if (!isDragging)
         {
             if (GetComponent<ItemContainer>().item != null)
