@@ -37,6 +37,6 @@ public class CreateCharacter : MonoBehaviour
         character.init();
         currentHp.value = character.stats["MaxHP"].value;
         currentRecourse.value = character.stats["MaxRecourse"].value;
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("CitySample");
     }
 }

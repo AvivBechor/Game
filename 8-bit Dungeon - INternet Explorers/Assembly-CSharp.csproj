@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\ItemTypes\Item.cs" />
     <Compile Include="Assets\Scripts\ItemTypes\Potion.cs" />
     <Compile Include="Assets\Scripts\ItemTypes\UsableItem.cs" />
+    <Compile Include="Assets\Scripts\MakeWallTransparent.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimatorController.cs" />
     <Compile Include="Assets\Scripts\PlayerAttack.cs" />

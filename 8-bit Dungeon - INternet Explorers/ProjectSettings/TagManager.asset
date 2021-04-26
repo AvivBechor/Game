@@ -18,9 +18,9 @@ TagManager:
   - Attacks
   - Enemies
   - InventoryPanels
-  - 
-  - 
-  - 
+  - Foreground
+  - Window
+  - Wall
   - 
   - 
   - 
@@ -44,6 +44,9 @@ TagManager:
   - name: Ground
     uniqueID: 2019944783
     locked: 0
+  - name: Background
+    uniqueID: 2463892031
+    locked: 0
   - name: Obstacle
     uniqueID: 2862199623
     locked: 0
@@ -52,4 +55,13 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1574489609
+    locked: 0
+  - name: wall
+    uniqueID: 2710132135
+    locked: 0
+  - name: 'windows '
+    uniqueID: 3885191071
+    locked: 0
+  - name: Foreground
+    uniqueID: 4234306193
     locked: 0
