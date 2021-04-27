@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: -7019847641040082232
     second: Ext-A3-extra-plus-plus-golden-delux-edition_1
+  - first:
+      213: -8448704797471607639
+    second: Ext-A3-extra-plus-plus-golden-delux-edition_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -142,6 +145,27 @@ TextureImporter:
       bones: []
       spriteID: 8ca217263cd749e90800000000000000
       internalID: -7019847641040082232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ext-A3-extra-plus-plus-golden-delux-edition_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a4f096ffbb20ca80800000000000000
+      internalID: -8448704797471607639
       vertices: []
       indices: 
       edges: []

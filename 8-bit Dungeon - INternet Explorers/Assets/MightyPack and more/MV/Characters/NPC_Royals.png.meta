@@ -1,7 +1,289 @@
 fileFormatVersion: 2
 guid: a67eb76849bd37846ba145389cfb29ca
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7077621073023711183
+    second: NPC_Royals_0
+  - first:
+      213: -585599997142946810
+    second: NPC_Royals_1
+  - first:
+      213: 1898749401174316135
+    second: NPC_Royals_2
+  - first:
+      213: 6263578487844592325
+    second: NPC_Royals_3
+  - first:
+      213: -6332228967357867053
+    second: NPC_Royals_4
+  - first:
+      213: 6336438406988359368
+    second: NPC_Royals_5
+  - first:
+      213: 3425687672025977930
+    second: NPC_Royals_6
+  - first:
+      213: -2639399815931338317
+    second: NPC_Royals_7
+  - first:
+      213: 3350547197639088319
+    second: NPC_Royals_8
+  - first:
+      213: 8854565149553599548
+    second: NPC_Royals_9
+  - first:
+      213: -7545953352247225280
+    second: NPC_Royals_10
+  - first:
+      213: 7284216028276751936
+    second: NPC_Royals_11
+  - first:
+      213: -3147064598198615242
+    second: NPC_Royals_12
+  - first:
+      213: 1656958970081035677
+    second: NPC_Royals_13
+  - first:
+      213: -8483225689137238423
+    second: NPC_Royals_14
+  - first:
+      213: 1662815477808803737
+    second: NPC_Royals_15
+  - first:
+      213: 3974270688535638432
+    second: NPC_Royals_16
+  - first:
+      213: 8095969842789396512
+    second: NPC_Royals_17
+  - first:
+      213: -2736210995063487415
+    second: NPC_Royals_18
+  - first:
+      213: -9060449417667342236
+    second: NPC_Royals_19
+  - first:
+      213: 2070128321752220515
+    second: NPC_Royals_20
+  - first:
+      213: 8584247113010405143
+    second: NPC_Royals_21
+  - first:
+      213: -924252738487681051
+    second: NPC_Royals_22
+  - first:
+      213: -7659553499083566481
+    second: NPC_Royals_23
+  - first:
+      213: 6951490760422224450
+    second: NPC_Royals_24
+  - first:
+      213: -4415245997874835984
+    second: NPC_Royals_25
+  - first:
+      213: 5302658637040790311
+    second: NPC_Royals_26
+  - first:
+      213: -8603329680964173248
+    second: NPC_Royals_27
+  - first:
+      213: -949485253557511222
+    second: NPC_Royals_28
+  - first:
+      213: -1274665936425092246
+    second: NPC_Royals_29
+  - first:
+      213: 134754390981328799
+    second: NPC_Royals_30
+  - first:
+      213: -7647368956964870103
+    second: NPC_Royals_31
+  - first:
+      213: -6835251233055688778
+    second: NPC_Royals_32
+  - first:
+      213: -1179629159165303883
+    second: NPC_Royals_33
+  - first:
+      213: -1518902622362651651
+    second: NPC_Royals_34
+  - first:
+      213: -6100454571371255634
+    second: NPC_Royals_35
+  - first:
+      213: 646273962255793319
+    second: NPC_Royals_36
+  - first:
+      213: 3215362871642226013
+    second: NPC_Royals_37
+  - first:
+      213: -8666101613377505019
+    second: NPC_Royals_38
+  - first:
+      213: 7319323527634280864
+    second: NPC_Royals_39
+  - first:
+      213: -6910340973254130310
+    second: NPC_Royals_40
+  - first:
+      213: 1971453907085267114
+    second: NPC_Royals_41
+  - first:
+      213: 466969945396182043
+    second: NPC_Royals_42
+  - first:
+      213: 4245970788610119909
+    second: NPC_Royals_43
+  - first:
+      213: 5852065297689427288
+    second: NPC_Royals_44
+  - first:
+      213: -5759946571977487188
+    second: NPC_Royals_45
+  - first:
+      213: 3958797789557772810
+    second: NPC_Royals_46
+  - first:
+      213: -21533343711675136
+    second: NPC_Royals_47
+  - first:
+      213: -2202586154257054415
+    second: NPC_Royals_48
+  - first:
+      213: -4714381744073833467
+    second: NPC_Royals_49
+  - first:
+      213: -3698779198062962259
+    second: NPC_Royals_50
+  - first:
+      213: -6366697473677268481
+    second: NPC_Royals_51
+  - first:
+      213: 8712873524901706960
+    second: NPC_Royals_52
+  - first:
+      213: -8296231997449196764
+    second: NPC_Royals_53
+  - first:
+      213: 1669943611411731920
+    second: NPC_Royals_54
+  - first:
+      213: -6257715018475953389
+    second: NPC_Royals_55
+  - first:
+      213: -1213718150623988434
+    second: NPC_Royals_56
+  - first:
+      213: -7327840456734079641
+    second: NPC_Royals_57
+  - first:
+      213: 2297581117769818914
+    second: NPC_Royals_58
+  - first:
+      213: 8584887940132190364
+    second: NPC_Royals_59
+  - first:
+      213: -1685682530786223925
+    second: NPC_Royals_60
+  - first:
+      213: 3102110844345227706
+    second: NPC_Royals_61
+  - first:
+      213: -8690284565344315355
+    second: NPC_Royals_62
+  - first:
+      213: -2323502969582289728
+    second: NPC_Royals_63
+  - first:
+      213: 685401838259009809
+    second: NPC_Royals_64
+  - first:
+      213: -3547862283469336840
+    second: NPC_Royals_65
+  - first:
+      213: -4921459888501143948
+    second: NPC_Royals_66
+  - first:
+      213: -1494063084815591737
+    second: NPC_Royals_67
+  - first:
+      213: -3022336814153380430
+    second: NPC_Royals_68
+  - first:
+      213: -9051086017012018899
+    second: NPC_Royals_69
+  - first:
+      213: -7645519018929243488
+    second: NPC_Royals_70
+  - first:
+      213: -2898905891859040919
+    second: NPC_Royals_71
+  - first:
+      213: -7778319812595490163
+    second: NPC_Royals_72
+  - first:
+      213: 2773916490499318918
+    second: NPC_Royals_73
+  - first:
+      213: 8124038652933177193
+    second: NPC_Royals_74
+  - first:
+      213: -8469467136941140345
+    second: NPC_Royals_75
+  - first:
+      213: 4881228455873668851
+    second: NPC_Royals_76
+  - first:
+      213: 5100197253818851155
+    second: NPC_Royals_77
+  - first:
+      213: 4169148500339721991
+    second: NPC_Royals_78
+  - first:
+      213: -6901757267122275512
+    second: NPC_Royals_79
+  - first:
+      213: -6594131596887076402
+    second: NPC_Royals_80
+  - first:
+      213: 3559370604603537989
+    second: NPC_Royals_81
+  - first:
+      213: 5989449744504971614
+    second: NPC_Royals_82
+  - first:
+      213: 6683049630946521694
+    second: NPC_Royals_83
+  - first:
+      213: 7758710039047021605
+    second: NPC_Royals_84
+  - first:
+      213: -8110269683344765370
+    second: NPC_Royals_85
+  - first:
+      213: -1445229044056061884
+    second: NPC_Royals_86
+  - first:
+      213: -1745069636510817411
+    second: NPC_Royals_87
+  - first:
+      213: 4213431373277264671
+    second: NPC_Royals_88
+  - first:
+      213: 1122223307309709879
+    second: NPC_Royals_89
+  - first:
+      213: -5704630542197773070
+    second: NPC_Royals_90
+  - first:
+      213: 4007950361377886590
+    second: NPC_Royals_91
+  - first:
+      213: 8852378097606615431
+    second: NPC_Royals_92
+  - first:
+      213: -1353749861674028390
+    second: NPC_Royals_93
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -31,7 +313,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,12 +322,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +353,2007 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: NPC_Royals_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 441
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1384a97022d37cd90800000000000000
+      internalID: -7077621073023711183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 441
+        width: 48
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60c23ddb7e78fd7f0800000000000000
+      internalID: -585599997142946810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_2
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 441
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7641b763586b95a10800000000000000
+      internalID: 1898749401174316135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_3
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 441
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ca51c6e273bce650800000000000000
+      internalID: 6263578487844592325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_4
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 441
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3db1234cd476f18a0800000000000000
+      internalID: -6332228967357867053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_5
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 441
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c6eea5c82d8fe750800000000000000
+      internalID: 6336438406988359368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_6
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 441
+        width: 45
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a441b82a9cc7a8f20800000000000000
+      internalID: 3425687672025977930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_7
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 441
+        width: 48
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b16e2ff9d7fe5bd0800000000000000
+      internalID: -2639399815931338317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_8
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 441
+        width: 45
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb8557e9ce88f7e20800000000000000
+      internalID: 3350547197639088319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_9
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 441
+        width: 48
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3422bb071cb1ea70800000000000000
+      internalID: 8854565149553599548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_10
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 441
+        width: 42
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 044d2a30863674790800000000000000
+      internalID: -7545953352247225280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_11
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 441
+        width: 48
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04e74a062ebb61560800000000000000
+      internalID: 7284216028276751936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_12
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 378
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6330a2bfb616354d0800000000000000
+      internalID: -3147064598198615242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_13
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 378
+        width: 27
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d95c3138763bef610800000000000000
+      internalID: 1656958970081035677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_14
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 378
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96ea1898e27854a80800000000000000
+      internalID: -8483225689137238423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_15
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 378
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99fa0d9fdd1831710800000000000000
+      internalID: 1662815477808803737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_16
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 378
+        width: 30
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a1f9677222772730800000000000000
+      internalID: 3974270688535638432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_17
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 378
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 020bcbf7da9aa5070800000000000000
+      internalID: 8095969842789396512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_18
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 378
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94409b8d896070ad0800000000000000
+      internalID: -2736210995063487415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_19
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 378
+        width: 39
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4601b8a4241d24280800000000000000
+      internalID: -9060449417667342236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_20
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 378
+        width: 45
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36344899db29abc10800000000000000
+      internalID: 2070128321752220515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_21
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 378
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71f582b944f512770800000000000000
+      internalID: 8584247113010405143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_22
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 378
+        width: 36
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ef72cff7056c23f0800000000000000
+      internalID: -924252738487681051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_23
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 378
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f621605bcacc3b590800000000000000
+      internalID: -7659553499083566481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_24
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 315
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 242706a1408a87060800000000000000
+      internalID: 6951490760422224450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_25
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 315
+        width: 27
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fd84bc6825e9b2c0800000000000000
+      internalID: -4415245997874835984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_26
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 315
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72b29f98fe3d69940800000000000000
+      internalID: 5302658637040790311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_27
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 315
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0424e80dc35da9880800000000000000
+      internalID: -8603329680964173248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_28
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 315
+        width: 30
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acb9b364130c2d2f0800000000000000
+      internalID: -949485253557511222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_29
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 315
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6b7714951a7f4ee0800000000000000
+      internalID: -1274665936425092246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_30
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 315
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9fbd56976ebed100800000000000000
+      internalID: 134754390981328799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_31
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 315
+        width: 39
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92862cd73761fd590800000000000000
+      internalID: -7647368956964870103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_32
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 315
+        width: 45
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b73a2fd73f4421a0800000000000000
+      internalID: -6835251233055688778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_33
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 315
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b36249978d11afe0800000000000000
+      internalID: -1179629159165303883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_34
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 315
+        width: 36
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df33aa9cc16cbeae0800000000000000
+      internalID: -1518902622362651651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_35
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 315
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea8220193e4d65ba0800000000000000
+      internalID: -6100454571371255634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 252
+        width: 45
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ac37db9eb608f800800000000000000
+      internalID: 646273962255793319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_37
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 252
+        width: 48
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5df63cfe734f9c20800000000000000
+      internalID: 3215362871642226013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_38
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 252
+        width: 90
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 509b1336f72dbb780800000000000000
+      internalID: -8666101613377505019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_39
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 252
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a1eccc08f5739560800000000000000
+      internalID: 7319323527634280864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_40
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 252
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a754c545f798910a0800000000000000
+      internalID: -6910340973254130310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_41
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 252
+        width: 48
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa09fde12e20c5b10800000000000000
+      internalID: 1971453907085267114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_42
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 252
+        width: 48
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1c7f14f0b20b7600800000000000000
+      internalID: 466969945396182043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_43
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 252
+        width: 96
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e89ac5afe7bcea30800000000000000
+      internalID: 4245970788610119909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_44
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 252
+        width: 42
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85d3b27f166b63150800000000000000
+      internalID: 5852065297689427288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_45
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 252
+        width: 48
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cac8d0c3c1f8010b0800000000000000
+      internalID: -5759946571977487188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_46
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 189
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0251307d9970f630800000000000000
+      internalID: 3958797789557772810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_47
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 189
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00d3d39b98f73bff0800000000000000
+      internalID: -21533343711675136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_48
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 189
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13580500097de61e0800000000000000
+      internalID: -2202586154257054415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_49
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 189
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50484e818c6239eb0800000000000000
+      internalID: -4714381744073833467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_50
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 189
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da95ad49aeb4bacc0800000000000000
+      internalID: -3698779198062962259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_51
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 189
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff9e6114162f4a7a0800000000000000
+      internalID: -6366697473677268481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_52
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 189
+        width: 45
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dcfba0ee485ae870800000000000000
+      internalID: 8712873524901706960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_53
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 189
+        width: 45
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42bafc124fcdddc80800000000000000
+      internalID: -8296231997449196764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_54
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 189
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d51129edd4dc2710800000000000000
+      internalID: 1669943611411731920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_55
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 189
+        width: 45
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3132d1278512829a0800000000000000
+      internalID: -6257715018475953389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_56
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 189
+        width: 45
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e25fc96c5c1082fe0800000000000000
+      internalID: -1213718150623988434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_57
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 189
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76501addde74e4a90800000000000000
+      internalID: -7327840456734079641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_58
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 126
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 223a05f7ad5a2ef10800000000000000
+      internalID: 2297581117769818914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_59
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 126
+        width: 30
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c983d1cc816a32770800000000000000
+      internalID: 8584887940132190364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_60
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 126
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc8d76c5ba04b98e0800000000000000
+      internalID: -1685682530786223925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_61
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 126
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab995139069ec0b20800000000000000
+      internalID: 3102110844345227706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_62
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 126
+        width: 30
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 528979d1b38e56780800000000000000
+      internalID: -8690284565344315355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_63
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 126
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc7b7f0c5241cfd0800000000000000
+      internalID: -2323502969582289728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_64
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 126
+        width: 39
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 119f3d92759038900800000000000000
+      internalID: 685401838259009809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_65
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 126
+        width: 30
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fecdc1fc0673cec0800000000000000
+      internalID: -3547862283469336840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_66
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 126
+        width: 33
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4764e817e4673bbb0800000000000000
+      internalID: -4921459888501143948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_67
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 126
+        width: 39
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c6da8d4a85044be0800000000000000
+      internalID: -1494063084815591737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_68
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 126
+        width: 30
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bd4dc83ea08e06d0800000000000000
+      internalID: -3022336814153380430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_69
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 126
+        width: 33
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d215e74e835146280800000000000000
+      internalID: -9051086017012018899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_70
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 63
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aaba31c5f8a5e590800000000000000
+      internalID: -7645519018929243488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_71
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 63
+        width: 30
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 965747e437405c7d0800000000000000
+      internalID: -2898905891859040919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_72
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 63
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d82ecdc775bdd0490800000000000000
+      internalID: -7778319812595490163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_73
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 63
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6846fcce95eee7620800000000000000
+      internalID: 2773916490499318918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_74
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 63
+        width: 30
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96fff91ac126eb070800000000000000
+      internalID: 8124038652933177193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_75
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 63
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78657c91388667a80800000000000000
+      internalID: -8469467136941140345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_76
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 63
+        width: 39
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f6e0e33b6b9db340800000000000000
+      internalID: 4881228455873668851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_77
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 63
+        width: 33
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35f9b4e516a87c640800000000000000
+      internalID: 5100197253818851155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_78
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 63
+        width: 33
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7070a92d87acbd930800000000000000
+      internalID: 4169148500339721991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_79
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 63
+        width: 39
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84bb43725580830a0800000000000000
+      internalID: -6901757267122275512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_80
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 63
+        width: 33
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec1dd55ff30fc74a0800000000000000
+      internalID: -6594131596887076402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_81
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 63
+        width: 33
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54a7c5fd4bc656130800000000000000
+      internalID: 3559370604603537989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_82
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e51e5452fccce1350800000000000000
+      internalID: 5989449744504971614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_83
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 0
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e527fd42b36febc50800000000000000
+      internalID: 6683049630946521694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_84
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 0
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 524a7a05ca97cab60800000000000000
+      internalID: 7758710039047021605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_85
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64e8d9b61b8827f80800000000000000
+      internalID: -8110269683344765370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_86
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 0
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44806f177d381fbe0800000000000000
+      internalID: -1445229044056061884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_87
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 0
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d73e37f496448c7e0800000000000000
+      internalID: -1745069636510817411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_88
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 45
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1b7da1a28d197a30800000000000000
+      internalID: 4213431373277264671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_89
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 45
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73afbd6f620f29f00800000000000000
+      internalID: 1122223307309709879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_90
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 48
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fc257d0fb415d0b0800000000000000
+      internalID: -5704630542197773070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_91
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 0
+        width: 42
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e71d35f5e991f9730800000000000000
+      internalID: 4007950361377886590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_92
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 45
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7816a455af6f9da70800000000000000
+      internalID: 8852378097606615431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Royals_93
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 0
+        width: 42
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a927f2c5ca3863de0800000000000000
+      internalID: -1353749861674028390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

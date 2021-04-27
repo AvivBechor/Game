@@ -21,7 +21,7 @@ TagManager:
   - Foreground
   - Window
   - Wall
-  - 
+  - Interior
   - 
   - 
   - 
@@ -55,6 +55,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1574489609
+    locked: 0
+  - name: Interior
+    uniqueID: 2138727151
     locked: 0
   - name: wall
     uniqueID: 2710132135
