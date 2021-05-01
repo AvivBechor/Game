@@ -10,7 +10,7 @@
 				"Base": 5,
 				"LvlMult": 0.3
 			},
-			"Recourse": {
+			"Mana": {
 				"Base": 100,
 				"LvlMult": 0.1
 			}
@@ -25,7 +25,7 @@
 			"Base": 0,
 			"LvlMult": 0
 		},
-		"Recourse": {
+		"Mana": {
 			"Base": 1,
 			"LvlMult": 0
 		}
@@ -41,7 +41,7 @@
 			"Base": 2,
 			"LvlMult": 0.1
 		},
-		"Recourse": {
+		"Mana": {
 			"Base": 100,
 			"LvlMult": 0.2
 		}

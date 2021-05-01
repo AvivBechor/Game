@@ -35,8 +35,8 @@ public class CreateCharacter : MonoBehaviour
             character.title = "Frog";
         }
         character.init();
-        currentHp.value = character.stats["MaxHP"].value;
-        currentRecourse.value = character.stats["MaxRecourse"].value;
+        currentHp.value = (int)character.stats["MaxHP"].value;
+        currentRecourse.value = (int)character.stats["MaxRecourse"].value;
         SceneManager.LoadScene("CitySample");
     }
 }

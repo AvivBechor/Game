@@ -1,43 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts;
 
-public class Attack : MonoBehaviour
+public abstract class Attack : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int UID;
+    public float damage;
     public float lifespan;
-    public Player parent;
-    public int speed;
-    public float disableDuration;
-    private Vector3 direction;
+    public float speed;
+    public Side direction;
+    protected GameObject attacksContainer;
+    protected Player player;
 
-    private void Start()
+    public void Start()
     {
-        direction = parent.getRotationVector();
+        player = GameObject.Find("Player").GetComponent<Player>();
     }
-    void Update()
-    {
-        move();
-        lifespan -= Time.deltaTime;
-        disableDuration -= Time.deltaTime;
-        if(disableDuration <= 0)
-        {
-            parent.isAttacking = false;
-        }
-        if(lifespan <= 0)
-        {
-            kill();
-        }
-    }
-
-    public void kill()
-    {
-        Object.Destroy(gameObject);
-    }
-
-    void move()
-    {
-        Vector3 step = speed * direction * Time.deltaTime;
-        transform.position += step;
-    }
+    public abstract void Spawn();
+    protected abstract int calculateDamage();
 }

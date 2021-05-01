@@ -74,6 +74,7 @@
     <Compile Include="Assets\ScriptableObjects\VectorValue.cs" />
     <Compile Include="Assets\Scripts\Attack.cs" />
     <Compile Include="Assets\Scripts\CameraPlayerTrack.cs" />
+    <Compile Include="Assets\Scripts\Client.cs" />
     <Compile Include="Assets\Scripts\CreateCharacter.cs" />
     <Compile Include="Assets\Scripts\DummyScript.cs" />
     <Compile Include="Assets\Scripts\EquipmentManager.cs" />
@@ -91,11 +92,13 @@
     <Compile Include="Assets\Scripts\ItemTypes\Potion.cs" />
     <Compile Include="Assets\Scripts\ItemTypes\UsableItem.cs" />
     <Compile Include="Assets\Scripts\MakeWallTransparent.cs" />
+    <Compile Include="Assets\Scripts\Message.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimatorController.cs" />
     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\PlayerInteractionScript.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Strike.cs" />
     <Compile Include="Assets\Scripts\UI scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\UI scripts\InventoryButtonScript.cs" />
     <Compile Include="Assets\Scripts\UI scripts\InventoryOpen.cs" />

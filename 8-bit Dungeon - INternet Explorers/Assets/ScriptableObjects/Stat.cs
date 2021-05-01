@@ -7,9 +7,9 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public abstract class Stat
+    public class Stat
     {
-        public int value;
+        public float value;
         public float statMultiplayer;
         public int mod;
         public Stat(int value, float statMultiplayer)
@@ -17,6 +17,8 @@ namespace Assets.Scripts
             this.value = value;
             this.statMultiplayer = statMultiplayer;
         }
-        public abstract void levelUp();
+        public virtual void levelUp() {
+            value = value * (1 + statMultiplayer);
+        }
     }
 }

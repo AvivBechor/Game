@@ -1,0 +1,9 @@
+list of commands:
+
+crt: creates a new game 
+mov: moves the player 
+atk: attack 
+pos: hard set player position 
+swp: request to change room 
+end: finish game
+    
