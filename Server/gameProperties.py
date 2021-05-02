@@ -11,7 +11,6 @@ class game:
         self.players=[]
         self.attacks=[]
         self.enemies=[]
-        #self.generate()
     def addPlayer(self,player):
         self.players.append(player)
     def addAttack(self,attack):
@@ -23,10 +22,14 @@ class game:
             pass
     def addEnemy(self,enemy):
         self.enemies.append(enemy)
-    #def generate(self):
-    #    self.map="test"
-    #    pass
-        #generates a map and enemeis from a list of pre-determend enemies and puts them into their place
+    def run(self):
+        print("game {gameID} is being updated".format(gameID=self.ID))
+        #move enemies 
+        #move attacks 
+        #calculate if attack hit enemy and deal dmg/kill
+        #calculate if enemy hit player adn deal dmg/kill
+        #update all players
+        pass
 
     
     
@@ -64,7 +67,6 @@ def sendMessage(cmd,msg,s,HEADER):
         msg=f'{len(msg):<{HEADER}}'+msg
         if(len(msg)%2!=0):
             msg+="~"
-        print(msg)
         s.send(msg.encode("UTF-8"))
     except:
         print("not connected")
@@ -74,7 +76,6 @@ def recvMessage(s,HEADER):
         new_msg=True
         full_msg=''
         msg_len=0
-        print("reciving message")
         while True:
             msg=s.recv(2)
             if new_msg:
@@ -92,18 +93,21 @@ def findGame(ID,games):
     for g in games:
          if g.ID==ID:
              return g 
-def deleteGame(games,ID,playerID,HEADER):
-    g=findGame(ID,games)
-    try:
+def deleteGame(games,gameID,playerID,HEADER):
+    
+    g=findGame(gameID,games)
+    if (g):
+        
         for p in g.players:
-            sendMessage("end","",p.client.socket,HEADER)
             if(p.ID==playerID):
                 g.removePlayer(p)
+                
                
-        if(len(g.players)==0):  
+        if(len(g.players)==2):
             games.remove(g)
-    except:
+    else:
         print("game doesnt exist")
+        
     
 
 def handleData(data,s,games):

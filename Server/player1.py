@@ -42,14 +42,14 @@ def recvMessage(s,HEADER):
 while True:
     
     if count<2:
-        sendMessage("crt",ID,"1","warrior/0",s,HEADER)
+        sendMessage("crt",ID,"{playerID}".format(playerID=count+1),"warrior/0",s,HEADER)
     
     data=recvMessage(s,HEADER)
     data=data.replace("~","")
     print(data)
     if data=="":
         break
-    if data.split(":")[0]=="end":
+    if count>10:
         sendMessage("end",ID,"1","",s,HEADER)
         
     count+=1

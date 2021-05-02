@@ -18,7 +18,16 @@ server_socket.bind(("localhost",5555))
 server_socket.listen(4)
 server_socket.setblocking(False)
 count=0
+
+def run(games):
+    while RUN:
+        for g in games:
+            g.run()
+t=threading.Thread(target=run,args=(games,))
+t.start()
+
 while RUN:
+
     read_list, write_list, exception_list = select.select([server_socket] + clients, clients, [])
     for s in read_list:
         

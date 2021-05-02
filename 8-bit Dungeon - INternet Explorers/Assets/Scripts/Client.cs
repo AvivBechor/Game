@@ -19,10 +19,12 @@ public class Client : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        messages = new Queue<Message>();
+
         s = new Socket(SocketType.Stream, ProtocolType.Tcp);
         s.Connect(ip, port);
         Debug.Log("Connected");
-        sendMessage("crt", 111, 4, "warrior/1", s,HEADER);
+        sendMessage("crt", 111, 3, "warrior/1", s,HEADER);
         string msg=recvMessage((s,HEADER));
         Debug.Log(msg);
     }
@@ -40,7 +42,14 @@ public class Client : MonoBehaviour
             isRecieving = true;
             string msg = recvMessage((s, HEADER));
             Debug.Log("RECIEVED: " + msg);
-            messages.Enqueue(new Message(msg.Split(':')[0], msg.Split(':')[1]));
+            try
+            {
+                messages.Enqueue(new Message(msg.Split(':')[0], msg.Split(':')[1]));
+            }
+            catch
+            {
+                Debug.Log("wtf: " + msg);
+            }
         }
         if(messages.Peek() != null)
         {

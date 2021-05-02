@@ -52,7 +52,6 @@ while True:
         inGame=True
     
     while inGame:
-        print(count)
         if (count==1):
             sendMessage("atk", ID, "4", "5,-3/30/3/UP/1/bomb", s, HEADER)
         elif (count<10):
