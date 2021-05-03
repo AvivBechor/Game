@@ -4,9 +4,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Player player;
+    public float xMovement;
+    public float yMovement;
     public Rigidbody2D myRigidbody;
     public BoxCollider2D playerCollider;
     public Vector2 change;
+    public bool serverControlled;
     void Start()
     {
         player = GetComponent<Player>();
@@ -14,21 +17,27 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (player.canMove())
+        if (true)
         {
             //Variables to control player movement and rotation, will later be used by the server as well and not only the keyboard input.
-            float xMovement;
-            float yMovement;
-            xMovement = Input.GetAxisRaw("Horizontal");
-            yMovement = Input.GetAxisRaw("Vertical");
+            //xMovement = 0;
+            //yMovement = 0;
+            if (!serverControlled)
+            {
+                //only when the chaneg vector changes send the change through to the server 
+                xMovement = Input.GetAxisRaw("Horizontal");
+                yMovement = Input.GetAxisRaw("Vertical");
+            }
             change = Vector2.zero;
             change.x = xMovement;
             change.y = yMovement;
             //Sets the player's rotation value based on the input.
-            setRotation(change);
+            if (!serverControlled)
+                setRotation(change);
             //Sets the player's moving value based on the input
-            setMoving(change);
-            //Moves the character based on the input.
+            if(!serverControlled)
+                setMoving(change);
+            //Moves the character based on the input.           
             moveCharacter(change);
         }
     }
@@ -36,13 +45,14 @@ public class PlayerMovement : MonoBehaviour
     void moveCharacter(Vector2 change)
     {
         //Create a new vector that is the distance the player moves within Time.deltaTime
-        Vector3 step = change.normalized * player.moveSpeed * Time.deltaTime;
+        Vector3 step = change.normalized * 5 * Time.deltaTime;
         //Adds the step to the current position.
         myRigidbody.MovePosition(transform.position + step);
     }
 
     void setRotation(Vector2 change)
     {
+        Debug.Log(gameObject.name);
         //Checks if there is movement in X. X and Y can only be -1, 0, and 1.
         if (change.x != 0)
         {

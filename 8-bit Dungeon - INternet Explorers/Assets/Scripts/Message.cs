@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Message
 {
-    string command;
-    string id;
-    string data;
-
-    public Message(string command, string data)
+    public string command;
+    public int uuid;
+    public string data;
+    
+    public Message(string command, int uuid, string data)
     {
         this.command = command;
+        this.uuid = uuid;
         this.data = data;
     }
 }

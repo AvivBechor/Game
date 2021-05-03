@@ -44,18 +44,12 @@ public class Client : MonoBehaviour
             Debug.Log("RECIEVED: " + msg);
             try
             {
-                messages.Enqueue(new Message(msg.Split(':')[0], msg.Split(':')[1]));
+                messages.Enqueue(new Message(msg.Split(':')[0], int.Parse(msg.Split(':')[1]), msg.Split(':')[2]));
             }
             catch
             {
                 Debug.Log("wtf: " + msg);
             }
-        }
-        if(messages.Peek() != null)
-        {
-            /*
-             * FIND APPROPRITE GAME OBJECT BASED ON COMMAND AND VALUES AND SEND DATA TO IT
-             */
         }
     }
     public static bool sendMessage(string cmd, int gameID, int userID, string msg, Socket s, int HEADER)
