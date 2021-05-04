@@ -99,6 +99,7 @@
     <Compile Include="Assets\Scripts\PlayerInteractionScript.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\QueueServer.cs" />
+    <Compile Include="Assets\Scripts\ServerAttack.cs" />
     <Compile Include="Assets\Scripts\Strike.cs" />
     <Compile Include="Assets\Scripts\UI scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\UI scripts\InventoryButtonScript.cs" />

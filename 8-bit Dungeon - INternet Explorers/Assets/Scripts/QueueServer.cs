@@ -13,20 +13,25 @@ public class QueueServer : MonoBehaviour
         if (messages.Count > 0)
         {
             Message currentMessage = messages.Dequeue();
-            Debug.Log("message.cmd" + currentMessage.command + ", uuid " + currentMessage.uuid + " val " + currentMessage.data);
-            if (currentMessage.command == "mov")
+            Debug.Log("message.cmd " + currentMessage.command + ", uuid " + currentMessage.uuid + " val " + currentMessage.data);
+            switch (currentMessage.command)
             {
-                GameObject players = GameObject.Find("PlayersContainer");
-                foreach (Transform child in players.transform)
-                {
-                    if (child.gameObject.GetComponent<UUIDHandler>().UUID == currentMessage.uuid)
+                case "mov":
+                    GameObject players = GameObject.Find("PlayersContainer");
+                    foreach (Transform child in players.transform)
                     {
-                        Debug.Log("name:" + child.gameObject.name);
-                        child.GetComponent<PlayerMovement>().xMovement = float.Parse(currentMessage.data.Split(',')[0]);
-                        child.GetComponent<PlayerMovement>().yMovement = float.Parse(currentMessage.data.Split(',')[1]);
-                        break;
+                        if (child.gameObject.GetComponent<UUIDHandler>().UUID == currentMessage.uuid)
+                        {
+                            Debug.Log("name:" + child.gameObject.name);
+                            child.GetComponent<PlayerMovement>().xMovement = float.Parse(currentMessage.data.Split(',')[0]);
+                            child.GetComponent<PlayerMovement>().yMovement = float.Parse(currentMessage.data.Split(',')[1]);
+                            break;
+                        }
                     }
-                }
+                    break;
+                case "atk":
+
+                    break;
             }
         }
     }

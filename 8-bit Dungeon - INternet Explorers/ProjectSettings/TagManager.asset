@@ -50,9 +50,6 @@ TagManager:
   - name: Obstacle
     uniqueID: 2862199623
     locked: 0
-  - name: Attacks
-    uniqueID: 201912821
-    locked: 0
   - name: Interior
     uniqueID: 2138727151
     locked: 0
@@ -61,6 +58,9 @@ TagManager:
     locked: 0
   - name: wall
     uniqueID: 2710132135
+    locked: 0
+  - name: Attacks
+    uniqueID: 201912821
     locked: 0
   - name: 'windows '
     uniqueID: 3885191071

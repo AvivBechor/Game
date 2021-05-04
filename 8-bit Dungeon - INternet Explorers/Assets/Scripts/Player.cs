@@ -22,6 +22,16 @@ public class Player : MonoBehaviour
         return !isAttacking && !isDead && !isInteracting;
     }
 
+    public float getModStatValue(string name)
+    {
+        foreach (KeyValuePair<string, Stat> entry in character.stats)
+        {
+            Debug.Log("KEY :"+entry.Key + "VAL:" + entry.Value.value);
+            Debug.Log(entry.Key.Equals(name));
+        }
+        return character.stats[name].value + character.stats[name].mod;
+    }
+
     public Vector3 getRotationVector()
     {
         Vector3 res = new Vector3(0, 0, 0);

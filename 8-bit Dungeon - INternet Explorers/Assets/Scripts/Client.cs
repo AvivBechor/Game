@@ -10,6 +10,8 @@ using System.Net.Sockets;
 public class Client : MonoBehaviour
     
 {
+    public Player player;
+    public GameObject test;
     public Queue<Message> messages;
     private int port = 5555;
     private string ip = "127.0.0.1";
@@ -19,6 +21,11 @@ public class Client : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("SPEGHETTI START");
+        GameObject a = GameObject.Instantiate(test, Vector3.zero, Quaternion.identity);
+        a.AddComponent<Strike>();
+        a.GetComponent<Strike>().SpawnAttack(player, "test", Assets.Scripts.Side.DOWN);
+        Debug.Log("SPEGHETTI END");
         messages = new Queue<Message>();
 
         s = new Socket(SocketType.Stream, ProtocolType.Tcp);
