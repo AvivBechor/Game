@@ -9,4 +9,18 @@ public class Strike : Attack
     {
         return (int)player.getModStatValue("Strength");
     }
+
+    public override void SpawnAttack(string attackName, Side direction)
+    {
+        base.SpawnAttack(attackName, direction);
+        this.speed = 0;
+        this.lifeSpan = 0.5f;
+    }
+
+    public override void SpawnAttackHeadless(Player player, string attackName, Side direction)
+    {
+        base.SpawnAttackHeadless(player, attackName, direction);
+        this.speed = 0;
+        this.lifeSpan = 0.5f;
+    }
 }

@@ -6,12 +6,16 @@ public class Message
 {
     public string command;
     public int uuid;
-    public string data;
+    public List<string> data;
     
     public Message(string command, int uuid, string data)
     {
+        this.data = new List<string>();
         this.command = command;
         this.uuid = uuid;
-        this.data = data;
+        string[] asArray = data.Split('/');
+        foreach(string dat in asArray) {
+            this.data.Add(dat);
+        }
     }
 }

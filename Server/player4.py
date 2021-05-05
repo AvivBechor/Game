@@ -53,7 +53,7 @@ while True:
     
     while inGame:
         if (count==1):
-            sendMessage("atk", ID, "4", "5,-3/30/3/UP/1/bomb", s, HEADER)
+            sendMessage("atk", ID, "4", "5,-3/30/3/LEFT/1/bomb", s, HEADER)
         elif (count<10):
             sendMessage("mov",ID,"4","-10,10",s,HEADER)
         else: 

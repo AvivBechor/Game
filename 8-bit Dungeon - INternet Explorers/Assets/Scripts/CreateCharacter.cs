@@ -35,7 +35,6 @@ public class CreateCharacter : MonoBehaviour
             character.title = "Frog";
         }
         character.init();
-        Debug.Log("SRNT:"+character.stats["Strength"].value);
         currentHp.value = (int)character.stats["MaxHP"].value;
         currentRecourse.value = (int)character.stats["MaxRecourse"].value;
         SceneManager.LoadScene("SampleScene");

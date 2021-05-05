@@ -21,11 +21,6 @@ public class Client : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("SPEGHETTI START");
-        GameObject a = GameObject.Instantiate(test, Vector3.zero, Quaternion.identity);
-        a.AddComponent<Strike>();
-        a.GetComponent<Strike>().SpawnAttack(player, "test", Assets.Scripts.Side.DOWN);
-        Debug.Log("SPEGHETTI END");
         messages = new Queue<Message>();
 
         s = new Socket(SocketType.Stream, ProtocolType.Tcp);
@@ -39,11 +34,6 @@ public class Client : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        Task<string> msgTask = recvMessageAsync((s, HEADER));
-        string msg = await msgTask;
-        Debug.Log("WE RECIEVED: " + msg);
-        */
         if (!isRecieving)
         {
             isRecieving = true;

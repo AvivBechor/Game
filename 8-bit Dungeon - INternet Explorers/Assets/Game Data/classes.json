@@ -1,22 +1,21 @@
 {
-	
-		"Warrior":{
-			"HP": {
-				"Base": 300,
-				"LvlMult": 0.5
-			},
 
-			"Strength": {
-				"Base": 5,
-				"LvlMult": 0.3
-			},
-			"Recourse": {
-				"Base": 100,
-				"LvlMult": 0.1
-			},
-			"AttackCost": {"Cost": 0}
-
+	"Warrior": {
+		"HP": {
+			"Base": 300,
+			"LvlMult": 0.5
 		},
+
+		"Strength": {
+			"Base": 10,
+			"LvlMult": 0.3
+		},
+		"Recourse": {
+			"Base": 100,
+			"LvlMult": 0.1
+		}
+
+	},
 	"Frog": {
 		"HP": {
 			"Base": 1,
@@ -29,8 +28,7 @@
 		"Recourse": {
 			"Base": 1,
 			"LvlMult": 0
-		},
-		"AttackCost": { "Cost": 2000 }
+		}
 	},
 
 	"Mage": {
@@ -46,8 +44,7 @@
 		"Recourse": {
 			"Base": 100,
 			"LvlMult": 0.2
-		},
-		"AttackCost": { "Cost": 20 }
+		}
 
 	}
 	

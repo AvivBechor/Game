@@ -52,7 +52,6 @@ public class PlayerMovement : MonoBehaviour
 
     void setRotation(Vector2 change)
     {
-        Debug.Log(gameObject.name);
         //Checks if there is movement in X. X and Y can only be -1, 0, and 1.
         if (change.x != 0)
         {

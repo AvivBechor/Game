@@ -162,6 +162,7 @@ def handleData(data,s,games):
                 p.client.socket.send(b'1')
             else:
                 sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}".format(position=pos,AtkName=name,dir=direction,ID=atk.ID), p.client.socket, HEADER)
+                
 
         #sends to the thread that manages enemy movements 
     elif(cmd=="pos"):
