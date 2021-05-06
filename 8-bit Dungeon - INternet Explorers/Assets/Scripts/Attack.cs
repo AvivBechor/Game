@@ -19,7 +19,6 @@ public abstract class Attack : MonoBehaviour
         this.attackName = attackName;
         this.direction = direction;
         this.damage = calculateDamage();
-        Debug.Log("GAMEOBJECTS NAME:" + gameObject.name);
         //this.spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         switch(direction)
         {
@@ -67,10 +66,7 @@ public abstract class Attack : MonoBehaviour
             default:
                 throw new System.Exception();
         }
-        Debug.Log(@"Attacks\ATK_" + attackName.ToUpper());
         Sprite spr = Resources.Load(@"Attacks\ATK_" + attackName.ToUpper(), typeof(Sprite)) as Sprite;
-        Debug.Log(spr.name);
-
         spriteRenderer.sprite = spr;
     }
     protected abstract int calculateDamage();

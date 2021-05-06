@@ -99,6 +99,7 @@
     <Compile Include="Assets\Scripts\PlayerInteractionScript.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\QueueServer.cs" />
+    <Compile Include="Assets\Scripts\SendQueue.cs" />
     <Compile Include="Assets\Scripts\ServerAttack.cs" />
     <Compile Include="Assets\Scripts\Strike.cs" />
     <Compile Include="Assets\Scripts\UI scripts\Inventory.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Assets\Scripts\UIContainers\ItemContainer.cs" />
     <Compile Include="Assets\Scripts\UIContainers\PotionSlot.cs" />
     <Compile Include="Assets\Scripts\UUIDHandler.cs" />
+    <Compile Include="Assets\Scripts\gameIDHandler.cs" />
     <Compile Include="Assets\Scripts\rotation.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
@@ -325,7 +327,7 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.18f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Assets/Packages/Newtonsoft.Json.12.0.3/lib/netstandard2.0/Newtonsoft.Json.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Assets/Packages/Newtonsoft.Json.12.0.3/lib/netstandard2.0/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.18f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -673,85 +675,85 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.18f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect.Editor">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Editor">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Path.Editor">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Triangle.Runtime">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="PsdPlugin">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Psdimporter.Editor">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEngineBridge.001">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Runtime">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Editor">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Editor">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/User/Desktop/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/projects/FinalProject/Game/8-bit Dungeon - INternet Explorers/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>

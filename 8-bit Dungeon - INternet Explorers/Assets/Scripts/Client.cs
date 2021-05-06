@@ -16,7 +16,7 @@ public class Client : MonoBehaviour
     private int port = 5555;
     private string ip = "127.0.0.1";
     private readonly int HEADER = 4;
-    private Socket s;
+    public Socket s;
     private bool isRecieving = false;
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,8 @@ public class Client : MonoBehaviour
         Debug.Log("Connected");
         sendMessage("crt", 111, 3, "warrior/1", s,HEADER);
         string msg=recvMessage((s,HEADER));
-        Debug.Log(msg);
+        Debug.Log("RECIEVED: " + msg);
+
     }
 
     // Update is called once per frame
@@ -49,7 +50,7 @@ public class Client : MonoBehaviour
             }
         }
     }
-    public static bool sendMessage(string cmd, int gameID, int userID, string msg, Socket s, int HEADER)
+    public bool sendMessage(string cmd, int gameID, int userID, string msg, Socket s, int HEADER)
     {
         try
         {
@@ -73,7 +74,7 @@ public class Client : MonoBehaviour
         }
         catch
         {
-            Debug.Log("not connected");
+            Debug.Log("not connected send");
             return false;
         }
     }
@@ -105,6 +106,7 @@ public class Client : MonoBehaviour
                 int full_msg_len = full_msg.Replace("~", "").Length;
                 if (full_msg_len - HEADER == msg_len)
                 {
+                    Debug.Log(full_msg);
                     new_msg = true;
                     isRecieving = false;
                     return full_msg.Substring(HEADER, msg_len);
@@ -112,10 +114,11 @@ public class Client : MonoBehaviour
 
             }
         }
-        catch
+        catch(System.Exception e)
         {
+            Debug.Log("THE EXCEPTION IS:" + e);
             isRecieving = false;
-            return "not connected";
+            return "not connected recieve";
         }
     }
 

@@ -5,6 +5,7 @@ using Assets.Scripts;
 
 public class Player : MonoBehaviour
 {
+    public bool inGame;
     public VectorValue startingPosition;
     public IntStorage CurrentHP;
     public IntStorage CurrentRecource;
