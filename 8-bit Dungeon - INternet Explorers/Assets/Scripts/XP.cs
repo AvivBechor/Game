@@ -5,9 +5,9 @@ using UnityEngine;
 public class XP
 {
 
-    public int experience { get; private set; }
-    public int level { get; private set; }
-    private readonly int[] levelCaps;
+    public int experience { get; protected set; }
+    public int level { get; protected set; }
+    protected readonly int[] levelCaps;
     public bool locked;
 
     public XP(int[] levelCaps)
@@ -33,15 +33,17 @@ public class XP
         }
     }
 
-    public void levelUp()
+    public virtual int levelUp()
     {
         if (!locked)
         {
             if (experience == levelCaps[level - 1])
             {
                 level++;
+                return 0;
             }
         }
+        return -1;
     }
 
 }
