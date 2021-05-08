@@ -1,4 +1,5 @@
 from queue import Queue
+from socket import *
 class client:
     def __init__(self, ID, socket):
         self.groupID=ID
@@ -6,6 +7,7 @@ class client:
         
 class game:
     def __init__(self,ID):
+        self.pending=False
         self.data_to_send=Queue()
         self.ID=ID
         self.players=[]
@@ -23,12 +25,22 @@ class game:
     def addEnemy(self,enemy):
         self.enemies.append(enemy)
     def run(self):
-        print("game {gameID} is being updated".format(gameID=self.ID))
+        #HEADER=4
+        #print("im running")
+        '''
+        for p in self.players:
+            sendMessage("mat", "0:-5,0/bomb/UP", p.client.socket, HEADER)
+            sendMessage("sht", "1:", p.client.socket, HEADER)
+            sendMessage("asd", "2:fasfffwqer", p.client.socket, HEADER)
+            sendMessage("fds", "12:098", p.client.socket, HEADER)
+            sendMessage("qwe", "34:1234", p.client.socket, HEADER)
+            sendMessage("uio", "123:qwe", p.client.socket, HEADER)
         #move enemies 
         #move attacks 
         #calculate if attack hit enemy and deal dmg/kill
         #calculate if enemy hit player adn deal dmg/kill
         #update all players
+        '''
         pass
 
     
@@ -72,23 +84,21 @@ def sendMessage(cmd,msg,s,HEADER):
         print("not connected")
 
 def recvMessage(s,HEADER):
-    try:
-        new_msg=True
-        full_msg=''
-        msg_len=0
-        while True:
-            msg=s.recv(2)
-            if new_msg:
-                msg_len=int(msg[:HEADER])
-                new_msg=False
-            full_msg+=msg.decode("UTF-8")
+    new_msg=True
+    full_msg=''
+    msg_len=0
+    s.settimeout(0.01)
+    #s.settimeout(0.01)
+    while True:
+        msg=s.recv(2)
+        if new_msg:
+            msg_len=int(msg[:HEADER])
+            new_msg=False
+        full_msg+=msg.decode("UTF-8")
         
-            if (len(full_msg.replace("~",""))-HEADER==msg_len):
-                new_msg=True
-                return full_msg[HEADER:]
-    except:
-        print("not connected")
-        return ""
+        if (len(full_msg.replace("~",""))-HEADER==msg_len):
+            new_msg=True
+            return full_msg[HEADER:]
 def findGame(ID,games):
     for g in games:
          if g.ID==ID:
@@ -124,15 +134,17 @@ def handleData(data,s,games):
         if g:
             g.addPlayer(p)
             sendMessage("add","player added",s,HEADER)
-            if len(g.players)==4:
+            if len(g.players)==2:
                 for p in g.players:
                     sendMessage("pos","{ID}:-5,0".format(ID=p.ID),p.client.socket,HEADER)
                 
         else:  
             games.append(game(groupID))
             games[-1].addPlayer(p)
+            games[-1].pending=True
             sendMessage("hlt","waiting for players",s,HEADER)
-        if (g is not None and len(g.players)==4):
+        if (g is not None and len(g.players)==2):
+            g.pending=False
             for p in g.players:
                 for j in g.players:
                     if p is not j:
@@ -142,7 +154,7 @@ def handleData(data,s,games):
     elif(cmd=="mov"):
         for p in g.players:
             if(p.client.socket is s):
-                p.client.socket.send(b"1")
+                sendMessage("rcv","0:recieved",p.client.socket,HEADER)
                 continue
             sendMessage("mov","{ID}:{value}".format(ID=playerID,value=val),p.client.socket,HEADER)
                 
@@ -158,22 +170,22 @@ def handleData(data,s,games):
         atk=attack(pos,dmg,playerID,speed,direction,lifespan,name,ID)
         g.addAttack(attack)
         for p in g.players:
-            if p.client.socket is s:
-                p.client.socket.send(b'1')
-            else:
-                sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}".format(position=pos,AtkName=name,dir=direction,ID=atk.ID), p.client.socket, HEADER)
-                
+           sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}".format(position=pos,AtkName=name,dir=direction,ID=atk.ID), p.client.socket, HEADER)
 
-        #sends to the thread that manages enemy movements 
     elif(cmd=="pos"):
         for p in g.players:
             if(p.ID==playerID):
                 p.setPos(int(val.split(",")[0]),int(val.split(",")[1]))
             else:
                 sendMessage("pos","{ID}:{value}".format(ID=p.ID,value=val),p.client.socket,HEADER)
-            
+    elif(cmd=="nul"):
+        sendMessage("nul","-1:",s,HEADER)
+        '''
+    if (g):
+        if(g.pending!=True):
+            g.run()       
 
-
+'''
 
 
 

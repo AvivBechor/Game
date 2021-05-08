@@ -7,7 +7,6 @@ from gameProperties import game, client, player
 global RUN
 global games
 HEADER=4
-
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # To avoid bind() exception – 'OSError: [Errno 48] Address already in use.'
 #server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -15,26 +14,26 @@ clients = []
 games=[]
 RUN =True
 server_socket.bind(("localhost",5555))
+
 server_socket.listen(4)
 server_socket.setblocking(False)
 count=0
-
+'''
 def run(games):
     while RUN:
         for g in games:
             g.run()
 t=threading.Thread(target=run,args=(games,))
 t.start()
-
+'''
 while RUN:
-
     read_list, write_list, exception_list = select.select([server_socket] + clients, clients, [])
+    
     for s in read_list:
-        
         if s is server_socket:
             try:
                 new_client, addr = server_socket.accept()
-                new_client.settimeout(5)
+                new_client.settimeout(0.01)
                 clients.append(new_client)
             except OSError:
                     pass
@@ -45,6 +44,7 @@ while RUN:
                 data = gameProperties.recvMessage(s,HEADER)
                 print(data)
                 if len(data) == 0:
+                    print("data is" + data + "and the socket is" + str(s))
                     gameProperties.remove_client(s,clients)
                     continue
                 if data.split(":")[0]=="end":
@@ -58,6 +58,7 @@ while RUN:
                         gameProperties.handleData(data,s,games)
                 
             except ConnectionError:
+                print("the problamatic socket is" + str(s))
                 gameProperties.remove_client(s,clients)
 '''
         if (count==10):

@@ -14,24 +14,23 @@ public class SendQueue : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        string test = "mistake";
-        if(messages.Count > 0)
+        if (messages.Count > 0)
         {
-            
+
             string currentMessage = messages.Dequeue();
-            test = currentMessage;            
-            client.sendMessage(currentMessage.Split(':')[0], int.Parse(currentMessage.Split(':')[1]), int.Parse(currentMessage.Split(':')[2]),currentMessage.Split(':')[3],client.s,4);
+            Debug.Log("sending " + currentMessage);
+            client.sendMessage(currentMessage.Split(':')[0], int.Parse(currentMessage.Split(':')[1]), int.Parse(currentMessage.Split(':')[2]), currentMessage.Split(':')[3], client.s, 4);
         }
         else if (messages.Count == 0)
         {
             int gameID = GameObject.Find("Connection").GetComponent<gameIDHandler>().gameID;
-            test = "nul";
             client.sendMessage("nul", gameID, -1, count.ToString(), client.s, 4);
             count++;
         }
-        Debug.Log("the sent message is " + test);
+
+
     }
 
     public void addMessage(string message)

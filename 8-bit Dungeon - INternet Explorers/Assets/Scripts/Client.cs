@@ -17,7 +17,7 @@ public class Client : MonoBehaviour
     private string ip = "127.0.0.1";
     private readonly int HEADER = 4;
     public Socket s;
-    private bool isRecieving = false;
+    public bool isRecieving = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,11 +64,12 @@ public class Client : MonoBehaviour
             msg = len.ToString() + msg;
             int byteCount = Encoding.UTF8.GetByteCount(msg);
             byte[] sendData = new byte[byteCount];
-            sendData = Encoding.UTF8.GetBytes(msg);
+            
             if (msg.Length % 2 != 0)
             {
                 msg += "~";
             }
+            sendData = Encoding.UTF8.GetBytes(msg);
             s.Send(sendData);
             return true;
         }
@@ -96,6 +97,10 @@ public class Client : MonoBehaviour
             {
                 byte[] msg = new byte[2];
                 s.Receive(msg);
+                if(msg.Equals(new byte[2]))
+                {
+                    Debug.Log("MSG IS EMPTY");
+                }
                 message = Encoding.UTF8.GetString(msg, 0, msg.Length);
                 if (new_msg)
                 {

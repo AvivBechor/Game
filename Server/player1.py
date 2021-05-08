@@ -1,8 +1,10 @@
 import socket
-import time 
+import time
+import random
 s=socket.socket()
 s.connect(("127.0.0.1",5555))
 s.setblocking(1)
+cmds=["mov","pos","nul"]
 new_msg=True
 HEADER=4
 full_msg=''
@@ -27,6 +29,7 @@ def recvMessage(s,HEADER):
         full_msg=''
         msg_len=0
         while True:
+            print("im in the while loop")
             msg=s.recv(2)
             if new_msg:
                 msg_len=int(msg[:HEADER])
@@ -41,16 +44,18 @@ def recvMessage(s,HEADER):
 
 while True:
     
-    if count<2:
+    if count<1:
         sendMessage("crt",ID,"{playerID}".format(playerID=count+1),"warrior/0",s,HEADER)
-    
+    else:
+    cmd=random.choice(cmds)
+    sendMessage(cmd,ID,"1","0,-1",s,HEADER)
     data=recvMessage(s,HEADER)
     data=data.replace("~","")
     print(data)
     if data=="":
         break
-    if count>10:
-        sendMessage("end",ID,"1","",s,HEADER)
+    
+        
         
     count+=1
 
