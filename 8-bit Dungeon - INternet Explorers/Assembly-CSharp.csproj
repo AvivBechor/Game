@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\Client.cs" />
     <Compile Include="Assets\Scripts\CreateCharacter.cs" />
     <Compile Include="Assets\Scripts\DummyScript.cs" />
+    <Compile Include="Assets\Scripts\EVILopacityController.cs" />
     <Compile Include="Assets\Scripts\EquipmentManager.cs" />
     <Compile Include="Assets\Scripts\Iinteractable.cs" />
     <Compile Include="Assets\Scripts\InteractorScript.cs" />
@@ -99,6 +100,8 @@
     <Compile Include="Assets\Scripts\PlayerInteractionScript.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\QueueServer.cs" />
+    <Compile Include="Assets\Scripts\SendQueue.cs" />
+    <Compile Include="Assets\Scripts\ServerAttack.cs" />
     <Compile Include="Assets\Scripts\Strike.cs" />
     <Compile Include="Assets\Scripts\UI scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\UI scripts\InventoryButtonScript.cs" />
@@ -117,6 +120,8 @@
     <Compile Include="Assets\Scripts\UIContainers\ItemContainer.cs" />
     <Compile Include="Assets\Scripts\UIContainers\PotionSlot.cs" />
     <Compile Include="Assets\Scripts\UUIDHandler.cs" />
+    <Compile Include="Assets\Scripts\gameIDHandler.cs" />
+    <Compile Include="Assets\Scripts\loadCity.cs" />
     <Compile Include="Assets\Scripts\rotation.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

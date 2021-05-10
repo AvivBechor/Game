@@ -1,21 +1,21 @@
 {
-	
-		"Warrior":{
-			"HP": {
-				"Base": 300,
-				"LvlMult": 0.5
-			},
 
-			"Strength": {
-				"Base": 5,
-				"LvlMult": 0.3
-			},
-			"Mana": {
-				"Base": 100,
-				"LvlMult": 0.1
-			}
-
+	"Warrior": {
+		"HP": {
+			"Base": 300,
+			"LvlMult": 0.5
 		},
+
+		"Strength": {
+			"Base": 10,
+			"LvlMult": 0.3
+		},
+		"Mana": {
+			"Base": 100,
+			"LvlMult": 0.1
+		}
+
+	},
 	"Frog": {
 		"HP": {
 			"Base": 1,

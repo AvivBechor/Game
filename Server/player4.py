@@ -1,5 +1,7 @@
 import socket
-import time 
+import time
+import threading
+global HEADER
 s=socket.socket()
 s.connect(("127.0.0.1",5555))
 s.setblocking(1)
@@ -11,7 +13,9 @@ inGame=False
 ID="111"
 #s.send(b"hello")
 count=0
-print("im player 4")
+print("im player 4" + str(s))
+
+
 def sendMessage(cmd,gameID,userID,msg,s,HEADER):
     try:
         msg=cmd+":"+gameID+":"+userID+":"+msg
@@ -41,8 +45,9 @@ def recvMessage(s,HEADER):
     except:
         print("not connected")
         return ""
+
 while True:
-    data=""
+    
     if count<1:
         sendMessage("crt",ID,"4","mage/0",s,HEADER)
     data=recvMessage(s,HEADER)
@@ -50,15 +55,22 @@ while True:
     print(data)
     if data.split(":")[0]=='pos':
         inGame=True
-    
     while inGame:
+        data=recvMessage(s,HEADER)
+        data=data.replace("~","")
+        if(data.split(':')[0]=="mov"):
+            print(data)
         if (count==1):
             sendMessage("atk", ID, "4", "5,-3/30/3/UP/1/bomb", s, HEADER)
-        elif (count<10):
-            sendMessage("mov",ID,"4","-10,10",s,HEADER)
-        else: 
-            sendMessage("end",ID,"4","",s,HEADER)
-            break
+        
+        if (count<20):
+            sendMessage("mov",ID,"4","-1,0",s,HEADER)
+        elif (20<count<30): 
+            sendMessage("mov",ID,"4","0,0",s,HEADER)
+        else:
+            sendMessage("mov",ID,"4","0,1",s,HEADER)
+            
+            
         count+=1
     if data=="":
         break

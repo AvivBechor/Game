@@ -5,6 +5,7 @@ using Assets.Scripts;
 
 public class Player : MonoBehaviour
 {
+    public bool inGame;
     public VectorValue startingPosition;
     public IntStorage CurrentHP;
     public IntStorage CurrentRecource;
@@ -20,6 +21,16 @@ public class Player : MonoBehaviour
     public bool canMove()
     {
         return !isAttacking && !isDead && !isInteracting;
+    }
+
+    public float getModStatValue(string name)
+    {
+        foreach (KeyValuePair<string, Stat> entry in character.stats)
+        {
+            Debug.Log("KEY :"+entry.Key + "VAL:" + entry.Value.value);
+            Debug.Log(entry.Key.Equals(name));
+        }
+        return character.stats[name].value + character.stats[name].mod;
     }
 
     public Vector3 getRotationVector()

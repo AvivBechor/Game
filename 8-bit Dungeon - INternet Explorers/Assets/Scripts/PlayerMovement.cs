@@ -3,16 +3,31 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Player player;
+    public Player player;
     public float xMovement;
     public float yMovement;
     public Rigidbody2D myRigidbody;
     public BoxCollider2D playerCollider;
     public Vector2 change;
     public bool serverControlled;
+    private SendQueue sendQueue;
+    private int playerUUID;
+    private int gameID;
+    private Vector2 previousChange;
     void Start()
     {
-        player = GetComponent<Player>();
+        player = gameObject.GetComponent<Player>();
+        previousChange = Vector2.zero;
+        Debug.Log("PKLAYER IS" + player);
+        if (!serverControlled)
+        {
+            if (player.inGame)
+            {
+                sendQueue = GameObject.Find("Connection").GetComponent<SendQueue>();
+                playerUUID = gameObject.GetComponent<UUIDHandler>().UUID;
+                gameID = GameObject.Find("Connection").GetComponent<gameIDHandler>().gameID;
+            }
+        }
     }
 
     void FixedUpdate()
@@ -31,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
             change = Vector2.zero;
             change.x = xMovement;
             change.y = yMovement;
+            
             //Sets the player's rotation value based on the input.
             if (!serverControlled)
                 setRotation(change);
@@ -39,6 +55,19 @@ public class PlayerMovement : MonoBehaviour
                 setMoving(change);
             //Moves the character based on the input.           
             moveCharacter(change);
+            if (!serverControlled)
+            {
+                if (player.inGame)
+                {
+                    Debug.Log("PALYER IS IN GAME;");
+                    if (!change.Equals(previousChange))
+                    {
+                        Debug.Log("THEY ARE NOT EUQLA WER ARE IN :)");
+                        sendQueue.addMessage("mov:" + gameID + ":" + playerUUID + ":" + change.x + "," + change.y);
+                        previousChange = change;
+                    }
+                }
+            }
         }
     }
 
@@ -52,7 +81,6 @@ public class PlayerMovement : MonoBehaviour
 
     void setRotation(Vector2 change)
     {
-        Debug.Log(gameObject.name);
         //Checks if there is movement in X. X and Y can only be -1, 0, and 1.
         if (change.x != 0)
         {

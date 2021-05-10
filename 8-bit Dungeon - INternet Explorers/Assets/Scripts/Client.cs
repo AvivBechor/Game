@@ -10,12 +10,14 @@ using System.Net.Sockets;
 public class Client : MonoBehaviour
     
 {
+    public Player player;
+    public GameObject test;
     public Queue<Message> messages;
     private int port = 5555;
     private string ip = "127.0.0.1";
     private readonly int HEADER = 4;
-    private Socket s;
-    private bool isRecieving = false;
+    public Socket s;
+    public bool isRecieving = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,17 +28,13 @@ public class Client : MonoBehaviour
         Debug.Log("Connected");
         sendMessage("crt", 111, 3, "warrior/1", s,HEADER);
         string msg=recvMessage((s,HEADER));
-        Debug.Log(msg);
+        Debug.Log("RECIEVED: " + msg);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        Task<string> msgTask = recvMessageAsync((s, HEADER));
-        string msg = await msgTask;
-        Debug.Log("WE RECIEVED: " + msg);
-        */
         if (!isRecieving)
         {
             isRecieving = true;
@@ -52,7 +50,7 @@ public class Client : MonoBehaviour
             }
         }
     }
-    public static bool sendMessage(string cmd, int gameID, int userID, string msg, Socket s, int HEADER)
+    public bool sendMessage(string cmd, int gameID, int userID, string msg, Socket s, int HEADER)
     {
         try
         {
@@ -66,17 +64,18 @@ public class Client : MonoBehaviour
             msg = len.ToString() + msg;
             int byteCount = Encoding.UTF8.GetByteCount(msg);
             byte[] sendData = new byte[byteCount];
-            sendData = Encoding.UTF8.GetBytes(msg);
+            
             if (msg.Length % 2 != 0)
             {
                 msg += "~";
             }
+            sendData = Encoding.UTF8.GetBytes(msg);
             s.Send(sendData);
             return true;
         }
         catch
         {
-            Debug.Log("not connected");
+            Debug.Log("not connected send");
             return false;
         }
     }
@@ -98,6 +97,10 @@ public class Client : MonoBehaviour
             {
                 byte[] msg = new byte[2];
                 s.Receive(msg);
+                if(msg.Equals(new byte[2]))
+                {
+                    Debug.Log("MSG IS EMPTY");
+                }
                 message = Encoding.UTF8.GetString(msg, 0, msg.Length);
                 if (new_msg)
                 {
@@ -108,6 +111,7 @@ public class Client : MonoBehaviour
                 int full_msg_len = full_msg.Replace("~", "").Length;
                 if (full_msg_len - HEADER == msg_len)
                 {
+                    Debug.Log(full_msg);
                     new_msg = true;
                     isRecieving = false;
                     return full_msg.Substring(HEADER, msg_len);
@@ -115,10 +119,11 @@ public class Client : MonoBehaviour
 
             }
         }
-        catch
+        catch(System.Exception e)
         {
+            Debug.Log("THE EXCEPTION IS:" + e);
             isRecieving = false;
-            return "not connected";
+            return "not connected recieve";
         }
     }
 
