@@ -11,7 +11,6 @@ public class Client : MonoBehaviour
     
 {
     public Player player;
-    public GameObject test;
     public Queue<Message> messages;
     private int port = 5555;
     private string ip = "127.0.0.1";

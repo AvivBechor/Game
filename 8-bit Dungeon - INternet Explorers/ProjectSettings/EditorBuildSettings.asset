@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CitySample.unity
     guid: ded9e8911fd452142b1fdbd992c07e41
+  - enabled: 1
+    path: Assets/Scenes/Forest.unity
+    guid: b8912420a2ae5b84f891ab8dd822e571
+  - enabled: 1
+    path: Assets/Scenes/LoadingScreen.unity
+    guid: 976e8c5e80f3b424aafc708bb7e64590
   m_configObjects: {}
