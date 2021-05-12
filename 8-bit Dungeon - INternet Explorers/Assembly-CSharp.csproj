@@ -121,10 +121,12 @@
     <Compile Include="Assets\Scripts\UIContainers\ItemContainer.cs" />
     <Compile Include="Assets\Scripts\UIContainers\PotionSlot.cs" />
     <Compile Include="Assets\Scripts\UUIDHandler.cs" />
+    <Compile Include="Assets\Scripts\game.cs" />
     <Compile Include="Assets\Scripts\gameIDHandler.cs" />
     <Compile Include="Assets\Scripts\loadCity.cs" />
     <Compile Include="Assets\Scripts\queueClient.cs" />
     <Compile Include="Assets\Scripts\rotation.cs" />
+    <Compile Include="Assets\Scripts\serverMovementScript.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

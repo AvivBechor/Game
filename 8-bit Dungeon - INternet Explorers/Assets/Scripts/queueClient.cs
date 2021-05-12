@@ -15,6 +15,7 @@ public class queueClient : MonoBehaviour
     private int port = 5556;
     private string ip = "127.0.0.1";
     private readonly int HEADER = 4;
+    private bool isRecieving = false;
     string msg = "";
     public Socket s;
 
@@ -26,12 +27,21 @@ public class queueClient : MonoBehaviour
         Debug.Log("Connected");
         sendMessage("crt", "", s, HEADER);
         string msg = recvMessage((s, HEADER));
-        Debug.Log("RECIEVED: " + msg);
-        if (msg.Split(':')[0] == "uid")
+        
+    }
+     void Update()
+    {
+        if (!isRecieving)
         {
-            player.GetComponent<UUIDHandler>().UUID = int.Parse(msg.Split(':')[1]);
-            player.GetComponent<gameIDHandler>().gameID = int.Parse(msg.Split(':')[2]);
-            SceneManager.LoadScene("SampleScene");
+            isRecieving = true;
+            string msg = recvMessage((s, HEADER));
+            Debug.Log("RECIEVED: " + msg);
+            if (msg.Split(':')[0] == "uid")
+            {
+                player.GetComponent<UUIDHandler>().UUID = int.Parse(msg.Split(':')[2]);
+                player.GetComponent<gameIDHandler>().gameID = int.Parse(msg.Split(':')[1]);
+                SceneManager.LoadScene("SampleScene");
+            }
         }
     }
     public bool sendMessage(string cmd,  string msg, Socket s, int HEADER)
@@ -97,6 +107,7 @@ public class queueClient : MonoBehaviour
                 {
                     Debug.Log(full_msg);
                     new_msg = true;
+                    isRecieving = false;
                     return full_msg.Substring(HEADER, msg_len);
                 }
 
@@ -105,6 +116,7 @@ public class queueClient : MonoBehaviour
         catch (System.Exception e)
         {
             Debug.Log("THE EXCEPTION IS:" + e);
+            isRecieving = false;
             return "not connected recieve";
         }
     }

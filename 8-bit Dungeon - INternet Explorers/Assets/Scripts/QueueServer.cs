@@ -16,12 +16,13 @@ public class QueueServer : MonoBehaviour
         {
             Message currentMessage = messages.Dequeue();
             Debug.Log("message.cmd " + currentMessage.command + ", uuid " + currentMessage.uuid + " val " + currentMessage.data);
+            Player serverPlayer = GameObject.Find("OtherPlayer").GetComponent<Player>();
             switch (currentMessage.command)
             {
                 case "mov":
-                    GameObject child = getPlayerByUUID(currentMessage.uuid);                          
-                    child.GetComponent<PlayerMovement>().xMovement = float.Parse(currentMessage.data[0].Split(',')[0]);
-                    child.GetComponent<PlayerMovement>().yMovement = float.Parse(currentMessage.data[0].Split(',')[1]);
+                    serverMovementScript otherPlayerMovement = GameObject.Find("OtherPlayer").GetComponent<serverMovementScript>();
+                    otherPlayerMovement.xMovement = int.Parse(currentMessage.data[0].Split(',')[0]);
+                    otherPlayerMovement.yMovement = int.Parse(currentMessage.data[0].Split(',')[1]);
                     break;
                 case "atk":
                     Side dir = Side.UP;
@@ -47,6 +48,17 @@ public class QueueServer : MonoBehaviour
                         currentMessage.data[1],
                         dir
                         );
+                    break;
+                case "srt":
+                    serverPlayer.gameObject.SetActive(true);
+                    serverPlayer.character = new Character();
+                    serverPlayer.character.title = currentMessage.data[0];
+                    serverPlayer.gender = currentMessage.data[1].Equals("1");
+                    serverPlayer.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>(@"MightyPack and more\MV\Characters\Actors_2")[54];
+                    //serverPlayer.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load(@"MightyPack and more\MV\Characters\Actors_2_54", typeof(Sprite)) as Sprite;
+                    break;
+                case "pos":
+                    serverPlayer.transform.position = new Vector3(int.Parse(currentMessage.data[0].Split(',')[0]), int.Parse(currentMessage.data[0].Split(',')[1]), 83.19981f);
                     break;
             }
         }

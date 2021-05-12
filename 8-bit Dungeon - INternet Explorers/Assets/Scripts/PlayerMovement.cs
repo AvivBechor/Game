@@ -9,8 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D myRigidbody;
     public BoxCollider2D playerCollider;
     public Vector2 change;
-    public bool serverControlled;
-    private SendQueue sendQueue;
+    public SendQueue sendQueue;
     private int playerUUID;
     private int gameID;
     private Vector2 previousChange;
@@ -19,14 +18,14 @@ public class PlayerMovement : MonoBehaviour
         player = gameObject.GetComponent<Player>();
         previousChange = Vector2.zero;
         Debug.Log("PKLAYER IS" + player);
-        if (!serverControlled)
+
+        if (!player.singlePlayer)
         {
-            if (player.inGame)
-            {
-                sendQueue = GameObject.Find("Connection").GetComponent<SendQueue>();
-                playerUUID = gameObject.GetComponent<UUIDHandler>().UUID;
-                gameID = GameObject.Find("Connection").GetComponent<gameIDHandler>().gameID;
-            }
+            //sendQueue = GameObject.Find("Connection").GetComponent<SendQueue>();
+            playerUUID = player.GetComponent<UUIDHandler>().UUID;
+            Debug.Log("playr is" + player);
+            Debug.Log("player ID is " + playerUUID);
+            gameID = player.GetComponent<gameIDHandler>().gameID;
         }
     }
 
@@ -36,37 +35,39 @@ public class PlayerMovement : MonoBehaviour
         {
             //Variables to control player movement and rotation, will later be used by the server as well and not only the keyboard input.
             //xMovement = 0;
-            //yMovement = 0;
-            if (!serverControlled)
-            {
-                //only when the chaneg vector changes send the change through to the server 
-                xMovement = Input.GetAxisRaw("Horizontal");
-                yMovement = Input.GetAxisRaw("Vertical");
-            }
+            //yMovement = 0;  
+            xMovement = Input.GetAxisRaw("Horizontal");
+            yMovement = Input.GetAxisRaw("Vertical");
+
             change = Vector2.zero;
             change.x = xMovement;
             change.y = yMovement;
-            
+
             //Sets the player's rotation value based on the input.
-            if (!serverControlled)
-                setRotation(change);
+
+            setRotation(change);
             //Sets the player's moving value based on the input
-            if(!serverControlled)
-                setMoving(change);
+
+            setMoving(change);
             //Moves the character based on the input.           
             moveCharacter(change);
-            if (!serverControlled)
+
+            if (player.inGame)
             {
-                if (player.inGame)
+                Debug.Log("PALYER IS IN GAME;");
+                if (!change.Equals(previousChange))
                 {
-                    Debug.Log("PALYER IS IN GAME;");
-                    if (!change.Equals(previousChange))
+                    Debug.Log("THEY ARE NOT EUQLA WER ARE IN :)");
+                    if (sendQueue)
                     {
-                        Debug.Log("THEY ARE NOT EUQLA WER ARE IN :)");
+                        Debug.Log("queue exists");
                         sendQueue.addMessage("mov:" + gameID + ":" + playerUUID + ":" + change.x + "," + change.y);
                         previousChange = change;
                     }
+                    else
+                        Debug.Log("queue doesnt exist");
                 }
+
             }
         }
     }
@@ -74,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
     void moveCharacter(Vector2 change)
     {
         //Create a new vector that is the distance the player moves within Time.deltaTime
-        Vector3 step = change.normalized * 5 * Time.deltaTime;
+        Vector3 step = change.normalized * player.moveSpeed * Time.deltaTime;
         //Adds the step to the current position.
         myRigidbody.MovePosition(transform.position + step);
     }
@@ -110,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void setMoving(Vector2 change)
-    {      
+    {
         //Checks if there is any movement, meaning if the movement vector is not equal to (0, 0), and sets the isMoving value accordingly.
         if (change != Vector2.zero)
         {

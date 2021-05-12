@@ -15,6 +15,7 @@ public class Client : MonoBehaviour
     private int port = 5555;
     private string ip = "127.0.0.1";
     private readonly int HEADER = 4;
+    private game GAME;
     public Socket s;
     public bool isRecieving = false;
     // Start is called before the first frame update
@@ -25,7 +26,8 @@ public class Client : MonoBehaviour
         s = new Socket(SocketType.Stream, ProtocolType.Tcp);
         s.Connect(ip, port);
         Debug.Log("Connected");
-        sendMessage("crt", 111, 3, "warrior/1", s,HEADER);
+        Debug.Log("ID is " + player.GetComponent<gameIDHandler>().gameID);
+        sendMessage("crt", player.GetComponent<gameIDHandler>().gameID, player.GetComponent<UUIDHandler>().UUID, "warrior/1", s,HEADER);
         string msg=recvMessage((s,HEADER));
         Debug.Log("RECIEVED: " + msg);
 
@@ -38,7 +40,13 @@ public class Client : MonoBehaviour
         {
             isRecieving = true;
             string msg = recvMessage((s, HEADER));
+            
             Debug.Log("RECIEVED: " + msg);
+            if (msg.Split(':')[0].Equals("srt"))
+            {
+                player.inGame = true;
+            }
+
             try
             {
                 messages.Enqueue(new Message(msg.Split(':')[0], int.Parse(msg.Split(':')[1]), msg.Split(':')[2]));
