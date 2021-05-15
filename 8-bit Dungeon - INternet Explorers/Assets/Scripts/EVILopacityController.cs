@@ -20,12 +20,12 @@ public class EVILopacityController : MonoBehaviour
         {
             Debug.Log("ELI");
             if (opacityPanelImage.color.a < 0.4)
-                opacityPanelImage.color = new Color(opacityPanelImage.color.r, opacityPanelImage.color.g, opacityPanelImage.color.b, opacityPanelImage.color.a + 0.05f);
+                opacityPanelImage.color = new Color(opacityPanelImage.color.r, opacityPanelImage.color.g, opacityPanelImage.color.b, opacityPanelImage.color.a + 0.5f * Time.deltaTime);
         }
         else
         {
             if (opacityPanelImage.color.a > 0)
-                opacityPanelImage.color = new Color(opacityPanelImage.color.r, opacityPanelImage.color.g, opacityPanelImage.color.b, opacityPanelImage.color.a - 0.05f);
+                opacityPanelImage.color = new Color(opacityPanelImage.color.r, opacityPanelImage.color.g, opacityPanelImage.color.b, opacityPanelImage.color.a - 0.5f * Time.deltaTime);
         }
     }
 }

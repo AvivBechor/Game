@@ -102,11 +102,12 @@
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\QueueServer.cs" />
     <Compile Include="Assets\Scripts\SendQueue.cs" />
-    <Compile Include="Assets\Scripts\ServerAttack.cs" />
     <Compile Include="Assets\Scripts\Strike.cs" />
     <Compile Include="Assets\Scripts\UI scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\UI scripts\InventoryButtonScript.cs" />
     <Compile Include="Assets\Scripts\UI scripts\InventoryOpen.cs" />
+    <Compile Include="Assets\Scripts\UI scripts\JoinGameScript.cs" />
+    <Compile Include="Assets\Scripts\UI scripts\LeaveScript.cs" />
     <Compile Include="Assets\Scripts\UI scripts\LoginButtonScript.cs" />
     <Compile Include="Assets\Scripts\UI scripts\MenuSelection.cs" />
     <Compile Include="Assets\Scripts\UI scripts\QuitButtonScript.cs" />
@@ -121,7 +122,6 @@
     <Compile Include="Assets\Scripts\UIContainers\ItemContainer.cs" />
     <Compile Include="Assets\Scripts\UIContainers\PotionSlot.cs" />
     <Compile Include="Assets\Scripts\UUIDHandler.cs" />
-    <Compile Include="Assets\Scripts\game.cs" />
     <Compile Include="Assets\Scripts\gameIDHandler.cs" />
     <Compile Include="Assets\Scripts\loadCity.cs" />
     <Compile Include="Assets\Scripts\queueClient.cs" />

@@ -39,8 +39,6 @@ public class MenuSelection : MonoBehaviour
         }
         else if(Input.GetKeyDown("return"))
         {
-            Debug.Log("IN");
-            Debug.Log(buttons[index].GetComponent<menuButtonScript>());
             buttons[index].GetComponent<menuButtonScript>().Run();
         }
     }

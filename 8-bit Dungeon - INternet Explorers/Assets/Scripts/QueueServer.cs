@@ -69,8 +69,10 @@ public class QueueServer : MonoBehaviour
         GameObject a = GameObject.Instantiate(baseAttack, new Vector3(pos.Item1, pos.Item2, 0), Quaternion.identity);
         //TURN TO SWITCH STATEMENT OVER ATTACK NAME
         a.AddComponent<Strike>()
-         .SpawnAttack(atkName, direction);
+         .SpawnAttack(atkName, direction, atkUUID);
+
         //******************************************
+        a.GetComponent<Attack>().isHeadless = false;
         a.AddComponent<UUIDHandler>()
          .UUID = atkUUID;
 

@@ -4,9 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadDungeon : MonoBehaviour
-{ 
+{
+
+    public GameObject panel;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene("LoadingScreen");
+
+        panel.SetActive(true);
+        GameObject.Find("Player").GetComponent<Player>().isInteracting = true;
     }
 }

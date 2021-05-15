@@ -12,7 +12,9 @@ public abstract class Attack : MonoBehaviour
     public string attackName;
     public SpriteRenderer spriteRenderer;
     public Side direction;
-
+    public int uuid;
+    public bool isHeadless = true;
+    private float timePassed;
     public virtual void SpawnAttackHeadless(Player player, string attackName, Side direction)
     {
         this.player = player;
@@ -44,8 +46,9 @@ public abstract class Attack : MonoBehaviour
         //spriteRenderer.sprite = spr;
     }
 
-    public virtual void SpawnAttack(string attackName, Side direction)
+    public virtual void SpawnAttack(string attackName, Side direction, int uuid)
     {
+        this.uuid = uuid;
         this.attackName = attackName;
         this.direction = direction;
         this.spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -68,6 +71,34 @@ public abstract class Attack : MonoBehaviour
         }
         Sprite spr = Resources.Load(@"Attacks\ATK_" + attackName.ToUpper(), typeof(Sprite)) as Sprite;
         spriteRenderer.sprite = spr;
+    }
+
+    public void Update()
+    {
+        if(!isHeadless)
+        {
+            timePassed += Time.deltaTime;
+            if(timePassed >= lifeSpan)
+            {
+                Destroy(gameObject);                
+            }
+            var step = speed * Time.deltaTime;
+            switch (direction)
+            {
+                case Side.UP:
+                    transform.position += new Vector3(0, step, 0);
+                    break;
+                case Side.DOWN:
+                    transform.position += new Vector3(0, -step, 0);
+                    break;
+                case Side.RIGHT:
+                    transform.position += new Vector3(step, 0, 0);
+                    break;
+                case Side.LEFT:
+                    transform.position += new Vector3(-step, 0, 0);
+                    break;
+            }
+        }
     }
     protected abstract int calculateDamage();
 }

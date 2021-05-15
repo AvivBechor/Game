@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (true)
+        if (player.canMove())
         {
             //Variables to control player movement and rotation, will later be used by the server as well and not only the keyboard input.
             //xMovement = 0;

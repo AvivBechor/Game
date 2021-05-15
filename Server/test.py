@@ -1,19 +1,19 @@
 import socket
-import time 
+import time
+import random
 s=socket.socket()
-s.connect(("127.0.0.1",5555))
+s.connect(("127.0.0.1",5556))
 s.setblocking(1)
 new_msg=True
 HEADER=4
 full_msg=''
 msg_len=0
-ID="112"
+ID=""
 #s.send(b"hello")
 count=0
-print("im player 1")
-def sendMessage(cmd,gameID,userID,msg,s,HEADER):
+def sendMessage(cmd,msg,s,HEADER):
     try:
-        msg=cmd+":"+gameID+":"+userID+":"+msg
+        msg=cmd+":"+msg
         msg=f'{len(msg):<{HEADER}}'+msg
         if(len(msg)%2!=0):
             msg+="~"
@@ -41,17 +41,14 @@ def recvMessage(s,HEADER):
 
 while True:
     
-    if count<4:
-        sendMessage("crt",ID,"5","warrior/0",s,HEADER)
-    
+    if count<1:
+        sendMessage("crt","",s,HEADER)
     data=recvMessage(s,HEADER)
     data=data.replace("~","")
-    print(data)
-    if data=="":
-        break
-    if data.split(":")[0]=="end":
-        sendMessage("end",ID,"1","",s,HEADER)
-        
+    if data.split(":")[0]=="uid":
+        ID=int(data.split(":")[1])
+        playerID=int(data.split(":")[2])
+    print("Your game ID is " + str(ID) + " and your player ID is " + str(playerID))
     count+=1
 
 

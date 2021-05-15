@@ -15,7 +15,6 @@ public class Client : MonoBehaviour
     private int port = 5555;
     private string ip = "127.0.0.1";
     private readonly int HEADER = 4;
-    private game GAME;
     public Socket s;
     public bool isRecieving = false;
     // Start is called before the first frame update

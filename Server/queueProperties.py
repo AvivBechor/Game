@@ -4,15 +4,13 @@ global gamesInPlay
 global HEADER
 HEADER=4
 def sendMessage(cmd,msg,s,HEADER):
-    try:
-        msg=cmd+":"+msg
-        msg=f'{len(msg):<{HEADER}}'+msg
-        if(len(msg)%2!=0):
-            msg+="~"
-        s.send(msg.encode("UTF-8"))
-    except:
-        print("not connected")
-
+    msg=cmd+":"+msg
+    msg=f'{len(msg):<{HEADER}}'+msg
+    if(len(msg)%2!=0):
+        msg+="~"
+    s.send(msg.encode("UTF-8"))
+    
+        
 def recvMessage(s,HEADER):
     try:
         new_msg=True
@@ -31,30 +29,30 @@ def recvMessage(s,HEADER):
     except:
         print("not connected")
         return ""
-def generateID(s,gamesInPlay,pendingGames):
+def generateID(s,gamesInPlay,pendingGames,playerID):
     newGameID=random.randint(100, 999)
-    temp=0
     for g in gamesInPlay:
         if g==newGameID:
-            temp=g
-            return generateID(s)
-    if temp==0:
-        pendingGames.append(newGameID)
-        sendMessage("uid", newGameID, s, HEADER)
-        return True
+            return generateID(s,pendingGames,playerID)
+    pendingGames.append(newGameID)
+    sendMessage("uid", "{gameID}:{pID}".format(gameID=str(pendingGames[0]),pID=playerID), s, HEADER)
+    return True
                 
 def handleData(data,s,gamesInPlay,pendingGames):
+    playerID=1
     cmd=data.split(':')[0]
     val=data.split(':')[1]
     val=val.replace("~","")
     
     if cmd=="crt":
+        sendMessage("rcv","",s,HEADER)
         if len(pendingGames)!=0:
-            sendMessage("uid", pendingGames[0], s, HEADER)
+            playerID=2
+            sendMessage("uid", "{gameID}:{pID}".format(gameID=str(pendingGames[0]),pID=playerID), s, HEADER)
             gamesInPlay.append(pendingGames[0])
             pendingGames.remove(pendingGames[0])
         else:
-            generateID(s,gamesInPlay,pendingGames)
+            generateID(s,gamesInPlay,pendingGames,playerID)
     if cmd=="del":
         gamesInPlay.remove(int(val))
 

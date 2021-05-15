@@ -1,15 +1,19 @@
 from queue import Queue
 from socket import *
+import time
+
 class client:
     def __init__(self, ID, socket):
         self.groupID=ID
         self.socket=socket
+
         
 class game:
     def __init__(self,ID):
         self.pending=False
         self.data_to_send=Queue()
         self.ID=ID
+        self.previousTime=time.time()
         self.players=[]
         self.attacks=[]
         self.enemies=[]
@@ -22,25 +26,29 @@ class game:
             self.players.remove(player)
         except:
             pass
-    def addEnemy(self,enemy):
-        self.enemies.append(enemy)
     def run(self):
-        #HEADER=4
-        #print("im running")
-        '''
-        for p in self.players:
-            sendMessage("mat", "0:-5,0/bomb/UP", p.client.socket, HEADER)
-            sendMessage("sht", "1:", p.client.socket, HEADER)
-            sendMessage("asd", "2:fasfffwqer", p.client.socket, HEADER)
-            sendMessage("fds", "12:098", p.client.socket, HEADER)
-            sendMessage("qwe", "34:1234", p.client.socket, HEADER)
-            sendMessage("uio", "123:qwe", p.client.socket, HEADER)
-        #move enemies 
-        #move attacks 
-        #calculate if attack hit enemy and deal dmg/kill
-        #calculate if enemy hit player adn deal dmg/kill
-        #update all players
-        '''
+        HEADER=4
+        for atk in self.attacks:
+            deltaTime=time.time() - self.previousTime
+            atk.timeLived += deltaTime
+            if(atk.timeLived >= atk.lifespan):
+                self.attacks.remove(atk)
+                continue
+            print("DELTA TIME IS " + str(deltaTime))
+            step = atk.speed * deltaTime
+            print("ATTACK POSITION IS " + str(atk.pos))
+            if(atk.direction == "RIGHT"):
+                atk.pos = (atk.pos[0] + step, atk.pos[1])
+            elif(atk.direction == "LEFT"):
+                atk.pos = (atk.pos[0] - step, atk.pos[1])
+            elif(atk.direction == "UP"):
+                atk.pos = (atk.pos[0], atk.pos[1] + step)
+            elif(atk.direction == "DOWN"):
+                atk.pos = (atk.pos[0], atk.pos[1] - step)
+            else:
+                print("INVALID DIRECTION FOR ATTACK " + str(atk.ID));
+            self.previousTime=time.time()
+        
         pass
 
     
@@ -63,7 +71,7 @@ class enemy:
         self.change=change
 class attack:
     def __init__(self,pos,dmg,playerID,speed,direction,lifespan,name,ID):
-        self.pos=(pos.split(',')[0],pos.split(',')[1])
+        self.pos=(int(pos.split(',')[0]),int(pos.split(',')[1]))
         self.dmg=dmg
         self.playerID=playerID
         self.speed=speed
@@ -71,6 +79,7 @@ class attack:
         self.lifespan=lifespan
         self.name=name
         self.ID=ID
+        self.timeLived=0
 
  
 def sendMessage(cmd,msg,s,HEADER):
@@ -141,14 +150,15 @@ def handleData(data,s,games):
         else:  
             games.append(game(groupID))
             games[-1].addPlayer(p)
-            games[-1].pending=True
+            games[-1].pending=True            
             sendMessage("hlt","waiting for players",s,HEADER)
         if (g is not None and len(g.players)==2):
-            g.pending=False
+            g.pending=False          
             for p in g.players:
                 for j in g.players:
                     if p is not j:
                         sendMessage("srt", "{ID}:{title}/{gender}".format(title=p.title,gender=p.gender,ID=p.ID), j.client.socket, HEADER)
+            games[-1].previousTime=time.time()
 
 
     elif(cmd=="mov"):
@@ -167,8 +177,8 @@ def handleData(data,s,games):
         lifespan=values[4]
         name=values[5]
         ID=0 
-        atk=attack(pos,dmg,playerID,speed,direction,lifespan,name,ID)
-        g.addAttack(attack)
+        atk=attack(pos,float(dmg),int(playerID),float(speed),direction,float(lifespan),name,ID)
+        g.addAttack(atk)
         for p in g.players:
            sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}".format(position=pos,AtkName=name,dir=direction,ID=atk.ID), p.client.socket, HEADER)
 
@@ -180,12 +190,12 @@ def handleData(data,s,games):
                 sendMessage("pos","{ID}:{value}".format(ID=p.ID,value=val),p.client.socket,HEADER)
     elif(cmd=="nul"):
         sendMessage("nul","-1:",s,HEADER)
-        '''
+        
     if (g):
         if(g.pending!=True):
             g.run()       
 
-'''
+
 
 
 

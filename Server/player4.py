@@ -10,7 +10,7 @@ HEADER=4
 full_msg=''
 msg_len=0
 inGame=False
-ID="111"
+ID="428"
 #s.send(b"hello")
 count=0
 print("im player 4" + str(s))
@@ -49,7 +49,7 @@ def recvMessage(s,HEADER):
 while True:
     
     if count<1:
-        sendMessage("crt",ID,"4","mage/0",s,HEADER)
+        sendMessage("crt",ID,"2","mage/0",s,HEADER)
     data=recvMessage(s,HEADER)
     data=data.replace("~","")
     print(data)
@@ -61,14 +61,14 @@ while True:
         if(data.split(':')[0]=="mov"):
             print(data)
         if (count==1):
-            sendMessage("atk", ID, "4", "5,-3/30/3/UP/1/bomb", s, HEADER)
+            sendMessage("atk", ID, "2", "5,-3/30/3/UP/2/bomb", s, HEADER)
         
         if (count<20):
-            sendMessage("mov",ID,"4","-1,0",s,HEADER)
+            sendMessage("mov",ID,"2","-1,0",s,HEADER)
         elif (20<count<30): 
-            sendMessage("mov",ID,"4","0,0",s,HEADER)
+            sendMessage("mov",ID,"2","0,0",s,HEADER)
         else:
-            sendMessage("mov",ID,"4","0,1",s,HEADER)
+            sendMessage("mov",ID,"2","0,1",s,HEADER)
             
             
         count+=1
