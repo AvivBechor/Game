@@ -20,7 +20,6 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("ELI"); 
         if (!isDragging)
         {
             if (GetComponent<ItemContainer>().item != null)

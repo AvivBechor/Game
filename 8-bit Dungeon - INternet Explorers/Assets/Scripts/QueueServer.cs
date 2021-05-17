@@ -60,6 +60,19 @@ public class QueueServer : MonoBehaviour
                 case "pos":
                     serverPlayer.transform.position = new Vector3(int.Parse(currentMessage.data[0].Split(',')[0]), int.Parse(currentMessage.data[0].Split(',')[1]), 83.19981f);
                     break;
+                case "kil":
+                    Debug.Log("WE ARE KILLING A " + currentMessage.data[0] + " AND IT'S UUID IS " + currentMessage.uuid);
+                    GameObject Container = GameObject.Find(currentMessage.data[0] + "Container");
+                    foreach (Transform child in Container.transform)
+                    {
+                        if(child.GetComponent<UUIDHandler>().UUID == currentMessage.uuid)
+                        {
+                            //Debug.Log("KILLED CHILD");
+                            GameObject.Destroy(child.gameObject);
+                            break;
+                        }
+                    }
+                    break;
             }
         }
     }
@@ -67,6 +80,7 @@ public class QueueServer : MonoBehaviour
     void createAttack(int atkUUID, (float, float) pos, string atkName, Side direction)
     {
         GameObject a = GameObject.Instantiate(baseAttack, new Vector3(pos.Item1, pos.Item2, 0), Quaternion.identity);
+        a.transform.SetParent(GameObject.Find("AttackContainer").transform);
         //TURN TO SWITCH STATEMENT OVER ATTACK NAME
         a.AddComponent<Strike>()
          .SpawnAttack(atkName, direction, atkUUID);

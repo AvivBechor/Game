@@ -80,7 +80,7 @@ public abstract class Attack : MonoBehaviour
             timePassed += Time.deltaTime;
             if(timePassed >= lifeSpan)
             {
-                Destroy(gameObject);                
+                //Destroy(gameObject);                
             }
             var step = speed * Time.deltaTime;
             switch (direction)

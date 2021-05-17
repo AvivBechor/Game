@@ -91,7 +91,7 @@ public class Client : MonoBehaviour
         (Socket, int) t = ((Socket,int))obj;
         Socket s = t.Item1;
         int HEADER = t.Item2;
-        s.ReceiveTimeout = 10;
+        s.ReceiveTimeout = 20;
 
         try
         {
@@ -117,6 +117,7 @@ public class Client : MonoBehaviour
                 int full_msg_len = full_msg.Replace("~", "").Length;
                 if (full_msg_len - HEADER == msg_len)
                 {
+                    Debug.Log("RECVIECE FROM SOCKET " + s.ToString());
                     Debug.Log(full_msg);
                     new_msg = true;
                     isRecieving = false;

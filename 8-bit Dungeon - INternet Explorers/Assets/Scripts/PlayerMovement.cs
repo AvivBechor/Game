@@ -17,14 +17,11 @@ public class PlayerMovement : MonoBehaviour
     {
         player = gameObject.GetComponent<Player>();
         previousChange = Vector2.zero;
-        Debug.Log("PKLAYER IS" + player);
 
         if (!player.singlePlayer)
         {
-            //sendQueue = GameObject.Find("Connection").GetComponent<SendQueue>();
+            
             playerUUID = player.GetComponent<UUIDHandler>().UUID;
-            Debug.Log("playr is" + player);
-            Debug.Log("player ID is " + playerUUID);
             gameID = player.GetComponent<gameIDHandler>().gameID;
         }
     }
@@ -34,8 +31,6 @@ public class PlayerMovement : MonoBehaviour
         if (player.canMove())
         {
             //Variables to control player movement and rotation, will later be used by the server as well and not only the keyboard input.
-            //xMovement = 0;
-            //yMovement = 0;  
             xMovement = Input.GetAxisRaw("Horizontal");
             yMovement = Input.GetAxisRaw("Vertical");
 

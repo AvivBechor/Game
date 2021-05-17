@@ -18,7 +18,6 @@ public class EVILopacityController : MonoBehaviour
     {
         if (Physics2D.OverlapCircle(transform.position, .2f, evilGround))
         {
-            Debug.Log("ELI");
             if (opacityPanelImage.color.a < 0.4)
                 opacityPanelImage.color = new Color(opacityPanelImage.color.r, opacityPanelImage.color.g, opacityPanelImage.color.b, opacityPanelImage.color.a + 0.5f * Time.deltaTime);
         }

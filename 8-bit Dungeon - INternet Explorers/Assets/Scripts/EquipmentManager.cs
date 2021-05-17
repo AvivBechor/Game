@@ -16,8 +16,6 @@ public class EquipmentManager : MonoBehaviour
 
     public void apply(Item New, Item Old)
     {
-        Debug.Log("new is " + New);
-        Debug.Log("old is " + Old);
         if (New != null)
         {
             foreach (KeyValuePair<string, int> entry in ((Equipment)New).stats)
