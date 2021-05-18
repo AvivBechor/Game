@@ -19,10 +19,9 @@ public class SendQueue : MonoBehaviour
     {
         if (player.inGame)
         {
-            Debug.Log("IT SEETMS THAT OUR PP************LAYER IS IN G*************AME ::)))");
+            
             if (messages.Count > 0)
             {
-
                 string currentMessage = messages.Dequeue();
                 Debug.Log("sending from queue: " + currentMessage);
                 client.sendMessage(currentMessage.Split(':')[0], int.Parse(currentMessage.Split(':')[1]), int.Parse(currentMessage.Split(':')[2]), currentMessage.Split(':')[3], client.s, 4);

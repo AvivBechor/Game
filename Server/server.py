@@ -1,3 +1,4 @@
+#server.py
 import socket
 import select
 import gameProperties
@@ -9,7 +10,8 @@ server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 clients = []
 games=[]
 RUN =True
-server_socket.bind(("localhost",5555))
+ip="localhost"#will cahnge to the ip of the virtual machine
+server_socket.bind((ip,5555))
 
 server_socket.listen(4)
 server_socket.setblocking(False)

@@ -1,54 +1,57 @@
-import socket
+import math
 import time
-import random
-s=socket.socket()
-s.connect(("127.0.0.1",5556))
-s.setblocking(1)
-new_msg=True
-HEADER=4
-full_msg=''
-msg_len=0
-ID=""
-#s.send(b"hello")
-count=0
-def sendMessage(cmd,msg,s,HEADER):
-    try:
-        msg=cmd+":"+msg
-        msg=f'{len(msg):<{HEADER}}'+msg
-        if(len(msg)%2!=0):
-            msg+="~"
-        s.send(msg.encode())
-    except:
-        print("not connected")
+starttime = time.time()
+hmap=[
+    "**********",
+    "*GGGGGGGG*",
+    "*GGPGGGGG*",
+    "*GGGGGGGG*",
+    "*GGGGGGGG*",
+    "*GGGGEGGG*",
+    "**********"
+    ];
+def WorldToIndex(pos):
+    return (pos[0], len(hmap)-1-pos[1]);
+def FindNextCell(e,player):
+    avilableCells=[]
+    bestCell=(e[0], e[1], 10000)
+    for i in range(-1, 2):
+        for j in range(-1, 2):
+            currentX = i+e[0]
+            currentY = j+e[1]
+            currentCell=hmap[currentX][currentY]            
+            if(currentCell != "*"):
+                toAppend=(currentX, currentY, math.dist((currentX, currentY), player))
+                if(toAppend[2] < bestCell[2]):
+                    bestCell = toAppend
+    return (bestCell[0], bestCell[1])
 
-def recvMessage(s,HEADER):
-    try:
-        new_msg=True
-        full_msg=''
-        msg_len=0
-        while True:
-            msg=s.recv(2)
-            if new_msg:
-                msg_len=int(msg[:HEADER])
-                new_msg=False
-            full_msg+=msg.decode()
-            if (len(full_msg.replace("~",""))-HEADER==msg_len):
-                new_msg=True
-                return full_msg[HEADER:]
-    except:
-        print("not connected")
-        return ""
+
+enemy=(5,5)
+player=(3,3)
+enemySpeed=1.5
+enemyTarget=FindNextCell(enemy,player)
+avilableCells=[]
+previousTime=time.time()
+
 
 while True:
-    
-    if count<1:
-        sendMessage("crt","",s,HEADER)
-    data=recvMessage(s,HEADER)
-    data=data.replace("~","")
-    if data.split(":")[0]=="uid":
-        ID=int(data.split(":")[1])
-        playerID=int(data.split(":")[2])
-    print("Your game ID is " + str(ID) + " and your player ID is " + str(playerID))
-    count+=1
-
-
+    time.sleep(0.001)
+    deltaTime=time.time() - previousTime        
+    step = enemySpeed * deltaTime
+    #print("step" + str(step))
+    roundedEnemy = (round(enemy[0]), round(enemy[1]))
+    #print("roundedEnemy:" + str(roundedEnemy))
+    #print("enemyTarget:" + str(enemyTarget))
+    if(roundedEnemy == enemyTarget):   
+        enemyTarget = FindNextCell(roundedEnemy, player)
+        #print("new enemyTarget:" + str(enemyTarget))
+    enemyChange = (enemyTarget[0]-roundedEnemy[0], enemyTarget[1]-roundedEnemy[1])
+    #print("Change " + str(enemyChange))
+    enemy = (enemy[0] + step * enemyChange[0], enemy[1] + step * enemyChange[1])
+    #print(str(enemy));
+    #print("____________")  
+    if(roundedEnemy == player):
+        print("END TIME" + str(time.time()-starttime))
+        break;
+    previousTime = time.time()

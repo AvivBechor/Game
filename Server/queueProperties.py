@@ -1,3 +1,4 @@
+#queueProperies.py
 import random
 global pendingGames
 global gamesInPlay
@@ -36,7 +37,6 @@ def generateID(s,gamesInPlay,pendingGames,playerID):
             return generateID(s,pendingGames,playerID)
     pendingGames.append(newGameID)
     sendMessage("uid", "{gameID}:{pID}".format(gameID=str(pendingGames[0]),pID=playerID), s, HEADER)
-    return True
                 
 def handleData(data,s,gamesInPlay,pendingGames):
     playerID=1
@@ -90,23 +90,3 @@ def send_data(w_list):#sends data to every client (you can always exclude someon
                 except ConnectionError:
                     remove_client(c)
 '''
-
-def recv_all(sock):# receives all data (in case it's bigger than the buffer).
-    BUFF_SIZE = 4096  # 4 KiB
-    data = b''
-    while True:
-        part = sock.recv(BUFF_SIZE)
-        data += part
-        if len(part) < BUFF_SIZE:# either 0 or end of data   
-            break
-    return data
-
-def remove_client(client, clients):
-    clients.remove(client)
-
-def close(server_socket):# closes the server safely to avoid trouble.   
-    try:
-        server_socket.close()
-        return False
-    except OSError:
-        pass

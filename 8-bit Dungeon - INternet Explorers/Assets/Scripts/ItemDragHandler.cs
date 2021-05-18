@@ -15,7 +15,7 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         
         equipmentManager = gameObject.GetComponentInParent<EquipmentManager>();
-        Debug.Log(equipmentManager);
+       
     }
 
     public void OnDrag(PointerEventData eventData)

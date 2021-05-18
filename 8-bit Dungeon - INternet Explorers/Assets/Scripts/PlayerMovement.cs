@@ -49,13 +49,12 @@ public class PlayerMovement : MonoBehaviour
 
             if (player.inGame)
             {
-                Debug.Log("PALYER IS IN GAME;");
+
                 if (!change.Equals(previousChange))
                 {
-                    Debug.Log("THEY ARE NOT EUQLA WER ARE IN :)");
+
                     if (sendQueue)
-                    {
-                        Debug.Log("queue exists");
+                    { 
                         sendQueue.addMessage("mov:" + gameID + ":" + playerUUID + ":" + change.x + "," + change.y);
                         previousChange = change;
                     }

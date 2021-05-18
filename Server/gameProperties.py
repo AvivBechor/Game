@@ -1,3 +1,4 @@
+#gameProperties.py
 from socket import *
 import time
 from datetime import datetime
@@ -24,7 +25,7 @@ class game:
     def generateMap(self):
         pass
     def generateWave(self):
-        return [skeleton(100,"5,3","UP","stats",10)]
+        return [skeleton(100,"5,5","UP","stats",10)]
     def addPlayer(self,player):
         self.players.append(player)
     def addAttack(self,attack):
@@ -38,17 +39,19 @@ class game:
         pass
         #send the position of all the enemies to all players
     def run(self):
-        
+        time.sleep(0.01)
         HEADER=4
         atkAlive=True
         deltaTime=time.time() - self.previousTime
         self.timeAccumulator += deltaTime
         if len(self.enemies)==0:
             self.enemies=self.generateWave()
-        for atk in self.attacks:            
+        for atk in self.attacks:
+            
             atk.timeLived += deltaTime
             if(atk.timeLived >= atk.lifespan):
                 self.attacks.remove(atk)
+                atkAlive=False
                 continue
             if(self.timeAccumulator>=0.2):
                 self.timeAccumulator=0
@@ -65,17 +68,13 @@ class game:
                         if(y1 + h1 >= y2 and y1 + h1 <= y2 + h2):
                             e.HP-=atk.dmg
                             if(e.HP<=0):
-                                print("COLLISION " + str(datetime.now()))
                                 for p in self.players:
-                                
                                     sendMessage("kil","{ID}:Enemy".format(ID=e.ID),p.client.socket,HEADER)
                                     if(atk.isRanged==True):
                                         sendMessage("kil","{ID}:Attack".format(ID=atk.ID),p.client.socket,HEADER)
                                 self.enemies.remove(e)
                             self.attacks.remove(atk)
                             atkAlive=False
-                            
-                        
                         
             if (atkAlive):           
                 step = atk.speed * deltaTime
@@ -88,8 +87,7 @@ class game:
                 elif(atk.direction == "DOWN"):
                     atk.pos = (atk.pos[0], atk.pos[1] - step)
                 else:
-                    print("INVALID DIRECTION FOR ATTACK " + str(atk.ID))
-            
+                    print("INVALID DIRECTION FOR ATTACK " + str(atk.ID)) 
         self.previousTime=time.time()
 
     
@@ -162,7 +160,6 @@ def recvMessage(s,HEADER):
     full_msg=''
     msg_len=0
     s.settimeout(0.01)
-    #s.settimeout(0.01)
     while True:
         msg=s.recv(2)
         if new_msg:
@@ -177,7 +174,7 @@ def findGame(ID,games):
     for g in games:
          if g.ID==ID:
              return g 
-def deleteGame(games,gameID,playerID,HEADER):
+def deleteGame(games,gameID,playerID):
     
     g=findGame(gameID,games)
     if (g):
@@ -204,13 +201,13 @@ def handleData(data,s,games):
     HEADER=4
     if(cmd=="crt"):
         values=val.split("/")
-        p=player(client(groupID,s),(-5,0),playerID,values[0],values[1])
+        p=player(client(groupID,s),(3,5),playerID,values[0],values[1])
         if g:
             g.addPlayer(p)
             sendMessage("add","player added",s,HEADER)
             if len(g.players)==2:
                 for p in g.players:
-                    sendMessage("pos","{ID}:-5,0".format(ID=p.ID),p.client.socket,HEADER)
+                    sendMessage("pos","{ID}:3,5".format(ID=p.ID),p.client.socket,HEADER)
                 
         else:  
             games.append(game(groupID))
@@ -261,7 +258,7 @@ def handleData(data,s,games):
         
     if (g):
         if(g.pending!=True):
-            g.run()       
+            g.run(games)       
 
 
 
@@ -275,28 +272,9 @@ atk: attack
 pos: hard set player position 
 swp: request to change room 
 end: finish game
-
-    
-def send_data(w_list):#sends data to every client (you can always exclude someone with a simple if)
-    while not data_to_send.empty():
-        data = data_to_send.get()
-        for c in clients:
-            if c in w_list:
-                try:
-                    c.send(data.encode())
-                except ConnectionError:
-                    remove_client(c)
 '''
 
-def recv_all(sock):# receives all data (in case it's bigger than the buffer).
-    BUFF_SIZE = 4096  # 4 KiB
-    data = b''
-    while True:
-        part = sock.recv(BUFF_SIZE)
-        data += part
-        if len(part) < BUFF_SIZE:# either 0 or end of data   
-            break
-    return data
+
 
 def remove_client(client, clients):
     clients.remove(client)

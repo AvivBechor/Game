@@ -1,3 +1,4 @@
+#queueServer.py
 import socket
 import select
 import threading
@@ -9,13 +10,10 @@ HEADER=4
 
 gamesInPlay=[] #an int array with all the game IDs in play 
 pendingGames=[] #an int array with all the game IDs waiting fro players 
-server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# To avoid bind() exception – 'OSError: [Errno 48] Address already in use.'
-#server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-clients = []
-games=[]
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)games=[]
 RUN =True
-server_socket.bind(("localhost",5556))
+ip="localhost"#will cahnge to the ip of the virtual machine
+server_socket.bind((ip,5556))
 server_socket.listen(4)
 server_socket.setblocking(False)
 count=0

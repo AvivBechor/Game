@@ -8,10 +8,6 @@ public class Inventory : MonoBehaviour
 {
     public Item test;
 
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
