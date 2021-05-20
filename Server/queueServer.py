@@ -10,7 +10,9 @@ HEADER=4
 
 gamesInPlay=[] #an int array with all the game IDs in play 
 pendingGames=[] #an int array with all the game IDs waiting fro players 
-server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)games=[]
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+clients=[]
+games=[]
 RUN =True
 ip="localhost"#will cahnge to the ip of the virtual machine
 server_socket.bind((ip,5556))

@@ -10,7 +10,7 @@ HEADER=4
 full_msg=''
 msg_len=0
 inGame=False
-ID="207"
+ID="420"
 #s.send(b"hello")
 count=0
 print("im player 4" + str(s))
@@ -61,7 +61,7 @@ while True:
         if(data.split(':')[0]=="mov"):
             print(data)
         if (count==1):
-            sendMessage("atk", ID, "2", "5,3/100/3/UP/2/strike", s, HEADER)
+            sendMessage("atk", ID, "2", "3,1/100/3/UP/2/strike", s, HEADER)
         
         if (count<20):
             sendMessage("mov",ID,"2","-1,0",s,HEADER)

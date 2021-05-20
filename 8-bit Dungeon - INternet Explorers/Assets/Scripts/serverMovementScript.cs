@@ -20,7 +20,6 @@ public class serverMovementScript : MonoBehaviour
         change.y = yMovement;
 
         //Sets the player's rotation value based on the input.
-
         setRotation(change);
         //Sets the player's moving value based on the input
 

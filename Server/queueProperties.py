@@ -58,7 +58,10 @@ def handleData(data,s,gamesInPlay,pendingGames):
 
         
         
-        
+
+def remove_client(client, clients):
+    clients.remove(client)
+     
                 
 
        

@@ -2,6 +2,11 @@
 from socket import *
 import time
 from datetime import datetime
+import math
+from pathfinding.core.diagonal_movement import DiagonalMovement
+from pathfinding.core.grid import Grid
+from pathfinding.finder.a_star import AStarFinder
+
 
 class client:
     def __init__(self, ID, socket):
@@ -19,13 +24,21 @@ class game:
         self.enemies=[]
         self.map=[]
         self.timeAccumulator=0
+        self.finder = AStarFinder(diagonal_movement=DiagonalMovement.always)
     def generate(self):
         self.map=self.generateMap()
-        self.enemies=self.generateWave()
+        self.generateWave()
+        self.grid = Grid(matrix=self.map)
     def generateMap(self):
-        pass
+        return [[1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 1],
+                [1, 1, 0, 1, 1],
+                [1, 1, 0, 1, 1]
+                ]
     def generateWave(self):
-        return [skeleton(100,"5,5","UP","stats",10)]
+        self.enemies=[skeleton(100,"4,0","UP",{"speed":1},10,1)] #generated list
+        self.sendEnemyPos()
     def addPlayer(self,player):
         self.players.append(player)
     def addAttack(self,attack):
@@ -36,18 +49,25 @@ class game:
         except:
             pass
     def sendEnemyPos(self):
-        pass
-        #send the position of all the enemies to all players
+        HEADER=4
+        for p in self.players:
+            for e in self.enemies:
+                sendMessage("enm", "{ID}:{name}/{pos}/{level}".format(ID=e.ID,name=type(e).__name__,pos=str(e.pos),level=e.level),p.client.socket,HEADER)
+    def WorldToIndex(self,pos):
+        return (pos[0], len(self.map)-pos[1]-1)
+    
     def run(self):
+        #initialize
         time.sleep(0.01)
         HEADER=4
         atkAlive=True
         deltaTime=time.time() - self.previousTime
         self.timeAccumulator += deltaTime
+        #spawn wave 
         if len(self.enemies)==0:
-            self.enemies=self.generateWave()
+            self.generateWave()
+        #kill attack
         for atk in self.attacks:
-            
             atk.timeLived += deltaTime
             if(atk.timeLived >= atk.lifespan):
                 self.attacks.remove(atk)
@@ -55,6 +75,7 @@ class game:
                 continue
             if(self.timeAccumulator>=0.2):
                 self.timeAccumulator=0
+        #check collision
                 for e in self.enemies:
                     x1=atk.pos[0] - atk.hitbox[0]/2
                     w1=atk.hitbox[0]
@@ -64,8 +85,9 @@ class game:
                     h1=atk.hitbox[1]
                     y2=e.pos[1] - e.hitbox[1]/2
                     h2=e.hitbox[1]              
-                    if( x1 + w1 >= x2 and x1 + w1 <= x2 + w2):
-                        if(y1 + h1 >= y2 and y1 + h1 <= y2 + h2):
+                    if( x1 + w1 > x2 and x1 + w1 < x2 + w2):
+                        if(y1 + h1 > y2 and y1 + h1 < y2 + h2):
+                            print("collide")
                             e.HP-=atk.dmg
                             if(e.HP<=0):
                                 for p in self.players:
@@ -75,7 +97,8 @@ class game:
                                 self.enemies.remove(e)
                             self.attacks.remove(atk)
                             atkAlive=False
-                        
+
+            #move attacks          
             if (atkAlive):           
                 step = atk.speed * deltaTime
                 if(atk.direction == "RIGHT"):
@@ -83,11 +106,22 @@ class game:
                 elif(atk.direction == "LEFT"):
                     atk.pos = (atk.pos[0] - step, atk.pos[1])
                 elif(atk.direction == "UP"):
-                    atk.pos = (atk.pos[0], atk.pos[1] + step)
-                elif(atk.direction == "DOWN"):
                     atk.pos = (atk.pos[0], atk.pos[1] - step)
+                elif(atk.direction == "DOWN"):
+                    atk.pos = (atk.pos[0], atk.pos[1] + step)
                 else:
-                    print("INVALID DIRECTION FOR ATTACK " + str(atk.ID)) 
+                    print("INVALID DIRECTION FOR ATTACK " + str(atk.ID))
+        #move enemies
+        for e in self.enemies:
+                    closestPlayer = e.findClosestPlayer(self.players)
+                    self.grid.cleanup()
+                    step=e.stats["speed"]*deltaTime
+                    path, roundedEnemy = e.find(closestPlayer, self.finder, self.grid)
+                    if(len(path) > 0):
+                        targetCell = path[0]
+                        change = (targetCell[0]-roundedEnemy.x, targetCell[1]-roundedEnemy.y)
+                        e.pos = (e.pos[0] + step * change[0], e.pos[1] + step * change[1])
+                        #send change vector sendMessage("mov",change/e.name)
         self.previousTime=time.time()
 
     
@@ -99,28 +133,37 @@ class player:
         self.ID=ID
         self.title=title 
         self.gender=gender
+        self.change=(0,0)
     def setPos(self,x,y):
         self.pos=(x,y)
+    def Change(self,change):
+        self.change=change
 class enemy:
-    def __init__(self,HP,pos,rotation,stats,ID):
+    def __init__(self,HP,pos,rotation,stats,ID,level):
         self.HP=HP
         self.pos=(float(pos.split(',')[0]),float(pos.split(',')[1]))
         self.rotation=rotation
         self.stats=stats
         self.ID=ID
+        self.level=level
         
-    def find(self):
-        #pathfinding
-        pass
+    def find(self, player, finder, grid):
         
+        
+        roundedEnemy = grid.node(math.floor(self.pos[0]), math.floor(self.pos[1]))
+        roundedPlayer = grid.node(math.floor(player.pos[0]), math.floor(player.pos[1]))
+        path, runs = finder.find_path(roundedEnemy, roundedPlayer, grid)
+        return path[1:], roundedEnemy
+    
+    def findClosestPlayer(self, players):
+        if(math.dist(players[0].pos, self.pos) < math.dist(players[1].pos, self.pos)):
+            return players[0]
+        return players[1]
 
 class skeleton(enemy):
-    def __init__(self,HP,pos,rotation,stats,ID):
-        enemy.__init__(self,HP,pos,rotation,stats,ID)
+    def __init__(self,HP,pos,rotation,stats,ID,level):
+        enemy.__init__(self,HP,pos,rotation,stats,ID,level)
         self.hitbox=self.createHitbox()
-    def find(self):
-        #pathfidning
-        pass
     def createHitbox(self):
         return(1,1)
 class attack:
@@ -147,7 +190,7 @@ class attack:
         
             
 
- 
+
 def sendMessage(cmd,msg,s,HEADER):
         msg=cmd+":"+msg
         msg=f'{len(msg):<{HEADER}}'+msg
@@ -201,13 +244,13 @@ def handleData(data,s,games):
     HEADER=4
     if(cmd=="crt"):
         values=val.split("/")
-        p=player(client(groupID,s),(3,5),playerID,values[0],values[1])
+        p=player(client(groupID,s),(3,4),playerID,values[0],values[1])
         if g:
             g.addPlayer(p)
             sendMessage("add","player added",s,HEADER)
             if len(g.players)==2:
                 for p in g.players:
-                    sendMessage("pos","{ID}:3,5".format(ID=p.ID),p.client.socket,HEADER)
+                    sendMessage("pos","{ID}:{pos}".format(ID=p.ID,pos=g.WorldToIndex(p.pos)),p.client.socket,HEADER)
                 
         else:  
             games.append(game(groupID))
@@ -228,9 +271,10 @@ def handleData(data,s,games):
     elif(cmd=="mov"):
         for p in g.players:
             if(p.client.socket is s):
+                p.Change((int(val.split(",")[0]),int(val.split(",")[1])*-1))
                 sendMessage("rcv","0:recieved",p.client.socket,HEADER)
                 continue
-            sendMessage("mov","{ID}:{value}".format(ID=playerID,value=val),p.client.socket,HEADER)
+            sendMessage("mov","{ID}:{value}/Player".format(ID=playerID,value=val),p.client.socket,HEADER)
                 
     elif(cmd=="atk"):
         values=val.split('/')
@@ -242,15 +286,15 @@ def handleData(data,s,games):
         name=values[5]
         ID=0
         atk=attack(pos,float(dmg),int(playerID),float(speed),direction,float(lifespan),name,ID)
+        atk.pos=g.WorldToIndex(atk.pos)
         g.addAttack(atk)
-        print(atk.ID)
         for p in g.players:
            sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}".format(position=pos,AtkName=name,dir=direction,ID=atk.ID), p.client.socket, HEADER)
 
     elif(cmd=="pos"):
         for p in g.players:
             if(p.ID==playerID):
-                p.setPos(int(val.split(",")[0]),int(val.split(",")[1]))
+                p.setPos(g.WorldToIndex(float(val.split(",")[0]),float(val.split(",")[1])))
             else:
                 sendMessage("pos","{ID}:{value}".format(ID=p.ID,value=val),p.client.socket,HEADER)
     elif(cmd=="nul"):
@@ -258,7 +302,7 @@ def handleData(data,s,games):
         
     if (g):
         if(g.pending!=True):
-            g.run(games)       
+            g.run()       
 
 
 

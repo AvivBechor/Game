@@ -7,6 +7,7 @@ public class QueueServer : MonoBehaviour
 {
     public Queue<Message> messages;
     public GameObject baseAttack;
+    public GameObject baseEnemy;
 
     // Update is called once per frame
     void Update()
@@ -20,9 +21,29 @@ public class QueueServer : MonoBehaviour
             switch (currentMessage.command)
             {
                 case "mov":
-                    serverMovementScript otherPlayerMovement = GameObject.Find("OtherPlayer").GetComponent<serverMovementScript>();
-                    otherPlayerMovement.xMovement = int.Parse(currentMessage.data[0].Split(',')[0]);
-                    otherPlayerMovement.yMovement = int.Parse(currentMessage.data[0].Split(',')[1]);
+                    switch(currentMessage.data[1])
+                    {
+                        case "Player":
+                            serverMovementScript otherPlayerMovement = GameObject.Find("OtherPlayer").GetComponent<serverMovementScript>();
+                            otherPlayerMovement.xMovement = int.Parse(currentMessage.data[0].Split(',')[0]);
+                            otherPlayerMovement.yMovement = int.Parse(currentMessage.data[0].Split(',')[1]);
+                            break;
+                        case "Enemy":
+                            GameObject enemies = GameObject.Find("EnemyContainer");
+                            GameObject enemy = null;
+                            foreach (Transform child in enemies.transform)
+                            {
+                                if (child.GetComponent<UUIDHandler>().UUID == currentMessage.uuid)
+                                {
+                                    enemy = child.gameObject;
+                                    break;
+                                }
+                            }
+                            enemyMovementScript enemymovement = enemy.GetComponent<enemyMovementScript>();
+                            enemymovement.xMovement = int.Parse(currentMessage.data[0].Split(',')[0]);
+                            enemymovement.yMovement = int.Parse(currentMessage.data[0].Split(',')[1]);
+                            break;
+                    }
                     break;
                 case "atk":
                     Side dir = Side.UP;
@@ -90,6 +111,15 @@ public class QueueServer : MonoBehaviour
         a.AddComponent<UUIDHandler>()
          .UUID = atkUUID;
 
+    }
+
+    void createEnemy(int UUID, (float, float) pos, string enemyName)
+    {
+        GameObject a = GameObject.Instantiate(baseEnemy, new Vector3(pos.Item1, pos.Item2, 0), Quaternion.identity);
+        a.transform.SetParent(GameObject.Find("EnemyContainer").transform);
+        //SWITCH OVER ENEMY NAME
+        a.AddComponent<Enemy>();
+        a.GetComponent<UUIDHandler>().UUID = UUID;
     }
 
     GameObject getPlayerByUUID(int uuid)
