@@ -11,7 +11,11 @@ public class enemyMovementScript : MonoBehaviour
     public Rigidbody2D myRigidbody;
     //public BoxCollider2D playerCollider;
     public Vector2 change;
-
+    public void Start()
+    {
+        enemy = gameObject.GetComponent<Enemy>();
+        myRigidbody = gameObject.GetComponent<Rigidbody2D>();
+    }
     private void FixedUpdate()
     {
         //X and Y movement to be set by the server
@@ -25,14 +29,28 @@ public class enemyMovementScript : MonoBehaviour
         //setMoving(change);
         //Moves the character based on the input.           
         moveCharacter(change);
-
+        switch(enemy.rotation)
+        {
+            case Side.UP:
+                gameObject.GetComponent<SpriteRenderer>().sprite = enemy.spriteUP;
+                break;
+            case Side.DOWN:
+                gameObject.GetComponent<SpriteRenderer>().sprite = enemy.spriteDOWN;
+                break;
+            case Side.LEFT:
+                gameObject.GetComponent<SpriteRenderer>().sprite = enemy.spriteLEFT;
+                break;
+            case Side.RIGHT:
+                gameObject.GetComponent<SpriteRenderer>().sprite = enemy.spriteRIGHT;
+                break;
+        }
 
     }
 
     void moveCharacter(Vector2 change)
     {
         //Create a new vector that is the distance the player moves within Time.deltaTime
-        Vector3 step = change.normalized * enemy.movementSpeed * Time.deltaTime;
+        Vector3 step = change.normalized * enemy.stats["Movespeed"].value * Time.deltaTime;
         //Adds the step to the current position.
         myRigidbody.MovePosition(transform.position + step);
     }

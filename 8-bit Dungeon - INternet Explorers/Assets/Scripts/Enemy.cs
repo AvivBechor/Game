@@ -8,6 +8,17 @@ public class Enemy : MonoBehaviour
     public string name;
     public Dictionary<string, Stat> stats;
     public int level;
-    public int movementSpeed;
     public Side rotation;
+    public Sprite spriteUP;
+    public Sprite spriteDOWN;
+    public Sprite spriteLEFT;
+    public Sprite spriteRIGHT;
+
+    public virtual void Init(string name, int level)
+    {
+        this.rotation = Side.UP;
+        this.level = level;
+        this.name = name;       
+    }
+
 }

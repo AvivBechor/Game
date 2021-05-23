@@ -39,9 +39,13 @@ public class QueueServer : MonoBehaviour
                                     break;
                                 }
                             }
+                            /*
+                            Debug.Log("Found " + enemy + " with uuid " + enemy.gameObject.GetComponent<UUIDHandler>().UUID);
                             enemyMovementScript enemymovement = enemy.GetComponent<enemyMovementScript>();
                             enemymovement.xMovement = int.Parse(currentMessage.data[0].Split(',')[0]);
-                            enemymovement.yMovement = int.Parse(currentMessage.data[0].Split(',')[1]);
+                            enemymovement.yMovement = int.Parse(currentMessage.data[0].Split(',')[1]);*/
+                         
+                            enemy.transform.position = new Vector3(float.Parse(currentMessage.data[0].Split(',')[0]), float.Parse(currentMessage.data[0].Split(',')[1]), enemy.transform.position.z);
                             break;
                     }
                     break;
@@ -79,6 +83,7 @@ public class QueueServer : MonoBehaviour
                     //serverPlayer.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load(@"MightyPack and more\MV\Characters\Actors_2_54", typeof(Sprite)) as Sprite;
                     break;
                 case "pos":
+                    Debug.Log("messgae is " + currentMessage.data[0]);
                     serverPlayer.transform.position = new Vector3(int.Parse(currentMessage.data[0].Split(',')[0]), int.Parse(currentMessage.data[0].Split(',')[1]), 83.19981f);
                     break;
                 case "kil":
@@ -93,6 +98,13 @@ public class QueueServer : MonoBehaviour
                             break;
                         }
                     }
+                    break;
+                case "enm":
+                    createEnemy(
+                        currentMessage.uuid, 
+                        currentMessage.data[0],
+                        (float.Parse(currentMessage.data[1].Split(',')[0]), float.Parse(currentMessage.data[1].Split(',')[1])), 
+                        int.Parse(currentMessage.data[2]));
                     break;
             }
         }
@@ -113,12 +125,13 @@ public class QueueServer : MonoBehaviour
 
     }
 
-    void createEnemy(int UUID, (float, float) pos, string enemyName)
+    void createEnemy(int UUID, string enemyName, (float, float) pos, int level)
     {
         GameObject a = GameObject.Instantiate(baseEnemy, new Vector3(pos.Item1, pos.Item2, 0), Quaternion.identity);
         a.transform.SetParent(GameObject.Find("EnemyContainer").transform);
         //SWITCH OVER ENEMY NAME
-        a.AddComponent<Enemy>();
+        a.AddComponent<Skeleton>().Init("Skeleton", level);
+        a.AddComponent<enemyMovementScript>();
         a.GetComponent<UUIDHandler>().UUID = UUID;
     }
 

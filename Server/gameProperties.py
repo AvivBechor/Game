@@ -22,13 +22,10 @@ class game:
         self.players=[]
         self.attacks=[]
         self.enemies=[]
-        self.map=[]
+        self.map=self.generateMap()
+        self.grid = Grid(matrix=self.map)
         self.timeAccumulator=0
         self.finder = AStarFinder(diagonal_movement=DiagonalMovement.always)
-    def generate(self):
-        self.map=self.generateMap()
-        self.generateWave()
-        self.grid = Grid(matrix=self.map)
     def generateMap(self):
         return [[1, 1, 1, 1, 1],
                 [1, 1, 1, 1, 1],
@@ -37,7 +34,10 @@ class game:
                 [1, 1, 0, 1, 1]
                 ]
     def generateWave(self):
-        self.enemies=[skeleton(100,"4,0","UP",{"speed":1},10,1)] #generated list
+        self.enemies=[skeleton(100,"4,0","UP",{"speed":1},10,1),
+                      skeleton(100,"0,0","UP",{"speed":1},11,1),
+                      skeleton(100,"0,2","UP",{"speed":1},12,1)
+                      ] #generated list
         self.sendEnemyPos()
     def addPlayer(self,player):
         self.players.append(player)
@@ -52,13 +52,13 @@ class game:
         HEADER=4
         for p in self.players:
             for e in self.enemies:
-                sendMessage("enm", "{ID}:{name}/{pos}/{level}".format(ID=e.ID,name=type(e).__name__,pos=str(e.pos),level=e.level),p.client.socket,HEADER)
+                sendMessage("enm", "{ID}:{name}/{pos}/{level}".format(ID=e.ID,name=type(e).__name__,pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ",""),level=e.level),p.client.socket,HEADER)
     def WorldToIndex(self,pos):
         return (pos[0], len(self.map)-pos[1]-1)
     
     def run(self):
         #initialize
-        time.sleep(0.01)
+        time.sleep(0.02)
         HEADER=4
         atkAlive=True
         deltaTime=time.time() - self.previousTime
@@ -112,7 +112,9 @@ class game:
                 else:
                     print("INVALID DIRECTION FOR ATTACK " + str(atk.ID))
         #move enemies
+        
         for e in self.enemies:
+                    change=(0,0)
                     closestPlayer = e.findClosestPlayer(self.players)
                     self.grid.cleanup()
                     step=e.stats["speed"]*deltaTime
@@ -122,6 +124,8 @@ class game:
                         change = (targetCell[0]-roundedEnemy.x, targetCell[1]-roundedEnemy.y)
                         e.pos = (e.pos[0] + step * change[0], e.pos[1] + step * change[1])
                         #send change vector sendMessage("mov",change/e.name)
+                    for p in self.players:
+                        sendMessage("mov","{ID}:{pos}/Enemy/{c}".format(ID=e.ID,c=str((change[0],change[1]*-1))[1:-1].replace(" ",""),pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ","")),p.client.socket,HEADER)
         self.previousTime=time.time()
 
     
@@ -146,6 +150,7 @@ class enemy:
         self.stats=stats
         self.ID=ID
         self.level=level
+        self.change=(0,0)
         
     def find(self, player, finder, grid):
         
@@ -250,7 +255,7 @@ def handleData(data,s,games):
             sendMessage("add","player added",s,HEADER)
             if len(g.players)==2:
                 for p in g.players:
-                    sendMessage("pos","{ID}:{pos}".format(ID=p.ID,pos=g.WorldToIndex(p.pos)),p.client.socket,HEADER)
+                    sendMessage("pos","{ID}:{pos}".format(ID=p.ID,pos=str(g.WorldToIndex(p.pos))[1:-1].replace(" ","")),p.client.socket,HEADER)
                 
         else:  
             games.append(game(groupID))
@@ -258,8 +263,8 @@ def handleData(data,s,games):
             games[-1].pending=True            
             sendMessage("hlt","waiting for players",s,HEADER)
         if (g is not None and len(g.players)==2):
+            g.generateWave()
             g.pending=False
-            g.generate()
             for p in g.players:
                 for j in g.players:
                     if p is not j:

@@ -10,7 +10,7 @@ HEADER=4
 full_msg=''
 msg_len=0
 inGame=False
-ID="420"
+ID="210"
 #s.send(b"hello")
 count=0
 print("im player 4" + str(s))

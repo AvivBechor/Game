@@ -1,7 +1,289 @@
 fileFormatVersion: 2
 guid: 4fc48812258d62043928ddb506163d2c
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 8304609795501127049
+    second: NPC_Evil_0
+  - first:
+      213: -4192271317467702652
+    second: NPC_Evil_1
+  - first:
+      213: 2720021035108455648
+    second: NPC_Evil_2
+  - first:
+      213: -6137817500787906981
+    second: NPC_Evil_3
+  - first:
+      213: 3395918834671824421
+    second: NPC_Evil_4
+  - first:
+      213: 3961518656234022709
+    second: NPC_Evil_5
+  - first:
+      213: -3008437646651641068
+    second: NPC_Evil_6
+  - first:
+      213: 1084081079031687790
+    second: NPC_Evil_7
+  - first:
+      213: -362853897416363421
+    second: NPC_Evil_8
+  - first:
+      213: -5224067437346197035
+    second: NPC_Evil_9
+  - first:
+      213: 6454141127673920069
+    second: NPC_Evil_10
+  - first:
+      213: -8850505302513803359
+    second: NPC_Evil_11
+  - first:
+      213: 2615942060575413715
+    second: NPC_Evil_12
+  - first:
+      213: -8164226738795876314
+    second: NPC_Evil_13
+  - first:
+      213: 2044881203710535165
+    second: NPC_Evil_14
+  - first:
+      213: -2131758527745085088
+    second: NPC_Evil_15
+  - first:
+      213: 287244433284316205
+    second: NPC_Evil_16
+  - first:
+      213: 667656468754596592
+    second: NPC_Evil_17
+  - first:
+      213: -4189101137251648450
+    second: NPC_Evil_18
+  - first:
+      213: -6715227175561592720
+    second: NPC_Evil_19
+  - first:
+      213: 6960908832752020884
+    second: NPC_Evil_20
+  - first:
+      213: -8912290845564245919
+    second: NPC_Evil_21
+  - first:
+      213: -6679476574044192280
+    second: NPC_Evil_22
+  - first:
+      213: 3083213817734724314
+    second: NPC_Evil_23
+  - first:
+      213: 2319874908904356161
+    second: NPC_Evil_24
+  - first:
+      213: -614853519632877728
+    second: NPC_Evil_25
+  - first:
+      213: -6986476048884143201
+    second: NPC_Evil_26
+  - first:
+      213: -4323884954725041890
+    second: NPC_Evil_27
+  - first:
+      213: -2273026816467434818
+    second: NPC_Evil_28
+  - first:
+      213: -2143948110523221226
+    second: NPC_Evil_29
+  - first:
+      213: 6293979896692977497
+    second: NPC_Evil_30
+  - first:
+      213: -3437544836230168027
+    second: NPC_Evil_31
+  - first:
+      213: -1566656942945370430
+    second: NPC_Evil_32
+  - first:
+      213: -7529068524931733520
+    second: NPC_Evil_33
+  - first:
+      213: -2194936001442961286
+    second: NPC_Evil_34
+  - first:
+      213: 8405058062188908643
+    second: NPC_Evil_35
+  - first:
+      213: 2791641524023303468
+    second: NPC_Evil_36
+  - first:
+      213: -7233339365872829372
+    second: NPC_Evil_37
+  - first:
+      213: 3568949766921779401
+    second: NPC_Evil_38
+  - first:
+      213: -3522818100443459771
+    second: NPC_Evil_39
+  - first:
+      213: 7924425169376284754
+    second: NPC_Evil_40
+  - first:
+      213: 3658828731351367202
+    second: NPC_Evil_41
+  - first:
+      213: 7515935465919450154
+    second: NPC_Evil_42
+  - first:
+      213: -7626655471283616198
+    second: NPC_Evil_43
+  - first:
+      213: 1659399714828923827
+    second: NPC_Evil_44
+  - first:
+      213: 2477823954625129830
+    second: NPC_Evil_45
+  - first:
+      213: -4217747235399469082
+    second: NPC_Evil_46
+  - first:
+      213: -4177730493198979758
+    second: NPC_Evil_47
+  - first:
+      213: 1989500795332420551
+    second: NPC_Evil_48
+  - first:
+      213: 5353182028833838996
+    second: NPC_Evil_49
+  - first:
+      213: 144780817677717932
+    second: NPC_Evil_50
+  - first:
+      213: -8603220798248150626
+    second: NPC_Evil_51
+  - first:
+      213: -4880819848609093159
+    second: NPC_Evil_52
+  - first:
+      213: 3323068594795657491
+    second: NPC_Evil_53
+  - first:
+      213: 27193699541920862
+    second: NPC_Evil_54
+  - first:
+      213: 1515758695121758350
+    second: NPC_Evil_55
+  - first:
+      213: -3073879054161632206
+    second: NPC_Evil_56
+  - first:
+      213: 4698389001970241788
+    second: NPC_Evil_57
+  - first:
+      213: 1461359459740586246
+    second: NPC_Evil_58
+  - first:
+      213: -3540641507335444740
+    second: NPC_Evil_59
+  - first:
+      213: -5031478995730326396
+    second: NPC_Evil_60
+  - first:
+      213: -2554917542429726376
+    second: NPC_Evil_61
+  - first:
+      213: 2295533094146496507
+    second: NPC_Evil_62
+  - first:
+      213: 7302247090336657334
+    second: NPC_Evil_63
+  - first:
+      213: -4304702236016008019
+    second: NPC_Evil_64
+  - first:
+      213: 4468724953436431666
+    second: NPC_Evil_65
+  - first:
+      213: -3161097179203552947
+    second: NPC_Evil_66
+  - first:
+      213: 1264600513595538395
+    second: NPC_Evil_67
+  - first:
+      213: -763267851116520226
+    second: NPC_Evil_68
+  - first:
+      213: 4676224986705223034
+    second: NPC_Evil_69
+  - first:
+      213: 7293269786998708529
+    second: NPC_Evil_70
+  - first:
+      213: -7571606161901178182
+    second: NPC_Evil_71
+  - first:
+      213: 633120686677902694
+    second: NPC_Evil_72
+  - first:
+      213: -2764267898101303901
+    second: NPC_Evil_73
+  - first:
+      213: -9173599871017223430
+    second: NPC_Evil_74
+  - first:
+      213: 6156423476719853438
+    second: NPC_Evil_75
+  - first:
+      213: 46570844621160656
+    second: NPC_Evil_76
+  - first:
+      213: -2202213387556102865
+    second: NPC_Evil_77
+  - first:
+      213: -3711547039160275619
+    second: NPC_Evil_78
+  - first:
+      213: 3057783490054647199
+    second: NPC_Evil_79
+  - first:
+      213: -7871110938529991292
+    second: NPC_Evil_80
+  - first:
+      213: 14772417615576397
+    second: NPC_Evil_81
+  - first:
+      213: 3580962811894152032
+    second: NPC_Evil_82
+  - first:
+      213: -1329721835191135905
+    second: NPC_Evil_83
+  - first:
+      213: 1700941254851085854
+    second: NPC_Evil_84
+  - first:
+      213: 689508282399214459
+    second: NPC_Evil_85
+  - first:
+      213: 4367116104237060250
+    second: NPC_Evil_86
+  - first:
+      213: -932196780161462474
+    second: NPC_Evil_87
+  - first:
+      213: 5625375067925502348
+    second: NPC_Evil_88
+  - first:
+      213: -6186371472149758154
+    second: NPC_Evil_89
+  - first:
+      213: -4620058965193523124
+    second: NPC_Evil_90
+  - first:
+      213: 8066684312189421247
+    second: NPC_Evil_91
+  - first:
+      213: 1294242101809871515
+    second: NPC_Evil_92
+  - first:
+      213: 4747693355904215454
+    second: NPC_Evil_93
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -31,7 +313,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,12 +322,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +353,2007 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: NPC_Evil_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 441
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 985f21bfb96ef3370800000000000000
+      internalID: 8304609795501127049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_1
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 441
+        width: 42
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48a5748c27f02d5c0800000000000000
+      internalID: -4192271317467702652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_2
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 441
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e4da3b58b47fb520800000000000000
+      internalID: 2720021035108455648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_3
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 441
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b566c59a08712daa0800000000000000
+      internalID: -6137817500787906981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_4
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 441
+        width: 42
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52e2ca2103ab02f20800000000000000
+      internalID: 3395918834671824421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_5
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 441
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53769e39a342af630800000000000000
+      internalID: 3961518656234022709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_6
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 441
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 413ba6656e1ef36d0800000000000000
+      internalID: -3008437646651641068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_7
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 441
+        width: 48
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6ae7676ffd6b0f00800000000000000
+      internalID: 1084081079031687790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_8
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 441
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 362b1238d42e6faf0800000000000000
+      internalID: -362853897416363421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_9
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 441
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d17b4218526087b0800000000000000
+      internalID: -5224067437346197035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_10
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 441
+        width: 48
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54a3e3df827b19950800000000000000
+      internalID: 6454141127673920069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_11
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 441
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1af14f0c150bc2580800000000000000
+      internalID: -8850505302513803359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_12
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 378
+        width: 33
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d5d999b171bd4420800000000000000
+      internalID: 2615942060575413715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_13
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 378
+        width: 27
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62073587907d2be80800000000000000
+      internalID: -8164226738795876314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_14
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 378
+        width: 33
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df52a0bde90e06c10800000000000000
+      internalID: 2044881203710535165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_15
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 378
+        width: 36
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06138ded9e87a62e0800000000000000
+      internalID: -2131758527745085088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_16
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 378
+        width: 30
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2cbe994a4f7cf300800000000000000
+      internalID: 287244433284316205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_17
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 378
+        width: 36
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f20c1c550ef34900800000000000000
+      internalID: 667656468754596592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_18
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 378
+        width: 33
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3c3ee1e5b25dd5c0800000000000000
+      internalID: -4189101137251648450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_19
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 378
+        width: 27
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0700a9e6678bec2a0800000000000000
+      internalID: -6715227175561592720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_20
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 378
+        width: 36
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49d2012f3bd1a9060800000000000000
+      internalID: 6960908832752020884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_21
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 378
+        width: 33
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1686d2ff1be215480800000000000000
+      internalID: -8912290845564245919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_22
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 378
+        width: 30
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e18d8ef17bbd43a0800000000000000
+      internalID: -6679476574044192280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_23
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 378
+        width: 36
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ada77a4b1a6c9ca20800000000000000
+      internalID: 3083213817734724314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_24
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 315
+        width: 33
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 149f59c30f9d13020800000000000000
+      internalID: 2319874908904356161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_25
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 315
+        width: 27
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06732654bf99777f0800000000000000
+      internalID: -614853519632877728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_26
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 315
+        width: 33
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9b6c7aac0d0b0f90800000000000000
+      internalID: -6986476048884143201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_27
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 315
+        width: 36
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1935f7ea897ef3c0800000000000000
+      internalID: -4323884954725041890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_28
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 315
+        width: 30
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb2858747269470e0800000000000000
+      internalID: -2273026816467434818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_29
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 315
+        width: 36
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61bb4677d8a2f32e0800000000000000
+      internalID: -2143948110523221226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_30
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 315
+        width: 33
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95fa5dd7e55b85750800000000000000
+      internalID: 6293979896692977497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_31
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 315
+        width: 27
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 522c5013f236b40d0800000000000000
+      internalID: -3437544836230168027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_32
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 315
+        width: 36
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ce77d69fcd124ae0800000000000000
+      internalID: -1566656942945370430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_33
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 315
+        width: 33
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f7aed93110638790800000000000000
+      internalID: -7529068524931733520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_34
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 315
+        width: 30
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a78a64106550a81e0800000000000000
+      internalID: -2194936001442961286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_35
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 315
+        width: 36
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3609d4196c3c4a470800000000000000
+      internalID: 8405058062188908643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 252
+        width: 45
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2d93a3ec27edb620800000000000000
+      internalID: 2791641524023303468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_37
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 252
+        width: 42
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44cfc4dab240e9b90800000000000000
+      internalID: -7233339365872829372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_38
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 252
+        width: 45
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c8f59667e4778130800000000000000
+      internalID: 3568949766921779401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_39
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 252
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54f40c23a9f6c1fc0800000000000000
+      internalID: -3522818100443459771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_40
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 252
+        width: 42
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25096d5c4b639fd60800000000000000
+      internalID: 7924425169376284754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_41
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 252
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22ef03a8855c6c230800000000000000
+      internalID: 3658828731351367202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_42
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 252
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2c83e03c77fd4860800000000000000
+      internalID: 7515935465919450154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_43
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 252
+        width: 48
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a36c9d1b14da82690800000000000000
+      internalID: -7626655471283616198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_44
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 252
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b333ceaf3f570710800000000000000
+      internalID: 1659399714828923827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_45
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 252
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66d626732cff26220800000000000000
+      internalID: 2477823954625129830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_46
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 252
+        width: 48
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e7f0a96c3d8775c0800000000000000
+      internalID: -4217747235399469082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_47
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 252
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25dae814048b506c0800000000000000
+      internalID: -4177730493198979758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_48
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 189
+        width: 42
+        height: 45
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c3652abe602c9b10800000000000000
+      internalID: 1989500795332420551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_49
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 189
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49755ae51b25a4a40800000000000000
+      internalID: 5353182028833838996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_50
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 189
+        width: 42
+        height: 45
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca198f7f26d520200800000000000000
+      internalID: 144780817677717932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_51
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 189
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e999a2c04483b9880800000000000000
+      internalID: -8603220798248150626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_52
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 189
+        width: 42
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9aaf61538d34cb0800000000000000
+      internalID: -4880819848609093159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_53
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 189
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3193d05d749ed1e20800000000000000
+      internalID: 3323068594795657491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_54
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 189
+        width: 45
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5c2351968c906000800000000000000
+      internalID: 27193699541920862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_55
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 189
+        width: 48
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8821fb908e090510800000000000000
+      internalID: 1515758695121758350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_56
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 189
+        width: 90
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 234ae2e49436755d0800000000000000
+      internalID: -3073879054161632206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_57
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 189
+        width: 48
+        height: 57
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf0d90777e7043140800000000000000
+      internalID: 4698389001970241788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_58
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 189
+        width: 45
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6019efe9faac74410800000000000000
+      internalID: 1461359459740586246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_59
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 126
+        width: 33
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf66446ee4d1ddec0800000000000000
+      internalID: -3540641507335444740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_60
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 126
+        width: 33
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48c97a4e2889c2ab0800000000000000
+      internalID: -5031478995730326396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_61
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 126
+        width: 33
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 859ef0d180c1b8cd0800000000000000
+      internalID: -2554917542429726376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_62
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 126
+        width: 39
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf751c6df2f5bdf10800000000000000
+      internalID: 2295533094146496507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_63
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 126
+        width: 39
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bf65a92a0bc65560800000000000000
+      internalID: 7302247090336657334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_64
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 126
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da4af66af10a244c0800000000000000
+      internalID: -4304702236016008019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_65
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 126
+        width: 39
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 235a0883ba9140e30800000000000000
+      internalID: 4468724953436431666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_66
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 126
+        width: 33
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d49351d1dd68124d0800000000000000
+      internalID: -3161097179203552947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_67
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 126
+        width: 33
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdb73ab8773cc8110800000000000000
+      internalID: 1264600513595538395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_68
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 126
+        width: 39
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edc59b1fee35865f0800000000000000
+      internalID: -763267851116520226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_69
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 126
+        width: 33
+        height: 57
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7dde5689d945e040800000000000000
+      internalID: 4676224986705223034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_70
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 126
+        width: 33
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1399529da36e63560800000000000000
+      internalID: 7293269786998708529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_71
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 63
+        width: 33
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab2b8b4df404ce690800000000000000
+      internalID: -7571606161901178182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_72
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 63
+        width: 33
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 665436df8eb49c800800000000000000
+      internalID: 633120686677902694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_73
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 63
+        width: 33
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a5f7ad0ef853a9d0800000000000000
+      internalID: -2764267898101303901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_74
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 63
+        width: 39
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afaf2786583d0b080800000000000000
+      internalID: -9173599871017223430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_75
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 63
+        width: 39
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7f13c0b882007550800000000000000
+      internalID: 6156423476719853438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_76
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 63
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d0c88abfe375a000800000000000000
+      internalID: 46570844621160656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_77
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 63
+        width: 39
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2ddb13879a2071e0800000000000000
+      internalID: -2202213387556102865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_78
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 63
+        width: 33
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5de2bbe1afed7cc0800000000000000
+      internalID: -3711547039160275619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_79
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 63
+        width: 33
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9de2c422ed6f6a20800000000000000
+      internalID: 3057783490054647199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_80
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 63
+        width: 33
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4857a39ed4234c290800000000000000
+      internalID: -7871110938529991292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_81
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 63
+        width: 33
+        height: 57
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4d33708f6b743000800000000000000
+      internalID: 14772417615576397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_82
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 63
+        width: 39
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06bb5d464b222b130800000000000000
+      internalID: 3580962811894152032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_83
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 42
+        height: 45
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f511a5b3901eb8de0800000000000000
+      internalID: -1329721835191135905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_84
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 0
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16c43f2f05fa9710800000000000000
+      internalID: 1700941254851085854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_85
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 0
+        width: 42
+        height: 45
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7b48123120a19900800000000000000
+      internalID: 689508282399214459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_86
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 0
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9010f575fc1b9c30800000000000000
+      internalID: 4367116104237060250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_87
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 0
+        width: 42
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63f86b9a7fb2013f0800000000000000
+      internalID: -932196780161462474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_88
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 0
+        width: 42
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c89d90cd1d8511e40800000000000000
+      internalID: 5625375067925502348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_89
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 45
+        height: 48
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63f37e14ce7952aa0800000000000000
+      internalID: -6186371472149758154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_90
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 48
+        height: 51
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c40084a69d042efb0800000000000000
+      internalID: -4620058965193523124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_91
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 0
+        width: 90
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb6444f84ae92ff60800000000000000
+      internalID: 8066684312189421247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_92
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 48
+        height: 57
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a7bbb955216f110800000000000000
+      internalID: 1294242101809871515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Evil_93
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 0
+        width: 45
+        height: 54
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e99272de3f133e140800000000000000
+      internalID: 4747693355904215454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
