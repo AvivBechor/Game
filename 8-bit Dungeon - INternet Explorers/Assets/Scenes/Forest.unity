@@ -30263,6 +30263,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9109332589083546154, guid: 4faa51768c2ab3345afd8fefb0957136,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.95747566
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109332589083546154, guid: 4faa51768c2ab3345afd8fefb0957136,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.0793453
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109332589083546154, guid: 4faa51768c2ab3345afd8fefb0957136,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.46723938
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109332589083546154, guid: 4faa51768c2ab3345afd8fefb0957136,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.52957016
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4faa51768c2ab3345afd8fefb0957136, type: 3}
 --- !u!1 &1955717878

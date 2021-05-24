@@ -26,12 +26,14 @@ public class SendQueue : MonoBehaviour
                 Debug.Log("sending from queue: " + currentMessage);
                 client.sendMessage(currentMessage.Split(':')[0], int.Parse(currentMessage.Split(':')[1]), int.Parse(currentMessage.Split(':')[2]), currentMessage.Split(':')[3], client.s, 4);
             }
+            /*
             else if (messages.Count == 0)
             {
                 int gameID = GameObject.Find("Player").GetComponent<gameIDHandler>().gameID;
                 client.sendMessage("nul", gameID, -1, count.ToString(), client.s, 4);
                 count++;
             }
+            */
 
         }
     }

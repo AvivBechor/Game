@@ -48,7 +48,12 @@ public class PlayerMovement : MonoBehaviour
             moveCharacter(change);
 
             if (player.inGame)
-            {
+            {/*
+                if(sendQueue)
+                {
+                    sendQueue.addMessage("pos:" + gameID + ":" + playerUUID + ":" + player.gameObject.transform.position.x + "," + player.gameObject.transform.position.y);
+                }
+                */
 
                 if (!change.Equals(previousChange))
                 {
@@ -61,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
                     else
                         Debug.Log("queue doesnt exist");
                 }
-
+                
             }
         }
     }

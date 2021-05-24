@@ -9,6 +9,7 @@ HEADER=4
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 clients = []
 games=[]
+data=""
 RUN =True
 ip="localhost"#will cahnge to the ip of the virtual machine
 server_socket.bind((ip,5555))
@@ -32,9 +33,11 @@ while RUN:
             try:
                 
                 data = gameProperties.recvMessage(s,HEADER)
-                #print(data)
+                print(data)
+                if not data:
+                    gameProperties.remove_client(s,clients)
+                    continue
                 if len(data) == 0:
-                    print("data is" + data + "and the socket is" + str(s))
                     gameProperties.remove_client(s,clients)
                     continue
                 if data.split(":")[0]=="end":
@@ -47,8 +50,13 @@ while RUN:
                         
                         gameProperties.handleData(data,s,games)
                 
+                
             except ConnectionError:
                 print("the problamatic socket is" + str(s))
                 gameProperties.remove_client(s,clients)
-
+    if(data):
+        g=gameProperties.findGame(data.split(":")[1],games)
+        if(g):
+            if(g.pending!=True):
+                        g.run()
 

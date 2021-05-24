@@ -10,7 +10,7 @@ HEADER=4
 full_msg=''
 msg_len=0
 inGame=False
-ID="210"
+ID="696"
 #s.send(b"hello")
 count=0
 print("im player 4" + str(s))
@@ -23,8 +23,8 @@ def sendMessage(cmd,gameID,userID,msg,s,HEADER):
         if(len(msg)%2!=0):
             msg+="~"
         s.send(msg.encode())
-    except:
-        print("not connected")
+    except e:
+        print("error is: " + str(e))
 
 def recvMessage(s,HEADER):
     try:
@@ -53,25 +53,27 @@ while True:
     data=recvMessage(s,HEADER)
     data=data.replace("~","")
     print(data)
-    if data.split(":")[0]=='pos':
+    if data.split(":")[0]=='srt':
         inGame=True
     while inGame:
         data=recvMessage(s,HEADER)
         data=data.replace("~","")
         if(data.split(':')[0]=="mov"):
             print(data)
+        
         if (count==1):
             sendMessage("atk", ID, "2", "3,1/100/3/UP/2/strike", s, HEADER)
-        
-        if (count<20):
-            sendMessage("mov",ID,"2","-1,0",s,HEADER)
-        elif (20<count<30): 
-            sendMessage("mov",ID,"2","0,0",s,HEADER)
-        else:
+        if (count==2):
             sendMessage("mov",ID,"2","0,1",s,HEADER)
-            
-            
+        elif (count==20): 
+            sendMessage("mov",ID,"2","0,0",s,HEADER)
+        elif(count==40):
+            sendMessage("mov",ID,"2","1,0",s,HEADER)
+        elif(count==60):
+            sendMessage("mov",ID,"2","0,0",s,HEADER)
+        
         count+=1
     if data=="":
         break
     count+=1
+

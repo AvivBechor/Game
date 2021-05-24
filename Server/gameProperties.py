@@ -37,7 +37,8 @@ class game:
         self.enemies=[skeleton(100,"4,0","UP",{"speed":1},10,1),
                       skeleton(100,"0,0","UP",{"speed":1},11,1),
                       skeleton(100,"0,2","UP",{"speed":1},12,1)
-                      ] #generated list
+                      ]
+                      #generated list
         self.sendEnemyPos()
     def addPlayer(self,player):
         self.players.append(player)
@@ -57,8 +58,9 @@ class game:
         return (pos[0], len(self.map)-pos[1]-1)
     
     def run(self):
+        #print("im running")
         #initialize
-        time.sleep(0.02)
+        time.sleep(0.01)
         HEADER=4
         atkAlive=True
         deltaTime=time.time() - self.previousTime
@@ -67,6 +69,9 @@ class game:
         if len(self.enemies)==0:
             self.generateWave()
         #kill attack
+        for p in self.players:
+            step = deltaTime*p.moveSpeed
+            p.pos = (p.pos[0] + step*p.change[0], p.pos[1] + step*p.change[1])
         for atk in self.attacks:
             atk.timeLived += deltaTime
             if(atk.timeLived >= atk.lifespan):
@@ -75,7 +80,7 @@ class game:
                 continue
             if(self.timeAccumulator>=0.2):
                 self.timeAccumulator=0
-        #check collision
+            #check collision
                 for e in self.enemies:
                     x1=atk.pos[0] - atk.hitbox[0]/2
                     w1=atk.hitbox[0]
@@ -114,18 +119,20 @@ class game:
         #move enemies
         
         for e in self.enemies:
-                    change=(0,0)
-                    closestPlayer = e.findClosestPlayer(self.players)
-                    self.grid.cleanup()
-                    step=e.stats["speed"]*deltaTime
-                    path, roundedEnemy = e.find(closestPlayer, self.finder, self.grid)
-                    if(len(path) > 0):
-                        targetCell = path[0]
-                        change = (targetCell[0]-roundedEnemy.x, targetCell[1]-roundedEnemy.y)
-                        e.pos = (e.pos[0] + step * change[0], e.pos[1] + step * change[1])
+            change=(0,0)
+            self.grid.cleanup()
+            closestPlayer = e.findClosestPlayer(self.players)
+            step=e.stats["speed"]*deltaTime
+            path, roundedEnemy = e.find(closestPlayer, self.finder, self.grid)
+            if(len(path) > 0):
+                targetCell = path[0]
+                change = (targetCell[0]-roundedEnemy.x, targetCell[1]-roundedEnemy.y)
+                        #print("change is {c}\n path is {p}\n pos is {pos}\n ID is {id}\n and going to {player}\n-----".format(player=closestPlayer.pos, c=str(change), pos=str(e.pos), p=str(path), id=str(e.ID)));
+                e.pos = (e.pos[0] + step * change[0], e.pos[1] + step * change[1])
                         #send change vector sendMessage("mov",change/e.name)
-                    for p in self.players:
-                        sendMessage("mov","{ID}:{pos}/Enemy/{c}".format(ID=e.ID,c=str((change[0],change[1]*-1))[1:-1].replace(" ",""),pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ","")),p.client.socket,HEADER)
+                                  
+            for p in self.players:
+                sendMessage("mov","{ID}:{pos}/Enemy/{c}".format(ID=e.ID,c=str((change[0],change[1]*-1))[1:-1].replace(" ",""),pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ","")),p.client.socket,HEADER)
         self.previousTime=time.time()
 
     
@@ -138,10 +145,9 @@ class player:
         self.title=title 
         self.gender=gender
         self.change=(0,0)
-    def setPos(self,x,y):
-        self.pos=(x,y)
-    def Change(self,change):
-        self.change=change
+        self.moveSpeed=4
+    def setPos(self,pos):
+        self.pos=pos
 class enemy:
     def __init__(self,HP,pos,rotation,stats,ID,level):
         self.HP=HP
@@ -157,11 +163,20 @@ class enemy:
         
         roundedEnemy = grid.node(math.floor(self.pos[0]), math.floor(self.pos[1]))
         roundedPlayer = grid.node(math.floor(player.pos[0]), math.floor(player.pos[1]))
+        
         path, runs = finder.find_path(roundedEnemy, roundedPlayer, grid)
+        #print("I am at " + str(self.pos))
+        #print("roundedEnemy is " + str((roundedEnemy.x, roundedEnemy.y)))
+        #print("Player is at " + str(player.pos))
+        #print("roundedPlayer is " + str((roundedPlayer.x, roundedPlayer.y)))
+        #print("path is " + str(path))
+        #print("-------")
         return path[1:], roundedEnemy
     
     def findClosestPlayer(self, players):
+        #print("{ID}: ".format(ID=players[0]) + str(math.dist(players[0].pos, self.pos)) + " " + "{ID}: ".format(ID=players[1])+str(math.dist(players[1].pos, self.pos)))
         if(math.dist(players[0].pos, self.pos) < math.dist(players[1].pos, self.pos)):
+            
             return players[0]
         return players[1]
 
@@ -208,16 +223,19 @@ def recvMessage(s,HEADER):
     full_msg=''
     msg_len=0
     s.settimeout(0.01)
-    while True:
-        msg=s.recv(2)
-        if new_msg:
-            msg_len=int(msg[:HEADER])
-            new_msg=False
-        full_msg+=msg.decode("UTF-8")
+    try:
+        while True:
+            msg=s.recv(2)
+            if new_msg:
+                msg_len=int(msg[:HEADER])
+                new_msg=False
+            full_msg+=msg.decode("UTF-8")
         
-        if (len(full_msg.replace("~",""))-HEADER==msg_len):
-            new_msg=True
-            return full_msg[HEADER:]
+            if (len(full_msg.replace("~",""))-HEADER==msg_len):
+                new_msg=True
+                return full_msg[HEADER:]
+    except:
+        print("error")
 def findGame(ID,games):
     for g in games:
          if g.ID==ID:
@@ -253,10 +271,7 @@ def handleData(data,s,games):
         if g:
             g.addPlayer(p)
             sendMessage("add","player added",s,HEADER)
-            if len(g.players)==2:
-                for p in g.players:
-                    sendMessage("pos","{ID}:{pos}".format(ID=p.ID,pos=str(g.WorldToIndex(p.pos))[1:-1].replace(" ","")),p.client.socket,HEADER)
-                
+            
         else:  
             games.append(game(groupID))
             games[-1].addPlayer(p)
@@ -268,7 +283,7 @@ def handleData(data,s,games):
             for p in g.players:
                 for j in g.players:
                     if p is not j:
-                        sendMessage("srt", "{ID}:{title}/{gender}".format(title=p.title,gender=p.gender,ID=p.ID), j.client.socket, HEADER)
+                        sendMessage("srt", "{ID}:{title}/{gender}/{pos}".format(pos=str(g.WorldToIndex(p.pos))[1:-1].replace(" ",""),title=p.title,gender=p.gender,ID=p.ID), j.client.socket, HEADER)
                 
             games[-1].previousTime=time.time()
 
@@ -276,7 +291,7 @@ def handleData(data,s,games):
     elif(cmd=="mov"):
         for p in g.players:
             if(p.client.socket is s):
-                p.Change((int(val.split(",")[0]),int(val.split(",")[1])*-1))
+                p.change=(int(val.split(",")[0]),int(val.split(",")[1])*-1)
                 sendMessage("rcv","0:recieved",p.client.socket,HEADER)
                 continue
             sendMessage("mov","{ID}:{value}/Player".format(ID=playerID,value=val),p.client.socket,HEADER)
@@ -299,15 +314,12 @@ def handleData(data,s,games):
     elif(cmd=="pos"):
         for p in g.players:
             if(p.ID==playerID):
-                p.setPos(g.WorldToIndex(float(val.split(",")[0]),float(val.split(",")[1])))
+                p.setPos(g.WorldToIndex((float(val.split(",")[0]),float(val.split(",")[1]))))
             else:
                 sendMessage("pos","{ID}:{value}".format(ID=p.ID,value=val),p.client.socket,HEADER)
-    elif(cmd=="nul"):
-        sendMessage("nul","-1:",s,HEADER)
+    #elif(cmd=="nul"):
+        #sendMessage("nul","-1:",s,HEADER)
         
-    if (g):
-        if(g.pending!=True):
-            g.run()       
 
 
 

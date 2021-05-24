@@ -43,8 +43,8 @@ public class QueueServer : MonoBehaviour
                             Debug.Log("Found " + enemy + " with uuid " + enemy.gameObject.GetComponent<UUIDHandler>().UUID);
                             enemyMovementScript enemymovement = enemy.GetComponent<enemyMovementScript>();
                             enemymovement.xMovement = int.Parse(currentMessage.data[0].Split(',')[0]);
-                            enemymovement.yMovement = int.Parse(currentMessage.data[0].Split(',')[1]);*/
-                         
+                            enemymovement.yMovement = int.Parse(currentMessage.data[0].Split(',')[1]);
+                            */
                             enemy.transform.position = new Vector3(float.Parse(currentMessage.data[0].Split(',')[0]), float.Parse(currentMessage.data[0].Split(',')[1]), enemy.transform.position.z);
                             break;
                     }
@@ -80,6 +80,7 @@ public class QueueServer : MonoBehaviour
                     serverPlayer.character.title = currentMessage.data[0];
                     serverPlayer.gender = currentMessage.data[1].Equals("1");
                     serverPlayer.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>(@"MightyPack and more\MV\Characters\Actors_2")[54];
+                    serverPlayer.transform.position = new Vector3(int.Parse(currentMessage.data[2].Split(',')[0]), int.Parse(currentMessage.data[2].Split(',')[1]), 83.19981f);
                     //serverPlayer.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load(@"MightyPack and more\MV\Characters\Actors_2_54", typeof(Sprite)) as Sprite;
                     break;
                 case "pos":
