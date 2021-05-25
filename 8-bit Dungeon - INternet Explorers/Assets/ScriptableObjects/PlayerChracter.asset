@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e4cba0fb313bfe4587e680e8d4c8753, type: 3}
   m_Name: PlayerChracter
   m_EditorClassIdentifier: 
-  maxHp: {fileID: 11400000, guid: a9a34d16926386d48967e4e68b0d1abb, type: 2}
-  recourseStorage: {fileID: 11400000, guid: bf99ded6a36c29948909251b137ed4ca, type: 2}
-  title: Mage
+  title: Warrior
   attackRecourseCost: 20

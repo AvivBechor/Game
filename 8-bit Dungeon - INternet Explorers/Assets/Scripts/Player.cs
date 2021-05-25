@@ -22,6 +22,10 @@ public class Player : MonoBehaviour
     
     public bool canMove()
     {
+        if(!singlePlayer)
+        {
+            return !isAttacking && !isDead && !isInteracting && inGame;
+        }
         return !isAttacking && !isDead && !isInteracting;
     }
 

@@ -8,8 +8,11 @@ public class QueueServer : MonoBehaviour
     public Queue<Message> messages;
     public GameObject baseAttack;
     public GameObject baseEnemy;
+    public IntStorage uuidHolder;
+    public IntStorage gameIDHolder;
 
     // Update is called once per frame
+
     void Update()
     {
         messages = GameObject.Find("Connection").GetComponent<Client>().messages;
@@ -18,6 +21,7 @@ public class QueueServer : MonoBehaviour
             Message currentMessage = messages.Dequeue();
             Debug.Log("message.cmd " + currentMessage.command + ", uuid " + currentMessage.uuid + " val " + currentMessage.data);
             Player serverPlayer = GameObject.Find("OtherPlayer").GetComponent<Player>();
+            
             switch (currentMessage.command)
             {
                 case "mov":
@@ -39,13 +43,13 @@ public class QueueServer : MonoBehaviour
                                     break;
                                 }
                             }
-                            /*
+                            
                             Debug.Log("Found " + enemy + " with uuid " + enemy.gameObject.GetComponent<UUIDHandler>().UUID);
                             enemyMovementScript enemymovement = enemy.GetComponent<enemyMovementScript>();
                             enemymovement.xMovement = int.Parse(currentMessage.data[0].Split(',')[0]);
                             enemymovement.yMovement = int.Parse(currentMessage.data[0].Split(',')[1]);
-                            */
-                            enemy.transform.position = new Vector3(float.Parse(currentMessage.data[0].Split(',')[0]), float.Parse(currentMessage.data[0].Split(',')[1]), enemy.transform.position.z);
+                            
+                            //enemy.transform.position = new Vector3(float.Parse(currentMessage.data[0].Split(',')[0]), float.Parse(currentMessage.data[0].Split(',')[1]), enemy.transform.position.z);
                             break;
                     }
                     break;
@@ -75,17 +79,19 @@ public class QueueServer : MonoBehaviour
                         );
                     break;
                 case "srt":
+                    
                     serverPlayer.gameObject.SetActive(true);
+                    serverPlayer.GetComponent<UUIDHandler>().UUID = currentMessage.uuid;
                     serverPlayer.character = new Character();
                     serverPlayer.character.title = currentMessage.data[0];
                     serverPlayer.gender = currentMessage.data[1].Equals("1");
                     serverPlayer.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>(@"MightyPack and more\MV\Characters\Actors_2")[54];
-                    serverPlayer.transform.position = new Vector3(int.Parse(currentMessage.data[2].Split(',')[0]), int.Parse(currentMessage.data[2].Split(',')[1]), 83.19981f);
+                    serverPlayer.transform.position = new Vector3(float.Parse(currentMessage.data[2].Split(',')[0]), float.Parse(currentMessage.data[2].Split(',')[1]), 83.19981f);
                     //serverPlayer.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load(@"MightyPack and more\MV\Characters\Actors_2_54", typeof(Sprite)) as Sprite;
                     break;
                 case "pos":
-                    Debug.Log("messgae is " + currentMessage.data[0]);
-                    serverPlayer.transform.position = new Vector3(int.Parse(currentMessage.data[0].Split(',')[0]), int.Parse(currentMessage.data[0].Split(',')[1]), 83.19981f);
+                    Debug.Log("messgae is POS" + currentMessage.data[0]);
+                    serverPlayer.transform.position = new Vector3(float.Parse(currentMessage.data[0].Split(',')[0]), float.Parse(currentMessage.data[0].Split(',')[1]), 83.19981f);
                     break;
                 case "kil":
                     Debug.Log("WE ARE KILLING A " + currentMessage.data[0] + " AND IT'S UUID IS " + currentMessage.uuid);

@@ -150,6 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49b0086d3d50974fb11355ed72f799a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameIDHolder: {fileID: 11400000, guid: a2d9c5796b2aee34abd294d43a54ec9c, type: 2}
+  uuidHolder: {fileID: 11400000, guid: 565408b8405d5044885c23208cfd0300, type: 2}
   player: {fileID: 9109332588975417273, guid: 4faa51768c2ab3345afd8fefb0957136, type: 3}
 --- !u!4 &1059803637
 Transform:

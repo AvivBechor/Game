@@ -1,6 +1,7 @@
 #gameProperties.py
 from socket import *
 import time
+import random
 from datetime import datetime
 import math
 from pathfinding.core.diagonal_movement import DiagonalMovement
@@ -75,23 +76,27 @@ class game:
         for atk in self.attacks:
             atk.timeLived += deltaTime
             if(atk.timeLived >= atk.lifespan):
-                self.attacks.remove(atk)
-                atkAlive=False
+                try:
+                    self.attacks.remove(atk)
+                except:
+                    pass
+                if len(self.attacks)==0:
+                    atkAlive=False
                 continue
             if(self.timeAccumulator>=0.2):
                 self.timeAccumulator=0
             #check collision
                 for e in self.enemies:
-                    x1=atk.pos[0] - atk.hitbox[0]/2
+                    x1=atk.pos[0]
                     w1=atk.hitbox[0]
-                    x2=e.pos[0] - e.hitbox[0]/2
+                    x2=e.pos[0]
                     w2=e.hitbox[0]
-                    y1=atk.pos[1] - atk.hitbox[1]/2
+                    y1=atk.pos[1]
                     h1=atk.hitbox[1]
-                    y2=e.pos[1] - e.hitbox[1]/2
+                    y2=e.pos[1]
                     h2=e.hitbox[1]              
-                    if( x1 + w1 > x2 and x1 + w1 < x2 + w2):
-                        if(y1 + h1 > y2 and y1 + h1 < y2 + h2):
+                    if( x1 + w1 > x2 and x1 < x2 + w2):
+                        if(y1 + h1 > y2 and y1 < y2 + h2):
                             print("collide")
                             e.HP-=atk.dmg
                             if(e.HP<=0):
@@ -100,7 +105,10 @@ class game:
                                     if(atk.isRanged==True):
                                         sendMessage("kil","{ID}:Attack".format(ID=atk.ID),p.client.socket,HEADER)
                                 self.enemies.remove(e)
-                            self.attacks.remove(atk)
+                            try:
+                                self.attacks.remove(atk)
+                            except:
+                                pass
                             atkAlive=False
 
             #move attacks          
@@ -116,8 +124,8 @@ class game:
                     atk.pos = (atk.pos[0], atk.pos[1] + step)
                 else:
                     print("INVALID DIRECTION FOR ATTACK " + str(atk.ID))
-        #move enemies
-        
+            
+        #move enemies        
         for e in self.enemies:
             change=(0,0)
             self.grid.cleanup()
@@ -130,9 +138,12 @@ class game:
                         #print("change is {c}\n path is {p}\n pos is {pos}\n ID is {id}\n and going to {player}\n-----".format(player=closestPlayer.pos, c=str(change), pos=str(e.pos), p=str(path), id=str(e.ID)));
                 e.pos = (e.pos[0] + step * change[0], e.pos[1] + step * change[1])
                         #send change vector sendMessage("mov",change/e.name)
-                                  
-            for p in self.players:
-                sendMessage("mov","{ID}:{pos}/Enemy/{c}".format(ID=e.ID,c=str((change[0],change[1]*-1))[1:-1].replace(" ",""),pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ","")),p.client.socket,HEADER)
+            if (change != e.change):
+                e.change=change
+                for p in self.players:
+                    sendMessage("mov","{ID}:{c}/Enemy".format(ID=e.ID,c=str((change[0],change[1]*-1))[1:-1].replace(" ","")),p.client.socket,HEADER)
+                    #,pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ","")
+        
         self.previousTime=time.time()
 
     
@@ -165,16 +176,9 @@ class enemy:
         roundedPlayer = grid.node(math.floor(player.pos[0]), math.floor(player.pos[1]))
         
         path, runs = finder.find_path(roundedEnemy, roundedPlayer, grid)
-        #print("I am at " + str(self.pos))
-        #print("roundedEnemy is " + str((roundedEnemy.x, roundedEnemy.y)))
-        #print("Player is at " + str(player.pos))
-        #print("roundedPlayer is " + str((roundedPlayer.x, roundedPlayer.y)))
-        #print("path is " + str(path))
-        #print("-------")
         return path[1:], roundedEnemy
     
     def findClosestPlayer(self, players):
-        #print("{ID}: ".format(ID=players[0]) + str(math.dist(players[0].pos, self.pos)) + " " + "{ID}: ".format(ID=players[1])+str(math.dist(players[1].pos, self.pos)))
         if(math.dist(players[0].pos, self.pos) < math.dist(players[1].pos, self.pos)):
             
             return players[0]
@@ -200,10 +204,12 @@ class attack:
         self.hitbox=self.createHitbox(name)
         self.isRanged=self.checkIsRanged(self.name)
     def createHitbox(self,name):
-        if name=="strike":
+        if name=="bomb":
+            return (1,1)
+        elif name=="strike":
             return (1,1)
     def checkIsRanged(self,name):
-        if name=="strike":
+        if name=="bomb":
             return True
         return False
         
@@ -304,12 +310,12 @@ def handleData(data,s,games):
         direction=values[3]
         lifespan=values[4]
         name=values[5]
-        ID=0
+        ID=random.randint(0,1000)
         atk=attack(pos,float(dmg),int(playerID),float(speed),direction,float(lifespan),name,ID)
         atk.pos=g.WorldToIndex(atk.pos)
         g.addAttack(atk)
         for p in g.players:
-           sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}".format(position=pos,AtkName=name,dir=direction,ID=atk.ID), p.client.socket, HEADER)
+           sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}".format(position=str(g.WorldToIndex(atk.pos))[1:-1].replace(" ",""),AtkName=name,dir=direction,ID=atk.ID), p.client.socket, HEADER)
 
     elif(cmd=="pos"):
         for p in g.players:

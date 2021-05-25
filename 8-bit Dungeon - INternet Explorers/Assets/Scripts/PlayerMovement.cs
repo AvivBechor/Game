@@ -13,21 +13,29 @@ public class PlayerMovement : MonoBehaviour
     private int playerUUID;
     private int gameID;
     private Vector2 previousChange;
+    private float accum;
+    public IntStorage gameIDHolder;
+    public IntStorage uuidHolder;
+
     void Start()
     {
+        
         player = gameObject.GetComponent<Player>();
         previousChange = Vector2.zero;
 
         if (!player.singlePlayer)
         {
-            
-            playerUUID = player.GetComponent<UUIDHandler>().UUID;
-            gameID = player.GetComponent<gameIDHandler>().gameID;
+            playerUUID = uuidHolder.value;
+            gameID = gameIDHolder.value;
         }
     }
 
+
     void FixedUpdate()
     {
+        
+       
+        
         if (player.canMove())
         {
             //Variables to control player movement and rotation, will later be used by the server as well and not only the keyboard input.
@@ -54,7 +62,13 @@ public class PlayerMovement : MonoBehaviour
                     sendQueue.addMessage("pos:" + gameID + ":" + playerUUID + ":" + player.gameObject.transform.position.x + "," + player.gameObject.transform.position.y);
                 }
                 */
+                accum += Time.deltaTime;
+                if (accum >= 0.1 && !player.isMoving)
+                {
+                    sendQueue.addMessage("pos:" + gameID + ":" + playerUUID + ":" + player.transform.position.x + "," + player.transform.position.y);
+                    accum = 0;
 
+                }
                 if (!change.Equals(previousChange))
                 {
 

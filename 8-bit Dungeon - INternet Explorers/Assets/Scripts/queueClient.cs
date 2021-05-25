@@ -11,6 +11,8 @@ using UnityEngine.SceneManagement;
 
 public class queueClient : MonoBehaviour
 {
+    public IntStorage gameIDHolder;
+    public IntStorage uuidHolder;
     public Player player;
     private int port = 5556;
     private string ip = "127.0.0.1";
@@ -38,8 +40,10 @@ public class queueClient : MonoBehaviour
             Debug.Log("RECIEVED: " + msg);
             if (msg.Split(':')[0] == "uid")
             {
-                player.GetComponent<UUIDHandler>().UUID = int.Parse(msg.Split(':')[2]);
-                player.GetComponent<gameIDHandler>().gameID = int.Parse(msg.Split(':')[1]);
+                uuidHolder.value = int.Parse(msg.Split(':')[2]);
+                gameIDHolder.value = int.Parse(msg.Split(':')[1]);
+                DontDestroyOnLoad(uuidHolder);
+                DontDestroyOnLoad(gameIDHolder);
                 SceneManager.LoadScene("SampleScene");
             }
         }

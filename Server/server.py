@@ -33,7 +33,7 @@ while RUN:
             try:
                 
                 data = gameProperties.recvMessage(s,HEADER)
-                print(data)
+                #print(data)
                 if not data:
                     gameProperties.remove_client(s,clients)
                     continue

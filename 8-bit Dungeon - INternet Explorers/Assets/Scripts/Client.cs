@@ -10,6 +10,8 @@ using System.Net.Sockets;
 public class Client : MonoBehaviour
     
 {
+    public IntStorage gameIDHolder;
+    public IntStorage uuidHolder;
     public Player player;
     public Queue<Message> messages;
     private int port = 5555;
@@ -26,6 +28,9 @@ public class Client : MonoBehaviour
         s.Connect(ip, port);
         Debug.Log("Connected");
         Debug.Log("ID is " + player.GetComponent<gameIDHandler>().gameID);
+        GameObject cl = GameObject.Find("Player");
+        cl.GetComponent<gameIDHandler>().gameID = gameIDHolder.value;
+        cl.GetComponent<UUIDHandler>().UUID = uuidHolder.value;
         sendMessage("crt", player.GetComponent<gameIDHandler>().gameID, player.GetComponent<UUIDHandler>().UUID, "warrior/1", s,HEADER);
         string msg=recvMessage((s,HEADER));
         Debug.Log("RECIEVED: " + msg);
