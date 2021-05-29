@@ -27,6 +27,8 @@ class game:
         self.grid = Grid(matrix=self.map)
         self.timeAccumulator=0
         self.finder = AStarFinder(diagonal_movement=DiagonalMovement.always)
+        self.waves=0
+        self.defeteBoss=False
     def generateMap(self):
         return [[1, 1, 1, 1, 1],
                 [1, 1, 1, 1, 1],
@@ -35,11 +37,33 @@ class game:
                 [1, 1, 0, 1, 1]
                 ]
     def generateWave(self):
-        self.enemies=[skeleton(100,"4,0","UP",{"speed":1},10,1),
-                      skeleton(100,"0,0","UP",{"speed":1},11,1),
-                      skeleton(100,"0,2","UP",{"speed":1},12,1)
-                      ]
-                      #generated list
+        possibleEnemies=["skeleton","sorcerer","vampire"]
+        self.waves+=1
+        x=0
+        y=0
+        while True:
+            ID=random.randint(0,100)
+            if e in self.enemies:
+                if(ID==e.ID):
+                    break
+        for i in range(3):
+            if i==0:
+                y=0
+            if i==1:
+                y=2
+            if i==2:
+                y=4
+            enemy=random.choice(possibleEnemies)
+            if(enemy=="skeleton"):
+                self.enemies.append(skeleton(100,"{posX},{posY}".format(posX=x,posY=y),"UP",{"speed":1},ID)
+                continue
+            elif(enemy=="sorcerer"):
+                self.enemies.append(sorcerer(100,"{posX},{posY}".format(posX=x,posY=y),"UP",{"speed":1},ID)
+                continue
+            self.enemies.append(vampire(100,"{posX},{posY}".format(posX=x,posY=y),"UP",{"speed":1},ID)
+                                    
+                
+
         self.sendEnemyPos()
     def addPlayer(self,player):
         self.players.append(player)
@@ -57,18 +81,32 @@ class game:
                 sendMessage("enm", "{ID}:{name}/{pos}/{level}".format(ID=e.ID,name=type(e).__name__,pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ",""),level=e.level),p.client.socket,HEADER)
     def WorldToIndex(self,pos):
         return (pos[0], len(self.map)-pos[1]-1)
-    
+    def summonBoss(self):
+        pass
     def run(self):
-        #print("im running")
         #initialize
         time.sleep(0.01)
         HEADER=4
         atkAlive=True
         deltaTime=time.time() - self.previousTime
         self.timeAccumulator += deltaTime
-        #spawn wave 
+        
+        if(self.defeteBoss):
+            #send a message says game is over and that the players won.
+            print("you win!")
+            break
+        if(len(self.players)==0):
+            #send a message says game is over and that the players lost.
+            print("you lose!")
+            break
+        
+        #spawn wave
         if len(self.enemies)==0:
-            self.generateWave()
+            if(self.waves<3):
+                self.generateWave()
+            else:
+                self.summonBoss()  
+            
         #kill attack
         for p in self.players:
             step = deltaTime*p.moveSpeed
@@ -104,7 +142,12 @@ class game:
                                     sendMessage("kil","{ID}:Enemy".format(ID=e.ID),p.client.socket,HEADER)
                                     if(atk.isRanged==True):
                                         sendMessage("kil","{ID}:Attack".format(ID=atk.ID),p.client.socket,HEADER)
+                                if(e.isBoss):
+                                    #send message that says boss defeted
+                                    self.defeteBoss=True
+                                    continue
                                 self.enemies.remove(e)
+                                
                             try:
                                 self.attacks.remove(atk)
                             except:
@@ -142,7 +185,7 @@ class game:
                 e.change=change
                 for p in self.players:
                     sendMessage("mov","{ID}:{c}/Enemy".format(ID=e.ID,c=str((change[0],change[1]*-1))[1:-1].replace(" ","")),p.client.socket,HEADER)
-                    #,pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ","")
+                    #pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ","")
         
         self.previousTime=time.time()
 
@@ -160,14 +203,14 @@ class player:
     def setPos(self,pos):
         self.pos=pos
 class enemy:
-    def __init__(self,HP,pos,rotation,stats,ID,level):
+    def __init__(self,HP,pos,rotation,stats,ID):
         self.HP=HP
         self.pos=(float(pos.split(',')[0]),float(pos.split(',')[1]))
         self.rotation=rotation
         self.stats=stats
         self.ID=ID
-        self.level=level
         self.change=(0,0)
+        self.isBoss=False
         
     def find(self, player, finder, grid):
         
@@ -185,11 +228,24 @@ class enemy:
         return players[1]
 
 class skeleton(enemy):
-    def __init__(self,HP,pos,rotation,stats,ID,level):
-        enemy.__init__(self,HP,pos,rotation,stats,ID,level)
+    def __init__(self,HP,pos,rotation,stats,ID):
+        enemy.__init__(self,HP,pos,rotation,stats,ID)
         self.hitbox=self.createHitbox()
     def createHitbox(self):
         return(1,1)
+class sorcerer(enemy):
+    def __init__(self,HP,pos,rotation,stats,ID):
+        enemy.__init__(self,HP,pos,rotation,stats,ID)
+        self.hitbox=self.createHitbox()
+    def createHitbox(self):
+        return(1,1)
+class vampire(enemy):
+    def __init__(self,HP,pos,rotation,stats,ID):
+        enemy.__init__(self,HP,pos,rotation,stats,ID)
+        self.hitbox=self.createHitbox()
+    def createHitbox(self):
+        return(1,1)
+    
 class attack:
     def __init__(self,pos,dmg,playerID,speed,direction,lifespan,name,ID):
         self.pos=(float(pos.split(',')[0]),float(pos.split(',')[1]))
