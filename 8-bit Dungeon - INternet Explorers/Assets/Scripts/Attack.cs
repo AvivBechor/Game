@@ -15,6 +15,7 @@ public abstract class Attack : MonoBehaviour
     public int uuid;
     public bool isHeadless = true;
     private float timePassed;
+
     public virtual void SpawnAttackHeadless(Player player, string attackName)
     {
         this.player = player;
@@ -62,7 +63,7 @@ public abstract class Attack : MonoBehaviour
             timePassed += Time.deltaTime;
             if(timePassed >= lifeSpan)
             {
-                Destroy(gameObject);                
+                //Destroy(gameObject);                
             }
             var step = speed * Time.deltaTime;
             switch (direction)
