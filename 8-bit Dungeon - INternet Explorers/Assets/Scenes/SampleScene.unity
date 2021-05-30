@@ -2135,6 +2135,18 @@ PrefabInstance:
       propertyPath: sendQueue
       value: 
       objectReference: {fileID: 1046142151}
+    - target: {fileID: 9109332589083546156, guid: 4faa51768c2ab3345afd8fefb0957136,
+        type: 3}
+      propertyPath: uuidHolder
+      value: 
+      objectReference: {fileID: 11400000, guid: 565408b8405d5044885c23208cfd0300,
+        type: 2}
+    - target: {fileID: 9109332589083546156, guid: 4faa51768c2ab3345afd8fefb0957136,
+        type: 3}
+      propertyPath: gameIDHolder
+      value: 
+      objectReference: {fileID: 11400000, guid: a2d9c5796b2aee34abd294d43a54ec9c,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4faa51768c2ab3345afd8fefb0957136, type: 3}
 --- !u!114 &9109332589083546149 stripped

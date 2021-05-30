@@ -73,6 +73,7 @@
     <Compile Include="Assets\ScriptableObjects\Stat.cs" />
     <Compile Include="Assets\ScriptableObjects\VectorValue.cs" />
     <Compile Include="Assets\Scripts\Attack.cs" />
+    <Compile Include="Assets\Scripts\Boss.cs" />
     <Compile Include="Assets\Scripts\CameraPlayerTrack.cs" />
     <Compile Include="Assets\Scripts\Client.cs" />
     <Compile Include="Assets\Scripts\CreateCharacter.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Assets\Scripts\QueueServer.cs" />
     <Compile Include="Assets\Scripts\SendQueue.cs" />
     <Compile Include="Assets\Scripts\Skeleton.cs" />
+    <Compile Include="Assets\Scripts\Sorcerer.cs" />
     <Compile Include="Assets\Scripts\Strike.cs" />
     <Compile Include="Assets\Scripts\UI scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\UI scripts\InventoryButtonScript.cs" />
@@ -113,6 +115,7 @@
     <Compile Include="Assets\Scripts\UI scripts\LoginButtonScript.cs" />
     <Compile Include="Assets\Scripts\UI scripts\MenuSelection.cs" />
     <Compile Include="Assets\Scripts\UI scripts\QuitButtonScript.cs" />
+    <Compile Include="Assets\Scripts\UI scripts\Warrior.cs" />
     <Compile Include="Assets\Scripts\UI scripts\menuButtonScript.cs" />
     <Compile Include="Assets\Scripts\UI scripts\pleasedontquitowo.cs" />
     <Compile Include="Assets\Scripts\UI scripts\quit.cs" />
@@ -124,6 +127,7 @@
     <Compile Include="Assets\Scripts\UIContainers\ItemContainer.cs" />
     <Compile Include="Assets\Scripts\UIContainers\PotionSlot.cs" />
     <Compile Include="Assets\Scripts\UUIDHandler.cs" />
+    <Compile Include="Assets\Scripts\Vampire.cs" />
     <Compile Include="Assets\Scripts\enemyMovementScript.cs" />
     <Compile Include="Assets\Scripts\gameIDHandler.cs" />
     <Compile Include="Assets\Scripts\loadCity.cs" />

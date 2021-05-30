@@ -35,10 +35,11 @@ public abstract class Attack : MonoBehaviour
         this.attackName = attackName;
         this.direction = direction;
         this.spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        switch (direction)
+        Sprite spr = null;
+        /*switch (direction)
         {
             case Side.UP:
-                /*this.gameObject.transform.Rotate(new Vector3(0, 0, 0), Space.World);*/
+                
                 break;
             case Side.LEFT:
                 this.gameObject.transform.Rotate(new Vector3(0, 0, 90), Space.World);
@@ -51,8 +52,8 @@ public abstract class Attack : MonoBehaviour
                 break;
             default:
                 throw new System.Exception();
-        }
-        Sprite spr = Resources.Load(@"Attacks\ATK_" + attackName.ToUpper(), typeof(Sprite)) as Sprite;
+        }*/
+        spr = Resources.Load(@"Attacks\ATK_" + attackName.ToUpper() + "_" + direction.ToString(), typeof(Sprite)) as Sprite;
         spriteRenderer.sprite = spr;
     }
 
@@ -63,7 +64,7 @@ public abstract class Attack : MonoBehaviour
             timePassed += Time.deltaTime;
             if(timePassed >= lifeSpan)
             {
-                //Destroy(gameObject);                
+                Destroy(gameObject);                
             }
             var step = speed * Time.deltaTime;
             switch (direction)

@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Skeleton : Enemy
 {
-    public override void Init(string name, int level)
+    public override void Init(string name)
     {
-        base.Init(name, level);
+        base.Init(name);
         this.stats = new Dictionary<string, Stat>();
         stats.Add("Movespeed", new Stat(1, 0));
         Object[] sprites = Resources.LoadAll(@"MightyPack and more\MV\Characters\NPC_Evil");

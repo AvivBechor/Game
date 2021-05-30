@@ -7,7 +7,7 @@ using Assets.Scripts;
 
 public class CreateCharacter : MonoBehaviour
 {
-    public Dropdown job;
+    public string job;
     public Button self;
     public Character character;
     public IntStorage currentHp;
@@ -20,20 +20,10 @@ public class CreateCharacter : MonoBehaviour
         Character a = ScriptableObject.CreateInstance<Character>();
     }
 
-    void Create()
+    public void Create()
     {
-        if (job.value == 0)
-        {
-            character.title = "Warrior";
-        }
-        else if (job.value == 1)
-        {
-            character.title = "Mage";
-        }
-        else if (job.value == 2)
-        {
-            character.title = "Frog";
-        }
+        character.title = job;
+        
         character.init();
         currentHp.value = (int)character.stats["MaxHP"].value;
         currentRecourse.value = (int)character.stats["MaxRecourse"].value;

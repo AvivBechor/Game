@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Strike : Attack
 {
-    public readonly static float coolDown = 0.7f;
+    public readonly static float coolDown = 0.2f;
     protected override int calculateDamage()
     {
         return (int)player.getModStatValue("Strength");
@@ -15,7 +15,7 @@ public class Strike : Attack
     {
         base.SpawnAttack(attackName, direction, uuid);
         this.speed = 0;
-        this.lifeSpan = 0.7f;
+        this.lifeSpan = 0.2f;
         
     }
 
@@ -23,6 +23,6 @@ public class Strike : Attack
     {
         base.SpawnAttackHeadless(player, attackName);
         this.speed = 0;
-        this.lifeSpan = 0.7f;
+        this.lifeSpan = 0.2f;
     }
 }

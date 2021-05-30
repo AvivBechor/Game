@@ -14,10 +14,9 @@ public class Enemy : MonoBehaviour
     public Sprite spriteLEFT;
     public Sprite spriteRIGHT;
 
-    public virtual void Init(string name, int level)
+    public virtual void Init(string name)
     {
         this.rotation = Side.UP;
-        this.level = level;
         this.name = name;       
     }
 

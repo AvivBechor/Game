@@ -6,18 +6,29 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     private Player player;
+    private PlayerMovement playerMovement;
     private const int LEFT_CLICK = 0;
     public SendQueue sendQueue;
     private float accum;
+    private int gameID;
+    private int playerUUID;
+    public IntStorage uuidHolder;
+    public IntStorage gameIDHolder;
+
 
 
     void Start()
     {
         player = GetComponent<Player>();
-        
+        playerMovement = gameObject.GetComponent<PlayerMovement>();
+        if (!player.singlePlayer)
+        {
+            playerUUID = uuidHolder.value;
+            gameID = gameIDHolder.value;
+        }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if(player.inGame)
         {
@@ -33,32 +44,33 @@ public class PlayerAttack : MonoBehaviour
             if (Input.GetMouseButton(LEFT_CLICK) && player.isAttacking == false)
             {
                 player.isAttacking = true;
+                player.isMoving = false;
                 //(float, float) dir = (0, 0);
-                float x;
-                float y;
+                float x = 0;
+                float y = 0;
                 if(player.rotation == Side.UP)
                 {
                     //dir = (0, 1);
-                    x = 0;
-                    y = 1;
+                    x = 0f;
+                    y = 1f;
                 }
                 else if(player.rotation == Side.LEFT)
                 {
                     //dir = (-1, -0.25f);
                     x = -1;
-                    y = -0.25f;
+                    y = 0;
                 }
                 else if(player.rotation == Side.DOWN)
                 {
                     //dir = (0, -1);
                     x = 0;
-                    y = -1;
+                    y = -1.25f;
                 }
-                else
+                else if(player.rotation == Side.RIGHT)
                 {
                     //dir = (1, 0.25f);
                     x = 1;
-                    y = 0.25f;
+                    y = 0;
                 }
                 Vector3 pos = new Vector3(player.transform.position.x + x, player.transform.position.y + y, player.transform.position.z);
                 if(player.character.title.ToLower() == "warrior")

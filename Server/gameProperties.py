@@ -41,12 +41,17 @@ class game:
         self.waves+=1
         x=0
         y=0
-        while True:
-            ID=random.randint(0,100)
-            if e in self.enemies:
-                if(ID==e.ID):
-                    break
         for i in range(3):
+            while True:
+                exists=False
+                ID=random.randint(100,999)
+                for e in self.enemies:
+                    if(ID==e.ID):
+                        exists=True
+                        break
+                if(exists==False):
+                    break
+                
             if i==0:
                 y=0
             if i==1:
@@ -55,12 +60,11 @@ class game:
                 y=4
             enemy=random.choice(possibleEnemies)
             if(enemy=="skeleton"):
-                self.enemies.append(skeleton(100,"{posX},{posY}".format(posX=x,posY=y),"UP",{"speed":1},ID)
-                continue
+                self.enemies.append(skeleton(100,"{posX},{posY}".format(posX=x,posY=y),"UP",{"speed":1},ID))
             elif(enemy=="sorcerer"):
-                self.enemies.append(sorcerer(100,"{posX},{posY}".format(posX=x,posY=y),"UP",{"speed":1},ID)
-                continue
-            self.enemies.append(vampire(100,"{posX},{posY}".format(posX=x,posY=y),"UP",{"speed":1},ID)
+                self.enemies.append(sorcerer(100,"{posX},{posY}".format(posX=x,posY=y),"UP",{"speed":1},ID))
+            elif(enemy=="vampire"):  
+                self.enemies.append(vampire(100,"{posX},{posY}".format(posX=x,posY=y),"UP",{"speed":1},ID))
                                     
                 
 
@@ -78,11 +82,13 @@ class game:
         HEADER=4
         for p in self.players:
             for e in self.enemies:
-                sendMessage("enm", "{ID}:{name}/{pos}/{level}".format(ID=e.ID,name=type(e).__name__,pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ",""),level=e.level),p.client.socket,HEADER)
+                sendMessage("enm", "{ID}:{name}/{pos}".format(ID=e.ID,name=type(e).__name__,pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ","")),p.client.socket,HEADER)
     def WorldToIndex(self,pos):
         return (pos[0], len(self.map)-pos[1]-1)
     def summonBoss(self):
-        pass
+        self.enemies.append(boss(100,"4,0","DOWN",{"speed":1},1000))
+        self.sendEnemyPos()
+        
     def run(self):
         #initialize
         time.sleep(0.01)
@@ -94,11 +100,10 @@ class game:
         if(self.defeteBoss):
             #send a message says game is over and that the players won.
             print("you win!")
-            break
+            
         if(len(self.players)==0):
             #send a message says game is over and that the players lost.
             print("you lose!")
-            break
         
         #spawn wave
         if len(self.enemies)==0:
@@ -107,10 +112,22 @@ class game:
             else:
                 self.summonBoss()  
             
-        #kill attack
+        #move players 
         for p in self.players:
             step = deltaTime*p.moveSpeed
-            p.pos = (p.pos[0] + step*p.change[0], p.pos[1] + step*p.change[1])
+            newx, newy = (p.pos[0] + step*p.change[0]), (p.pos[1] + step*p.change[1])
+            if(newx < 0):
+                newx = 0
+            elif(newx > len(self.map[0])-1):
+                newx = len(self.map[0])-1
+            if(newy < 0):
+                newy = 0
+            elif(newy > len(self.map)-1):
+                newy = len(self.map)-1
+            p.pos = (newx, newy)
+            
+            
+        #kill attack
         for atk in self.attacks:
             atk.timeLived += deltaTime
             if(atk.timeLived >= atk.lifespan):
@@ -135,7 +152,6 @@ class game:
                     h2=e.hitbox[1]              
                     if( x1 + w1 > x2 and x1 < x2 + w2):
                         if(y1 + h1 > y2 and y1 < y2 + h2):
-                            print("collide")
                             e.HP-=atk.dmg
                             if(e.HP<=0):
                                 for p in self.players:
@@ -145,7 +161,7 @@ class game:
                                 if(e.isBoss):
                                     #send message that says boss defeted
                                     self.defeteBoss=True
-                                    continue
+                                    
                                 self.enemies.remove(e)
                                 
                             try:
@@ -214,9 +230,12 @@ class enemy:
         
     def find(self, player, finder, grid):
         
-        
-        roundedEnemy = grid.node(math.floor(self.pos[0]), math.floor(self.pos[1]))
-        roundedPlayer = grid.node(math.floor(player.pos[0]), math.floor(player.pos[1]))
+        try:
+            roundedEnemy = grid.node(math.floor(self.pos[0]), math.floor(self.pos[1]))
+            roundedPlayer = grid.node(math.floor(player.pos[0]), math.floor(player.pos[1]))
+        except:
+            print("enemy is: " + str(self.pos))
+            print("player is: " + str(player.pos))
         
         path, runs = finder.find_path(roundedEnemy, roundedPlayer, grid)
         return path[1:], roundedEnemy
@@ -226,7 +245,13 @@ class enemy:
             
             return players[0]
         return players[1]
-
+class boss(enemy):
+    def __init__(self,HP,pos,rotation,stats,ID):
+        enemy.__init__(self,HP,pos,rotation,stats,ID)
+        self.hitbox=self.createHitbox()
+        self.isBoss=True
+    def createHitbox(self):
+        return(3,3)
 class skeleton(enemy):
     def __init__(self,HP,pos,rotation,stats,ID):
         enemy.__init__(self,HP,pos,rotation,stats,ID)

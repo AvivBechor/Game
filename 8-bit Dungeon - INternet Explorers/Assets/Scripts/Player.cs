@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     public bool inGame;
     public bool singlePlayer;
+    public Object[] sprites;
     public VectorValue startingPosition;
     public IntStorage CurrentHP;
     public IntStorage CurrentRecource;
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
     public bool isAttacking;
     public bool isVunerable;
     public bool gender;
+
     
     public bool canMove()
     {

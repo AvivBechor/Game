@@ -110,8 +110,8 @@ public class QueueServer : MonoBehaviour
                     createEnemy(
                         currentMessage.uuid, 
                         currentMessage.data[0],
-                        (float.Parse(currentMessage.data[1].Split(',')[0]), float.Parse(currentMessage.data[1].Split(',')[1])), 
-                        int.Parse(currentMessage.data[2]));
+                        (float.Parse(currentMessage.data[1].Split(',')[0]), float.Parse(currentMessage.data[1].Split(',')[1]))
+                        );
                     break;
             }
         }
@@ -119,7 +119,7 @@ public class QueueServer : MonoBehaviour
 
     void createAttack(int atkUUID, (float, float) pos, string atkName, Side direction)
     {
-        GameObject a = GameObject.Instantiate(baseAttack, new Vector3(pos.Item1, pos.Item2, 0), Quaternion.identity);
+        GameObject a = GameObject.Instantiate(baseAttack, new Vector3(pos.Item1, pos.Item2, 83.19981f), Quaternion.identity);
         a.transform.SetParent(GameObject.Find("AttackContainer").transform);
         //TURN TO SWITCH STATEMENT OVER ATTACK NAME
         a.AddComponent<Strike>()
@@ -132,14 +132,34 @@ public class QueueServer : MonoBehaviour
 
     }
 
-    void createEnemy(int UUID, string enemyName, (float, float) pos, int level)
+    int createEnemy(int UUID, string enemyName, (float, float) pos)
     {
-        GameObject a = GameObject.Instantiate(baseEnemy, new Vector3(pos.Item1, pos.Item2, 0), Quaternion.identity);
+        enemyName = enemyName.ToLower();
+        GameObject a = GameObject.Instantiate(baseEnemy, new Vector3(pos.Item1, pos.Item2, 83.19981f), Quaternion.identity);
         a.transform.SetParent(GameObject.Find("EnemyContainer").transform);
-        //SWITCH OVER ENEMY NAME
-        a.AddComponent<Skeleton>().Init("Skeleton", level);
+        switch(enemyName)
+        {
+            case "skeleton":
+                a.AddComponent<Skeleton>().Init("Skeleton");
+                break;
+            case "sorcerer":
+                a.AddComponent<Sorcerer>().Init("Sorcerer");
+                break;
+            case "vampire":
+                a.AddComponent<Vampire>().Init("Vampire");
+                break;
+            case "boss":
+                a.AddComponent<Boss>().Init("Boss");
+                break;
+            default:
+                Debug.Log("Enemy doesn't exist: " + enemyName);
+                Destroy(a);
+                return 1;              
+        }
+        
         a.AddComponent<enemyMovementScript>();
         a.GetComponent<UUIDHandler>().UUID = UUID;
+        return 0;
     }
 
     GameObject getPlayerByUUID(int uuid)

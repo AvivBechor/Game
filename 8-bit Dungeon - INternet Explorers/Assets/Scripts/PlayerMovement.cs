@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        
+
         player = gameObject.GetComponent<Player>();
         previousChange = Vector2.zero;
 
@@ -33,14 +33,13 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        
-       
-        
+
         if (player.canMove())
         {
-            //Variables to control player movement and rotation, will later be used by the server as well and not only the keyboard input.
-            xMovement = Input.GetAxisRaw("Horizontal");
-            yMovement = Input.GetAxisRaw("Vertical");
+            
+                xMovement = Input.GetAxisRaw("Horizontal");
+                yMovement = Input.GetAxisRaw("Vertical");
+            
 
             change = Vector2.zero;
             change.x = xMovement;
@@ -56,33 +55,41 @@ public class PlayerMovement : MonoBehaviour
             moveCharacter(change);
 
             if (player.inGame)
-            {/*
-                if(sendQueue)
-                {
-                    sendQueue.addMessage("pos:" + gameID + ":" + playerUUID + ":" + player.gameObject.transform.position.x + "," + player.gameObject.transform.position.y);
-                }
-                */
-                accum += Time.deltaTime;
-                if (accum >= 0.1 && !player.isMoving)
-                {
-                    sendQueue.addMessage("pos:" + gameID + ":" + playerUUID + ":" + player.transform.position.x + "," + player.transform.position.y);
-                    accum = 0;
+            {
 
-                }
                 if (!change.Equals(previousChange))
                 {
 
                     if (sendQueue)
-                    { 
+                    {
                         sendQueue.addMessage("mov:" + gameID + ":" + playerUUID + ":" + change.x + "," + change.y);
                         previousChange = change;
                     }
                     else
                         Debug.Log("queue doesnt exist");
                 }
-                
+
             }
         }
+        else
+        {
+            
+            if (player.inGame)
+            {
+                change = new Vector2(0, 0);
+                if (!change.Equals(previousChange))
+                {
+                    if (sendQueue)
+                    {
+                        sendQueue.addMessage("mov:" + gameID + ":" + playerUUID + ":" + change.x + "," + change.y);
+                        previousChange = change;
+                    }
+                    else
+                        Debug.Log("queue doesnt exist");
+                }
+            }
+        }
+
     }
 
     void moveCharacter(Vector2 change)
