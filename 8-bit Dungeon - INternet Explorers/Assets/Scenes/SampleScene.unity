@@ -740,6 +740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inGame: 1
   singlePlayer: 0
+  sprites: []
   startingPosition: {fileID: 0}
   CurrentHP: {fileID: 0}
   CurrentRecource: {fileID: 0}

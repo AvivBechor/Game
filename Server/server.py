@@ -58,5 +58,5 @@ while RUN:
         g=gameProperties.findGame(data.split(":")[1],games)
         if(g):
             if(g.pending!=True):
-                        g.run()
+                        g.run(games)
 

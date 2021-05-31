@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void Init(string name)
     {
-        this.rotation = Side.UP;
+        this.rotation = Side.DOWN;
         this.name = name;       
     }
 

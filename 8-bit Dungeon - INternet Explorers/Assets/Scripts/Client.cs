@@ -10,6 +10,7 @@ using System.Net.Sockets;
 public class Client : MonoBehaviour
     
 {
+    private Client client;
     public IntStorage gameIDHolder;
     public IntStorage uuidHolder;
     public Player player;
@@ -22,6 +23,7 @@ public class Client : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        client = gameObject.GetComponent<Client>();
         messages = new Queue<Message>();
 
         s = new Socket(SocketType.Stream, ProtocolType.Tcp);

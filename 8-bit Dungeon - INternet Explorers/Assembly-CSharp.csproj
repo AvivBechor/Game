@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EquipmentManager.cs" />
     <Compile Include="Assets\Scripts\Iinteractable.cs" />
+    <Compile Include="Assets\Scripts\Implode.cs" />
     <Compile Include="Assets\Scripts\InteractorScript.cs" />
     <Compile Include="Assets\Scripts\Item scripts\BananaScript.cs" />
     <Compile Include="Assets\Scripts\Item scripts\BootsOfSlownessScript.cs" />

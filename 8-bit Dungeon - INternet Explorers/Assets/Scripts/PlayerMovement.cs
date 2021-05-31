@@ -37,10 +37,8 @@ public class PlayerMovement : MonoBehaviour
         if (player.canMove())
         {
             
-                xMovement = Input.GetAxisRaw("Horizontal");
-                yMovement = Input.GetAxisRaw("Vertical");
-            
-
+            xMovement = Input.GetAxisRaw("Horizontal");
+            yMovement = Input.GetAxisRaw("Vertical");
             change = Vector2.zero;
             change.x = xMovement;
             change.y = yMovement;
@@ -56,6 +54,11 @@ public class PlayerMovement : MonoBehaviour
 
             if (player.inGame)
             {
+                accum += Time.deltaTime;
+                if(accum >= 0.1)
+                {
+                    sendQueue.addMessage("pos:" + gameID + ":" + playerUUID + ":" + player.transform.position.x + "," + player.transform.position.y);
+                }
 
                 if (!change.Equals(previousChange))
                 {

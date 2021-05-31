@@ -53,18 +53,19 @@ class game:
                     break
                 
             if i==0:
-                y=0
+                x=0
             if i==1:
-                y=2
+                x=2
             if i==2:
-                y=4
+                x=4
             enemy=random.choice(possibleEnemies)
             if(enemy=="skeleton"):
-                self.enemies.append(skeleton(100,"{posX},{posY}".format(posX=x,posY=y),"UP",{"speed":1},ID))
+                self.enemies.append(skeleton(100,"{posX},{posY}".format(posX=x,posY=y),"DOWN",{"speed":1},ID))
             elif(enemy=="sorcerer"):
-                self.enemies.append(sorcerer(100,"{posX},{posY}".format(posX=x,posY=y),"UP",{"speed":1},ID))
+                self.enemies.append(sorcerer(100,"{posX},{posY}".format(posX=x,posY=y),"DOWN",{"speed":1},ID))
+                possibleEnemies.remove("sorcerer")
             elif(enemy=="vampire"):  
-                self.enemies.append(vampire(100,"{posX},{posY}".format(posX=x,posY=y),"UP",{"speed":1},ID))
+                self.enemies.append(vampire(100,"{posX},{posY}".format(posX=x,posY=y),"DOWN",{"speed":1},ID))
                                     
                 
 
@@ -89,7 +90,7 @@ class game:
         self.enemies.append(boss(100,"4,0","DOWN",{"speed":1},1000))
         self.sendEnemyPos()
         
-    def run(self):
+    def run(self,games):
         #initialize
         time.sleep(0.01)
         HEADER=4
@@ -99,7 +100,9 @@ class game:
         
         if(self.defeteBoss):
             #send a message says game is over and that the players won.
-            print("you win!")
+            for p in self.players:
+                sendMessage("win","0:0",p.client.socket,HEADER)
+            games.remove(self)
             
         if(len(self.players)==0):
             #send a message says game is over and that the players lost.
@@ -185,7 +188,9 @@ class game:
                     print("INVALID DIRECTION FOR ATTACK " + str(atk.ID))
             
         #move enemies        
-        for e in self.enemies:
+        for e in self.enemies:  
+            e.act(deltaTime, self.players, self)
+            '''
             change=(0,0)
             self.grid.cleanup()
             closestPlayer = e.findClosestPlayer(self.players)
@@ -202,7 +207,7 @@ class game:
                 for p in self.players:
                     sendMessage("mov","{ID}:{c}/Enemy".format(ID=e.ID,c=str((change[0],change[1]*-1))[1:-1].replace(" ","")),p.client.socket,HEADER)
                     #pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ","")
-        
+            '''
         self.previousTime=time.time()
 
     
@@ -221,22 +226,20 @@ class player:
 class enemy:
     def __init__(self,HP,pos,rotation,stats,ID):
         self.HP=HP
+        self.poscum=0
+        self.state="move"
         self.pos=(float(pos.split(',')[0]),float(pos.split(',')[1]))
         self.rotation=rotation
         self.stats=stats
         self.ID=ID
         self.change=(0,0)
         self.isBoss=False
-        
-    def find(self, player, finder, grid):
-        
+    def find(self, player, finder, grid):      
         try:
             roundedEnemy = grid.node(math.floor(self.pos[0]), math.floor(self.pos[1]))
             roundedPlayer = grid.node(math.floor(player.pos[0]), math.floor(player.pos[1]))
         except:
-            print("enemy is: " + str(self.pos))
-            print("player is: " + str(player.pos))
-        
+            pass
         path, runs = finder.find_path(roundedEnemy, roundedPlayer, grid)
         return path[1:], roundedEnemy
     
@@ -252,24 +255,130 @@ class boss(enemy):
         self.isBoss=True
     def createHitbox(self):
         return(3,3)
+    def act(self, deltaTime, playerList, game):
+        HEADER=4
+        if self.state == "move":
+            pass
+            '''
+            change=(0,0)
+            game.grid.cleanup()
+            closestPlayer = self.findClosestPlayer(playerList)
+            step=self.stats["speed"]*deltaTime
+            path,roundedEnemy = self.find(closestPlayer, game.finder, game.grid)
+            if(len(path) > 0):
+                targetCell = path[0]
+                change = (targetCell[0]-roundedEnemy.x, targetCell[1]-roundedEnemy.y)
+                        #print("change is {c}\n path is {p}\n pos is {pos}\n ID is {id}\n and going to {player}\n-----".format(player=closestPlayer.pos, c=str(change), pos=str(e.pos), p=str(path), id=str(e.ID)));
+                self.pos = (self.pos[0] + step * change[0], self.pos[1] + step * change[1])
+                        #send change vector sendMessage("mov",change/e.name)
+            if (change != self.change):
+                self.change=change
+                for p in playerList:
+                    sendMessage("mov","{ID}:{c}/Enemy".format(ID=self.ID,c=str((change[0],change[1]*-1))[1:-1].replace(" ","")),p.client.socket,HEADER)
+                    #pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ","")
+            '''
+        elif(self.state == "attack"):
+            pass
 class skeleton(enemy):
+    
     def __init__(self,HP,pos,rotation,stats,ID):
         enemy.__init__(self,HP,pos,rotation,stats,ID)
         self.hitbox=self.createHitbox()
+        self.cooldown = 1
+        self.atkcum = 0
+        self.strength=8
     def createHitbox(self):
         return(1,1)
-class sorcerer(enemy):
+    
+    def act(self, deltaTime, playerList, game):
+        HEADER=4
+        closestPlayer = self.findClosestPlayer(playerList)
+        if self.state == "move":
+            self.atkcum += deltaTime
+            change=(0,0)
+            game.grid.cleanup()
+            step=self.stats["speed"]*deltaTime
+            path,roundedEnemy = self.find(closestPlayer, game.finder, game.grid)
+            if(len(path) > 0):
+                targetCell = path[0]
+                change = (targetCell[0]-roundedEnemy.x, targetCell[1]-roundedEnemy.y)
+                        
+                self.pos = (self.pos[0] + step * change[0], self.pos[1] + step * change[1])
+                        #send change vector sendMessage("mov",change/e.name)
+            elif(len(path) == 0):
+                self.state = "attack";
+            if (change != self.change):
+                self.change=change
+                for p in playerList:
+                    sendMessage("mov","{ID}:{c}/Enemy".format(ID=self.ID,c=str((change[0],change[1]*-1))[1:-1].replace(" ","")),p.client.socket,HEADER)
+                    
+        elif(self.state == "attack"):
+            if(self.atkcum >= self.cooldown):
+               for p in playerList:
+                   sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}/Skeleton/{dmg}/{player}".format(player=closestPlayer.ID,dmg=self.strength, ID=self.ID,position=str(game.WorldToIndex(self.pos))[1:-1].replace(" ",""),AtkName="attack",dir="UP"),p.client.socket,HEADER)
+               self.atkcum = 0
+            self.state = "move"
+            
+        
+class sorcerer(enemy): 
     def __init__(self,HP,pos,rotation,stats,ID):
         enemy.__init__(self,HP,pos,rotation,stats,ID)
         self.hitbox=self.createHitbox()
+        self.cooldown = 5
+        self.atkcum = 0
+        self.state = "heal"
+        self.magicPower=5
     def createHitbox(self):
         return(1,1)
+    def act(self, deltaTime, playerList, game):
+        HEADER=4
+        self.atkcum += deltaTime
+        if(self.atkcum >= self.cooldown):
+            
+            for e in game.enemies:
+                e.HP += self.magicPower
+            for p in playerList:
+                   sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}/Sorcerer/0/0".format(ID=self.ID,position=str(game.WorldToIndex(self.pos))[1:-1].replace(" ",""),AtkName="attack",dir="UP"),p.client.socket,HEADER)
+            self.atkcum = 0
+        
 class vampire(enemy):
     def __init__(self,HP,pos,rotation,stats,ID):
         enemy.__init__(self,HP,pos,rotation,stats,ID)
         self.hitbox=self.createHitbox()
+        self.atkcum = 0
+        self.cooldown = 1.5
+        self.strength=5
     def createHitbox(self):
         return(1,1)
+    def act(self, deltaTime, playerList, game):
+        HEADER=4
+        closestPlayer = self.findClosestPlayer(playerList)
+        if self.state == "move":
+            self.atkcum += deltaTime
+            change=(0,0)
+            game.grid.cleanup()
+            step=self.stats["speed"]*deltaTime
+            path,roundedEnemy = self.find(closestPlayer, game.finder, game.grid)
+            if(len(path) > 0):
+                targetCell = path[0]
+                change = (targetCell[0]-roundedEnemy.x, targetCell[1]-roundedEnemy.y)
+                        #print("change is {c}\n path is {p}\n pos is {pos}\n ID is {id}\n and going to {player}\n-----".format(player=closestPlayer.pos, c=str(change), pos=str(e.pos), p=str(path), id=str(e.ID)));
+                self.pos = (self.pos[0] + step * change[0], self.pos[1] + step * change[1])
+                        #send change vector sendMessage("mov",change/e.name)
+            elif(len(path) == 0):
+                self.state = "attack"
+            if (change != self.change):
+                self.change=change
+                for p in playerList:
+                    sendMessage("mov","{ID}:{c}/Enemy".format(ID=self.ID,c=str((change[0],change[1]*-1))[1:-1].replace(" ","")),p.client.socket,HEADER)
+                    #pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ","")
+        elif(self.state == "attack"):
+            if(self.atkcum >= self.cooldown):
+                self.HP += 2
+                for p in playerList:
+                   sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}/Vampire/{dmg}/{player}".format(player=closestPlayer.ID,dmg=self.strength, ID=self.ID,position=str(game.WorldToIndex(self.pos))[1:-1].replace(" ",""),AtkName="attack",dir="UP"),p.client.socket,HEADER)
+                self.atkcum = 0
+            self.state = "move"
     
 class attack:
     def __init__(self,pos,dmg,playerID,speed,direction,lifespan,name,ID):
@@ -352,6 +461,7 @@ def handleData(data,s,games):
     g=findGame(groupID,games)
     val=val.replace("~","")
     HEADER=4
+    
     if(cmd=="crt"):
         values=val.split("/")
         p=player(client(groupID,s),(3,4),playerID,values[0],values[1])
@@ -374,7 +484,8 @@ def handleData(data,s,games):
                 
             games[-1].previousTime=time.time()
 
-
+    if (g is None):
+        return 0
     elif(cmd=="mov"):
         for p in g.players:
             if(p.client.socket is s):
@@ -396,16 +507,23 @@ def handleData(data,s,games):
         atk.pos=g.WorldToIndex(atk.pos)
         g.addAttack(atk)
         for p in g.players:
-           sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}".format(position=str(g.WorldToIndex(atk.pos))[1:-1].replace(" ",""),AtkName=name,dir=direction,ID=atk.ID), p.client.socket, HEADER)
+           sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}/Player/{dmg}/0".format(dmg=atk.dmg,position=str(g.WorldToIndex(atk.pos))[1:-1].replace(" ",""),AtkName=name,dir=direction,ID=atk.ID), p.client.socket, HEADER)
 
     elif(cmd=="pos"):
         for p in g.players:
             if(p.ID==playerID):
                 p.setPos(g.WorldToIndex((float(val.split(",")[0]),float(val.split(",")[1]))))
             else:
-                sendMessage("pos","{ID}:{value}".format(ID=p.ID,value=val),p.client.socket,HEADER)
-    #elif(cmd=="nul"):
-        #sendMessage("nul","-1:",s,HEADER)
+                sendMessage("pos","{ID}:{value}/Player".format(ID=p.ID,value=val),p.client.socket,HEADER)
+    elif(cmd=="kil"):
+        for p in g.players:
+            if str(p.ID)==playerID:
+                g.players.remove(p)
+                continue
+            sendMessage("kil","{ID}:69".format(ID=playerID))
+            
+            
+                
         
 
 
