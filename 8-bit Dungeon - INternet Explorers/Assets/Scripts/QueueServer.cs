@@ -12,6 +12,10 @@ public class QueueServer : MonoBehaviour
     public GameObject baseEnemy;
     public IntStorage uuidHolder;
     public IntStorage gameIDHolder;
+    public RuntimeAnimatorController mageController;
+    public RuntimeAnimatorController warriorController;
+    public SendQueue sendQueue;
+
 
 
     private void Start()
@@ -49,7 +53,6 @@ public class QueueServer : MonoBehaviour
                                 }
                             }
                             
-                            Debug.Log("Found " + enemy + " with uuid " + enemy.gameObject.GetComponent<UUIDHandler>().UUID);
                             enemyMovementScript enemymovement = enemy.GetComponent<enemyMovementScript>();
                             enemymovement.xMovement = int.Parse(currentMessage.data[0].Split(',')[0]);
                             enemymovement.yMovement = int.Parse(currentMessage.data[0].Split(',')[1]);
@@ -94,7 +97,11 @@ public class QueueServer : MonoBehaviour
                     serverPlayer.character = new Character();
                     serverPlayer.character.title = currentMessage.data[0];
                     serverPlayer.gender = currentMessage.data[1].Equals("1");
-                    serverPlayer.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>(@"MightyPack and more\MV\Characters\Actors_2")[54];
+                    //serverPlayer.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>(@"MightyPack and more\MV\Characters\Actors_2")[54];
+                    serverPlayer.GetComponent<Animator>().runtimeAnimatorController = (serverPlayer.character.title.Equals("mage") ? mageController : warriorController);
+                    //This is beautiful and is my son alive i love it ^
+                    serverPlayer.CurrentHP.value = (serverPlayer.character.title.Equals("mage") ? 100 : 150);
+                    //This is also my son but i don't love it as much ^
                     serverPlayer.transform.position = new Vector3(float.Parse(currentMessage.data[2].Split(',')[0]), float.Parse(currentMessage.data[2].Split(',')[1]), 83.19981f);
                     //serverPlayer.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load(@"MightyPack and more\MV\Characters\Actors_2_54", typeof(Sprite)) as Sprite;
                     break;
@@ -123,6 +130,18 @@ public class QueueServer : MonoBehaviour
                     break;
                 case "kil":
                     Debug.Log("WE ARE KILLING A " + currentMessage.data[0] + " AND IT'S UUID IS " + currentMessage.uuid);
+                    if(currentMessage.data[1].Equals("Player"))
+                    {
+                        foreach (Transform child in GameObject.Find("PlayersContainer").transform)
+                        {
+                            if(currentMessage.uuid == child.GetComponent<UUIDHandler>().UUID)
+                            {
+                                child.GetComponent<Player>().isDead = true;
+                                break;
+                            }
+                        }
+                        break;
+                    }
                     GameObject Container = GameObject.Find(currentMessage.data[0] + "Container");
                     foreach (Transform child in Container.transform)
                     {
@@ -144,7 +163,18 @@ public class QueueServer : MonoBehaviour
                 case "win":
                     messages.Clear();
                     client.s.Close();
-                    SceneManager.LoadScene("Forest");
+                    SceneManager.LoadScene("WIN");
+                    break;
+                case "ehp":
+                    foreach(Transform child in GameObject.Find("EnemyContainer").transform)
+                    {
+                        if(currentMessage.uuid == child.GetComponent<UUIDHandler>().UUID)
+                        {
+                            Debug.Log("HP is: " + currentMessage.data[0]);
+                            child.GetComponent<Enemy>().HP = int.Parse(currentMessage.data[0]);
+                            break;
+                        }
+                    }
                     break;
             }
         }
@@ -156,73 +186,99 @@ public class QueueServer : MonoBehaviour
         {
             GameObject a = GameObject.Instantiate(baseAttack, new Vector3(pos.Item1, pos.Item2, 83.19981f), Quaternion.identity);
             a.transform.SetParent(GameObject.Find("AttackContainer").transform);
-            //TURN TO SWITCH STATEMENT OVER ATTACK NAME
-            a.AddComponent<Strike>()
-             .SpawnAttack(atkName, direction, atkUUID);
-
-            //******************************************
+            switch(atkName)
+            {
+                case "strike":
+                    a.AddComponent<Strike>().SpawnAttack(atkName, direction, atkUUID);
+                    break;
+                case "vroom":
+                    a.AddComponent<Vroom>().SpawnAttack(atkName, direction, atkUUID);
+                    break;
+            }
             a.GetComponent<Attack>().isHeadless = false;
             a.AddComponent<UUIDHandler>()
              .UUID = atkUUID;
         }
-        else if (type.Equals("Skeleton"))
-        {
-            Transform enm = null;
-            foreach(Transform child in GameObject.Find("EnemyContainer").transform)
-            {
-                if(atkUUID == child.GetComponent<UUIDHandler>().UUID)
-                {
-                    enm = child;
-                    break;
-                }
-            }
-            Debug.Log("A SKELETON AHAS ATAACKED");
-            Sprite spr = Resources.Load(@"Attacks\ATK_FIRE", typeof(Sprite)) as Sprite;
-            GameObject a = Instantiate(baseAttack, new Vector3(-1, 1, 83.19981f), Quaternion.identity);
-            a.transform.parent = enm;
-            a.transform.localPosition = new Vector3(-1, 1, 83.19981f);
-            a.GetComponent<SpriteRenderer>().sprite = spr;
-            a.AddComponent<Implode>().lifespan = 0.5f;
-
-        }
-        else if (type.Equals("Vampire"))
-        {
-            Transform enm = null;
-            foreach (Transform child in GameObject.Find("EnemyContainer").transform)
-            {
-                if (atkUUID == child.GetComponent<UUIDHandler>().UUID)
-                {
-                    enm = child;
-                    break;
-                }
-            }
-
-            Sprite spr = Resources.Load(@"Attacks\ATK_BAT", typeof(Sprite)) as Sprite;
-            GameObject a = Instantiate(baseAttack, new Vector3(-1, 1, 83.19981f), Quaternion.identity);          
-            a.transform.parent = enm.transform;
-            a.transform.localPosition = new Vector3(-1, 1, 83.19981f);
-            a.GetComponent<SpriteRenderer>().sprite = spr;
-            a.AddComponent<Implode>().lifespan = 0.5f;
-        }
-        else if (type.Equals("Sorcerer"))
+        else
         {
             
-            Transform enm = null;
-            foreach (Transform child in GameObject.Find("EnemyContainer").transform)
+            foreach(Transform child in GameObject.Find("PlayersContainer").transform)
             {
-                if (atkUUID == child.GetComponent<UUIDHandler>().UUID)
+                Debug.Log("Found " + child.name);
+                if(uuid == child.GetComponent<UUIDHandler>().UUID)
                 {
-                    enm = child;
+                    Debug.Log("MATCHED UUID " + uuid + " to " + child.name);
+                    Player hurt = child.GetComponent<Player>();
+                    hurt.CurrentHP.value -= (int)damage;
+                    if (hurt.CurrentHP.value <= 0)
+                    {
+                        hurt.isDead = true;
+                        sendQueue.addMessage("kil" +":" + child.GetComponent<gameIDHandler>().gameID + ":" + uuid + ":"+"Player");
+                        
+                    }
+
                     break;
                 }
             }
-          
-            Sprite spr = Resources.Load(@"Attacks\ATK_NOTATK", typeof(Sprite)) as Sprite;
-            GameObject a = Instantiate(baseAttack, new Vector3(0, 1, 83.19981f), Quaternion.identity);
-            a.transform.parent = enm.transform;
-            a.transform.localPosition = new Vector3(0, 0, 0);
-            a.GetComponent<SpriteRenderer>().sprite = spr;
-            a.AddComponent<Implode>().lifespan = 0.5f;
+            if (type.Equals("Skeleton"))
+            {
+                Transform enm = null;
+                foreach (Transform child in GameObject.Find("EnemyContainer").transform)
+                {
+                    if (atkUUID == child.GetComponent<UUIDHandler>().UUID)
+                    {
+                        enm = child;
+                        break;
+                    }
+                }
+                Debug.Log("A SKELETON AHAS ATAACKED");
+                Sprite spr = Resources.Load(@"Attacks\ATK_FIRE", typeof(Sprite)) as Sprite;
+                GameObject a = Instantiate(baseAttack, new Vector3(-1, 1, 83.19981f), Quaternion.identity);
+                a.transform.parent = enm;
+                a.transform.localPosition = new Vector3(-1, 1, 83.19981f);
+                a.GetComponent<SpriteRenderer>().sprite = spr;
+                a.AddComponent<Implode>().lifespan = 0.5f;
+
+            }
+            else if (type.Equals("Vampire"))
+            {
+                Transform enm = null;
+                foreach (Transform child in GameObject.Find("EnemyContainer").transform)
+                {
+                    if (atkUUID == child.GetComponent<UUIDHandler>().UUID)
+                    {
+                        enm = child;
+                        break;
+                    }
+                }
+
+                Sprite spr = Resources.Load(@"Attacks\ATK_BAT", typeof(Sprite)) as Sprite;
+                GameObject a = Instantiate(baseAttack, new Vector3(-1, 1, 83.19981f), Quaternion.identity);
+                a.transform.parent = enm.transform;
+                a.transform.localPosition = new Vector3(-1, 1, 83.19981f);
+                a.GetComponent<SpriteRenderer>().sprite = spr;
+                a.AddComponent<Implode>().lifespan = 0.5f;
+            }
+            else if (type.Equals("Sorcerer"))
+            {
+
+                Transform enm = null;
+                foreach (Transform child in GameObject.Find("EnemyContainer").transform)
+                {
+                    if (atkUUID == child.GetComponent<UUIDHandler>().UUID)
+                    {
+                        enm = child;
+                        break;
+                    }
+                }
+
+                Sprite spr = Resources.Load(@"Attacks\ATK_NOTATK", typeof(Sprite)) as Sprite;
+                GameObject a = Instantiate(baseAttack, new Vector3(0, 1, 83.19981f), Quaternion.identity);
+                a.transform.parent = enm.transform;
+                a.transform.localPosition = new Vector3(0, 0, 0);
+                a.GetComponent<SpriteRenderer>().sprite = spr;
+                a.AddComponent<Implode>().lifespan = 0.5f;
+            }
         }
     }
 

@@ -34,7 +34,12 @@ public class PlayerAttack : MonoBehaviour
         {
             if (player.isAttacking) {
                 accum += Time.deltaTime;
-                if (player.character.title.ToLower() == "warrior" && accum >= Strike.coolDown)
+                if (accum >= Strike.coolDown && player.character.title.ToLower().Equals("warrior"))
+                {
+                    accum = 0;
+                    player.isAttacking = false;
+                }
+                else if(accum >= Vroom.coolDown && player.character.title.ToLower().Equals("mage"))
                 {
                     accum = 0;
                     player.isAttacking = false;
@@ -78,6 +83,12 @@ public class PlayerAttack : MonoBehaviour
                     Strike strike = new Strike();
                     strike.SpawnAttackHeadless(player, "strike");
                     sendQueue.addMessage("atk:" + player.GetComponent<gameIDHandler>().gameID + ":" + player.GetComponent<UUIDHandler>().UUID + ":" + pos.x + "," + pos.y + "/" + strike.damage + "/" + strike.speed + "/" + player.rotation.ToString() + "/" + strike.lifeSpan + "/strike");
+                }
+                else if(player.character.title.ToLower() == "mage")
+                {
+                    Vroom vroom = new Vroom();
+                    vroom.SpawnAttackHeadless(player, "vroom");
+                    sendQueue.addMessage("atk:" + player.GetComponent<gameIDHandler>().gameID + ":" + player.GetComponent<UUIDHandler>().UUID + ":" + pos.x + "," + pos.y + "/" + vroom.damage + "/" + vroom.speed + "/" + player.rotation.ToString() + "/" + vroom.lifeSpan + "/vroom");
                 }
             }
             

@@ -7,6 +7,7 @@ using System.Threading;
 using System.Net;
 using System.Net.Sockets;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 
 public class queueClient : MonoBehaviour
@@ -14,8 +15,9 @@ public class queueClient : MonoBehaviour
     public IntStorage gameIDHolder;
     public IntStorage uuidHolder;
     public Player player;
+    public StringHolder stringHolder;
     private int port = 5556;
-    private string ip = "127.0.0.1";
+    private string ip;
     private readonly int HEADER = 4;
     private bool isRecieving = false;
     string msg = "";
@@ -24,6 +26,19 @@ public class queueClient : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        string path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
+        //string p = Directory.GetCurrentDirectory();
+        
+        //string path = p + @"\Assets\IP.txt";
+        path += @"\IP.txt";
+        Debug.Log("data pth:" + path);
+        StreamReader reader = new StreamReader(path);
+        ip = reader.ReadToEnd();
+        Debug.Log("WE READ:" + ip);
+        Debug.Log("TEST:" + ip.Equals("127.0.0.1"));
+        reader.Close();
+        stringHolder.value = ip;
+        DontDestroyOnLoad(stringHolder);
         s = new Socket(SocketType.Stream, ProtocolType.Tcp);
         s.Connect(ip, port);
         Debug.Log("Connected");

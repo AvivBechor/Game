@@ -619,8 +619,10 @@ GameObject:
   - component: {fileID: 834970564}
   - component: {fileID: 834970565}
   - component: {fileID: 834970567}
+  - component: {fileID: 834970570}
   - component: {fileID: 834970566}
   - component: {fileID: 834970568}
+  - component: {fileID: 834970569}
   m_Layer: 19
   m_Name: OtherPlayer
   m_TagString: Untagged
@@ -742,7 +744,7 @@ MonoBehaviour:
   singlePlayer: 0
   sprites: []
   startingPosition: {fileID: 0}
-  CurrentHP: {fileID: 0}
+  CurrentHP: {fileID: 11400000, guid: ca1a3829f1a19be45b204eefa156fbb8, type: 2}
   CurrentRecource: {fileID: 0}
   rotation: 3
   character: {fileID: 0}
@@ -753,6 +755,8 @@ MonoBehaviour:
   isAttacking: 0
   isVunerable: 0
   gender: 0
+  mageController: {fileID: 0}
+  warriorController: {fileID: 0}
 --- !u!114 &834970567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,6 +800,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7212656, y: 0.9694629}
   m_EdgeRadius: 0
+--- !u!95 &834970569
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834970561}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &834970570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834970561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2291ac9969a9e4346aed8b7eae199279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &928016441
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,6 +1912,12 @@ PrefabInstance:
       objectReference: {fileID: 9109332589083546149}
     - target: {fileID: 8351485814000831010, guid: 8bb10224e0d72b54d816487790e29e62,
         type: 3}
+      propertyPath: ipHolder
+      value: 
+      objectReference: {fileID: 11400000, guid: 4069bbbe694502e4494c77872ca081cd,
+        type: 2}
+    - target: {fileID: 8351485814000831010, guid: 8bb10224e0d72b54d816487790e29e62,
+        type: 3}
       propertyPath: uuidHolder
       value: 
       objectReference: {fileID: 11400000, guid: 565408b8405d5044885c23208cfd0300,
@@ -1900,6 +1941,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 8351485814000831020, guid: 8bb10224e0d72b54d816487790e29e62,
         type: 3}
+      propertyPath: sendQueue
+      value: 
+      objectReference: {fileID: 1046142151}
+    - target: {fileID: 8351485814000831020, guid: 8bb10224e0d72b54d816487790e29e62,
+        type: 3}
       propertyPath: baseAttack
       value: 
       objectReference: {fileID: 3108775741810193949, guid: eeb86c68bc4f99c4f847930fcc0e1527,
@@ -1916,6 +1962,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a2d9c5796b2aee34abd294d43a54ec9c,
         type: 2}
+    - target: {fileID: 8351485814000831020, guid: 8bb10224e0d72b54d816487790e29e62,
+        type: 3}
+      propertyPath: mageController
+      value: 
+      objectReference: {fileID: 9100000, guid: ac73c74087d89394f9c3a17ade765d38, type: 2}
+    - target: {fileID: 8351485814000831020, guid: 8bb10224e0d72b54d816487790e29e62,
+        type: 3}
+      propertyPath: warriorController
+      value: 
+      objectReference: {fileID: 9100000, guid: 765b365d711400a45b6af0bb2590491e, type: 2}
     - target: {fileID: 8351485814000831021, guid: 8bb10224e0d72b54d816487790e29e62,
         type: 3}
       propertyPath: m_RootOrder
@@ -2064,6 +2120,16 @@ PrefabInstance:
       propertyPath: singlePlayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9109332588975417273, guid: 4faa51768c2ab3345afd8fefb0957136,
+        type: 3}
+      propertyPath: mageController
+      value: 
+      objectReference: {fileID: 9100000, guid: ac73c74087d89394f9c3a17ade765d38, type: 2}
+    - target: {fileID: 9109332588975417273, guid: 4faa51768c2ab3345afd8fefb0957136,
+        type: 3}
+      propertyPath: warriorController
+      value: 
+      objectReference: {fileID: 9100000, guid: 765b365d711400a45b6af0bb2590491e, type: 2}
     - target: {fileID: 9109332588975417274, guid: 4faa51768c2ab3345afd8fefb0957136,
         type: 3}
       propertyPath: player

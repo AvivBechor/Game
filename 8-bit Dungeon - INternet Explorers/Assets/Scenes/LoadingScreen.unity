@@ -153,6 +153,7 @@ MonoBehaviour:
   gameIDHolder: {fileID: 11400000, guid: a2d9c5796b2aee34abd294d43a54ec9c, type: 2}
   uuidHolder: {fileID: 11400000, guid: 565408b8405d5044885c23208cfd0300, type: 2}
   player: {fileID: 9109332588975417273, guid: 4faa51768c2ab3345afd8fefb0957136, type: 3}
+  stringHolder: {fileID: 11400000, guid: 4069bbbe694502e4494c77872ca081cd, type: 2}
 --- !u!4 &1059803637
 Transform:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ public class Character : ScriptableObject
         stats.Add("MaxHP", new MaxHp(o.Value<JObject>("HP").Value<int>("Base"), o.Value<JObject>("HP").Value<float>("LvlMult")));
         stats.Add("MaxRecourse", new RecourseStorage(o.Value<JObject>("Recourse").Value<int>("Base"), o.Value<JObject>("Recourse").Value<float>("LvlMult")));
         stats.Add("Strength", new Stat(o.Value<JObject>("Strength").Value<int>("Base"), o.Value<JObject>("Strength").Value<int>("LvlMult")));
-
+        Debug.Log("STR IS:" + stats["Strength"]);
         //attackRecourseCost = o.Value<JObject>("AttackCost").Value<int>("Cost");
     }
 }

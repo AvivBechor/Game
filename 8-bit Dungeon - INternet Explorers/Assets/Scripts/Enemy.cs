@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     public Sprite spriteDOWN;
     public Sprite spriteLEFT;
     public Sprite spriteRIGHT;
-
+    public int HP;
     public virtual void Init(string name)
     {
         this.rotation = Side.DOWN;

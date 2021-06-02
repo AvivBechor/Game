@@ -20,8 +20,23 @@ public class Player : MonoBehaviour
     public bool isAttacking;
     public bool isVunerable;
     public bool gender;
+    public RuntimeAnimatorController mageController;
+    public RuntimeAnimatorController warriorController;
 
-    
+    private void Start()
+    {
+        if (character)
+        {
+            if (character.title.Equals("Mage"))
+            {
+                gameObject.GetComponent<Animator>().runtimeAnimatorController = mageController;
+            }
+            else
+            {
+                gameObject.GetComponent<Animator>().runtimeAnimatorController = warriorController;
+            }
+        }
+    }
     public bool canMove()
     {
         if(!singlePlayer)

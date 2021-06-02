@@ -6,6 +6,7 @@ public class Boss : Enemy
 {
     public override void Init(string name)
     {
+        HP = 100;
         transform.localScale = new Vector3(3, 3, 1);
         base.Init(name);
         this.stats = new Dictionary<string, Stat>();

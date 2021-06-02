@@ -8,6 +8,7 @@ public class Skeleton : Enemy
     public override void Init(string name)
     {
         base.Init(name);
+        HP = 100;
         this.stats = new Dictionary<string, Stat>();
         stats.Add("Movespeed", new Stat(1, 0));
         Object[] sprites = Resources.LoadAll(@"MightyPack and more\MV\Characters\NPC_Evil");

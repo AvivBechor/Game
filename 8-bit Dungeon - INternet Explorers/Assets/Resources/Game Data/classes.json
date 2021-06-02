@@ -2,7 +2,7 @@
 
 	"Warrior": {
 		"HP": {
-			"Base": 300,
+			"Base": 150,
 			"LvlMult": 0.5
 		},
 
@@ -33,12 +33,12 @@
 
 	"Mage": {
 		"HP": {
-			"Base": 150,
+			"Base": 100,
 			"LvlMult": 0.3
 		},
 
 		"Strength": {
-			"Base": 2,
+			"Base": 15,
 			"LvlMult": 0.1
 		},
 		"Recourse": {

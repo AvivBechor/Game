@@ -10,20 +10,21 @@ using System.Net.Sockets;
 public class Client : MonoBehaviour
     
 {
-    private Client client;
     public IntStorage gameIDHolder;
     public IntStorage uuidHolder;
     public Player player;
     public Queue<Message> messages;
     private int port = 5555;
-    private string ip = "127.0.0.1";
+    private string ip;
     private readonly int HEADER = 4;
     public Socket s;
     public bool isRecieving = false;
+    public StringHolder ipHolder;
     // Start is called before the first frame update
     void Start()
     {
-        client = gameObject.GetComponent<Client>();
+        ip = ipHolder.value;
+        Debug.Log("LOADED IP IS:" + ip);
         messages = new Queue<Message>();
 
         s = new Socket(SocketType.Stream, ProtocolType.Tcp);
