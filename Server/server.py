@@ -54,6 +54,18 @@ while RUN:
             except ConnectionError:
                 print("the problamatic socket is" + str(s))
                 gameProperties.remove_client(s,clients)
+                for g in games:
+                    done=False
+                    for p in g.players:
+                        if p.client.socket is s:
+                            done=True
+                            p.client.isConnected=False
+                        else:
+                        
+                            gameProperties.sendMessage("kil","{ID}:Player".format(ID=p.ID), p,HEADER)
+                    if(done):
+                        break
+                
     if(data):
         g=gameProperties.findGame(data.split(":")[1],games)
         if(g):

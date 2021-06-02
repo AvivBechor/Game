@@ -13,6 +13,7 @@ class client:
     def __init__(self, ID, socket):
         self.groupID=ID
         self.socket=socket
+        self.isConnected=True
 
         
 class game:
@@ -30,11 +31,13 @@ class game:
         self.waves=0
         self.defeteBoss=False
     def generateMap(self):
-        return [[1, 1, 1, 1, 1],
-                [1, 1, 1, 1, 1],
-                [1, 1, 1, 1, 1],
-                [1, 1, 0, 1, 1],
-                [1, 1, 0, 1, 1]
+        return [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
                 ]
     def generateWave(self):
         possibleEnemies=["skeleton","sorcerer","vampire"]
@@ -83,11 +86,11 @@ class game:
         HEADER=4
         for p in self.players:
             for e in self.enemies:
-                sendMessage("enm", "{ID}:{name}/{pos}".format(ID=e.ID,name=type(e).__name__,pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ","")),p.client.socket,HEADER)
+                sendMessage("enm", "{ID}:{name}/{pos}".format(ID=e.ID,name=type(e).__name__,pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ","")),p,HEADER)
     def WorldToIndex(self,pos):
         return (pos[0], len(self.map)-pos[1]-1)
     def summonBoss(self):
-        self.enemies.append(boss(100,"4,0","DOWN",{"speed":1},1000))
+        self.enemies.append(boss(200,"0,4","DOWN",{"speed":2},1000))
         self.sendEnemyPos()
         
     def run(self,games):
@@ -97,16 +100,23 @@ class game:
         atkAlive=True
         deltaTime=time.time() - self.previousTime
         self.timeAccumulator += deltaTime
-        
+        if(self.players[0].client.isConnected==False and self.players[1].client.isConnected==False):
+            games.remove(self)
+            return
         if(self.defeteBoss):
             #send a message says game is over and that the players won.
             for p in self.players:
-                sendMessage("win","0:0",p.client.socket,HEADER)
+                sendMessage("win","0:0",p,HEADER)
             games.remove(self)
+            return 
             
-        if(len(self.players)==0):
+        if(self.players[0].isDead and self.players[1].isDead):
             #send a message says game is over and that the players lost.
-            print("you lose!")
+            for p in self.players:
+                sendMessage("los","0:0",p,HEADER)
+            games.remove(self)
+            return
+        
         
         #spawn wave
         if len(self.enemies)==0:
@@ -156,11 +166,15 @@ class game:
                     if( x1 + w1 > x2 and x1 < x2 + w2):
                         if(y1 + h1 > y2 and y1 < y2 + h2):
                             e.HP-=atk.dmg
+                            for p in self.players:
+                                sendMessage("ehp","{ID}:{HP}".format(ID=e.ID,HP=e.HP),p,HEADER)
+                            if(atk.isRanged==True):
+                                for p in self.players:
+                                    sendMessage("kil","{ID}:Attack".format(ID=atk.ID),p,HEADER)
                             if(e.HP<=0):
                                 for p in self.players:
-                                    sendMessage("kil","{ID}:Enemy".format(ID=e.ID),p.client.socket,HEADER)
-                                    if(atk.isRanged==True):
-                                        sendMessage("kil","{ID}:Attack".format(ID=atk.ID),p.client.socket,HEADER)
+                                    sendMessage("kil","{ID}:Enemy".format(ID=e.ID),p,HEADER)
+                                    
                                 if(e.isBoss):
                                     #send message that says boss defeted
                                     self.defeteBoss=True
@@ -190,24 +204,6 @@ class game:
         #move enemies        
         for e in self.enemies:  
             e.act(deltaTime, self.players, self)
-            '''
-            change=(0,0)
-            self.grid.cleanup()
-            closestPlayer = e.findClosestPlayer(self.players)
-            step=e.stats["speed"]*deltaTime
-            path, roundedEnemy = e.find(closestPlayer, self.finder, self.grid)
-            if(len(path) > 0):
-                targetCell = path[0]
-                change = (targetCell[0]-roundedEnemy.x, targetCell[1]-roundedEnemy.y)
-                        #print("change is {c}\n path is {p}\n pos is {pos}\n ID is {id}\n and going to {player}\n-----".format(player=closestPlayer.pos, c=str(change), pos=str(e.pos), p=str(path), id=str(e.ID)));
-                e.pos = (e.pos[0] + step * change[0], e.pos[1] + step * change[1])
-                        #send change vector sendMessage("mov",change/e.name)
-            if (change != e.change):
-                e.change=change
-                for p in self.players:
-                    sendMessage("mov","{ID}:{c}/Enemy".format(ID=e.ID,c=str((change[0],change[1]*-1))[1:-1].replace(" ","")),p.client.socket,HEADER)
-                    #pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ","")
-            '''
         self.previousTime=time.time()
 
     
@@ -221,6 +217,8 @@ class player:
         self.gender=gender
         self.change=(0,0)
         self.moveSpeed=4
+        self.isDead=False
+        
     def setPos(self,pos):
         self.pos=pos
 class enemy:
@@ -244,41 +242,52 @@ class enemy:
         return path[1:], roundedEnemy
     
     def findClosestPlayer(self, players):
-        if(math.dist(players[0].pos, self.pos) < math.dist(players[1].pos, self.pos)):
-            
+        if(players[0].isDead):
+            return players[1]
+        elif(players[1].isDead):
             return players[0]
-        return players[1]
+        else:
+            if(math.dist(players[0].pos, self.pos) < math.dist(players[1].pos, self.pos)):
+                return players[0]
+            return players[1]
 class boss(enemy):
     def __init__(self,HP,pos,rotation,stats,ID):
         enemy.__init__(self,HP,pos,rotation,stats,ID)
         self.hitbox=self.createHitbox()
         self.isBoss=True
+        self.strength=20
+        self.atkcum=0
+        self.cooldown=1
     def createHitbox(self):
         return(3,3)
     def act(self, deltaTime, playerList, game):
         HEADER=4
+        closestPlayer = self.findClosestPlayer(playerList)
         if self.state == "move":
-            pass
-            '''
+            self.atkcum += deltaTime
             change=(0,0)
             game.grid.cleanup()
-            closestPlayer = self.findClosestPlayer(playerList)
             step=self.stats["speed"]*deltaTime
             path,roundedEnemy = self.find(closestPlayer, game.finder, game.grid)
             if(len(path) > 0):
                 targetCell = path[0]
                 change = (targetCell[0]-roundedEnemy.x, targetCell[1]-roundedEnemy.y)
-                        #print("change is {c}\n path is {p}\n pos is {pos}\n ID is {id}\n and going to {player}\n-----".format(player=closestPlayer.pos, c=str(change), pos=str(e.pos), p=str(path), id=str(e.ID)));
+                        
                 self.pos = (self.pos[0] + step * change[0], self.pos[1] + step * change[1])
                         #send change vector sendMessage("mov",change/e.name)
+            elif(len(path) == 0):
+                self.state = "attack";
             if (change != self.change):
                 self.change=change
                 for p in playerList:
-                    sendMessage("mov","{ID}:{c}/Enemy".format(ID=self.ID,c=str((change[0],change[1]*-1))[1:-1].replace(" ","")),p.client.socket,HEADER)
-                    #pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ","")
-            '''
+                    sendMessage("mov","{ID}:{c}/Enemy".format(ID=self.ID,c=str((change[0],change[1]*-1))[1:-1].replace(" ","")),p,HEADER)
+                    
         elif(self.state == "attack"):
-            pass
+            if(self.atkcum >= self.cooldown):
+               for p in playerList:
+                   sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}/Skeleton/{dmg}/{player}".format(player=closestPlayer.ID,dmg=self.strength, ID=self.ID,position=str(game.WorldToIndex(self.pos))[1:-1].replace(" ",""),AtkName="attack",dir="UP"),p,HEADER)
+               self.atkcum = 0
+            self.state = "move"
 class skeleton(enemy):
     
     def __init__(self,HP,pos,rotation,stats,ID):
@@ -310,12 +319,12 @@ class skeleton(enemy):
             if (change != self.change):
                 self.change=change
                 for p in playerList:
-                    sendMessage("mov","{ID}:{c}/Enemy".format(ID=self.ID,c=str((change[0],change[1]*-1))[1:-1].replace(" ","")),p.client.socket,HEADER)
+                    sendMessage("mov","{ID}:{c}/Enemy".format(ID=self.ID,c=str((change[0],change[1]*-1))[1:-1].replace(" ","")),p,HEADER)
                     
         elif(self.state == "attack"):
             if(self.atkcum >= self.cooldown):
                for p in playerList:
-                   sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}/Skeleton/{dmg}/{player}".format(player=closestPlayer.ID,dmg=self.strength, ID=self.ID,position=str(game.WorldToIndex(self.pos))[1:-1].replace(" ",""),AtkName="attack",dir="UP"),p.client.socket,HEADER)
+                   sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}/Skeleton/{dmg}/{player}".format(player=closestPlayer.ID,dmg=self.strength, ID=self.ID,position=str(game.WorldToIndex(self.pos))[1:-1].replace(" ",""),AtkName="attack",dir="UP"),p,HEADER)
                self.atkcum = 0
             self.state = "move"
             
@@ -337,8 +346,13 @@ class sorcerer(enemy):
             
             for e in game.enemies:
                 e.HP += self.magicPower
+                if e.HP>100:
+                    e.HP=100
+                for p in playerList:
+                    sendMessage("ehp","{ID}:{HP}".format(ID=e.ID,HP=e.HP),p,HEADER)
+
             for p in playerList:
-                   sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}/Sorcerer/0/0".format(ID=self.ID,position=str(game.WorldToIndex(self.pos))[1:-1].replace(" ",""),AtkName="attack",dir="UP"),p.client.socket,HEADER)
+                sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}/Sorcerer/0/0".format(ID=self.ID,position=str(game.WorldToIndex(self.pos))[1:-1].replace(" ",""),AtkName="attack",dir="UP"),p,HEADER)
             self.atkcum = 0
         
 class vampire(enemy):
@@ -370,13 +384,17 @@ class vampire(enemy):
             if (change != self.change):
                 self.change=change
                 for p in playerList:
-                    sendMessage("mov","{ID}:{c}/Enemy".format(ID=self.ID,c=str((change[0],change[1]*-1))[1:-1].replace(" ","")),p.client.socket,HEADER)
+                    sendMessage("mov","{ID}:{c}/Enemy".format(ID=self.ID,c=str((change[0],change[1]*-1))[1:-1].replace(" ","")),p,HEADER)
                     #pos=str(self.WorldToIndex(e.pos))[1:-1].replace(" ","")
         elif(self.state == "attack"):
             if(self.atkcum >= self.cooldown):
                 self.HP += 2
+                if self.HP>100:
+                    self.HP=100
                 for p in playerList:
-                   sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}/Vampire/{dmg}/{player}".format(player=closestPlayer.ID,dmg=self.strength, ID=self.ID,position=str(game.WorldToIndex(self.pos))[1:-1].replace(" ",""),AtkName="attack",dir="UP"),p.client.socket,HEADER)
+                   sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}/Vampire/{dmg}/{player}".format(player=closestPlayer.ID,dmg=self.strength, ID=self.ID,position=str(game.WorldToIndex(self.pos))[1:-1].replace(" ",""),AtkName="attack",dir="UP"),p,HEADER)
+                   sendMessage("ehp","{ID}:{HP}".format(ID=self.ID,HP=self.HP),p,HEADER)
+
                 self.atkcum = 0
             self.state = "move"
     
@@ -394,12 +412,12 @@ class attack:
         self.hitbox=self.createHitbox(name)
         self.isRanged=self.checkIsRanged(self.name)
     def createHitbox(self,name):
-        if name=="bomb":
+        if name=="vroom":
             return (1,1)
         elif name=="strike":
             return (1,1)
     def checkIsRanged(self,name):
-        if name=="bomb":
+        if name=="vroom":
             return True
         return False
         
@@ -407,12 +425,15 @@ class attack:
             
 
 
-def sendMessage(cmd,msg,s,HEADER):
+def sendMessage(cmd,msg,player,HEADER):
+    try:
         msg=cmd+":"+msg
         msg=f'{len(msg):<{HEADER}}'+msg
         if(len(msg)%2!=0):
             msg+="~"
-        s.send(msg.encode("UTF-8"))
+        player.client.socket.send(msg.encode("UTF-8"))
+    except:
+        player.client.isDead=False
 
 def recvMessage(s,HEADER):
     new_msg=True
@@ -467,20 +488,20 @@ def handleData(data,s,games):
         p=player(client(groupID,s),(3,4),playerID,values[0],values[1])
         if g:
             g.addPlayer(p)
-            sendMessage("add","player added",s,HEADER)
+            sendMessage("add","player added",p,HEADER)
             
         else:  
             games.append(game(groupID))
             games[-1].addPlayer(p)
             games[-1].pending=True            
-            sendMessage("hlt","waiting for players",s,HEADER)
+            sendMessage("hlt","waiting for players",p,HEADER)
         if (g is not None and len(g.players)==2):
             g.generateWave()
             g.pending=False
             for p in g.players:
                 for j in g.players:
                     if p is not j:
-                        sendMessage("srt", "{ID}:{title}/{gender}/{pos}".format(pos=str(g.WorldToIndex(p.pos))[1:-1].replace(" ",""),title=p.title,gender=p.gender,ID=p.ID), j.client.socket, HEADER)
+                        sendMessage("srt", "{ID}:{title}/{gender}/{pos}".format(pos=str(g.WorldToIndex(p.pos))[1:-1].replace(" ",""),title=p.title,gender=p.gender,ID=p.ID), j, HEADER)
                 
             games[-1].previousTime=time.time()
 
@@ -490,9 +511,9 @@ def handleData(data,s,games):
         for p in g.players:
             if(p.client.socket is s):
                 p.change=(int(val.split(",")[0]),int(val.split(",")[1])*-1)
-                sendMessage("rcv","0:recieved",p.client.socket,HEADER)
+                sendMessage("rcv","0:recieved",p,HEADER)
                 continue
-            sendMessage("mov","{ID}:{value}/Player".format(ID=playerID,value=val),p.client.socket,HEADER)
+            sendMessage("mov","{ID}:{value}/Player".format(ID=playerID,value=val),p,HEADER)
                 
     elif(cmd=="atk"):
         values=val.split('/')
@@ -507,20 +528,21 @@ def handleData(data,s,games):
         atk.pos=g.WorldToIndex(atk.pos)
         g.addAttack(atk)
         for p in g.players:
-           sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}/Player/{dmg}/0".format(dmg=atk.dmg,position=str(g.WorldToIndex(atk.pos))[1:-1].replace(" ",""),AtkName=name,dir=direction,ID=atk.ID), p.client.socket, HEADER)
+           sendMessage("atk", "{ID}:{position}/{AtkName}/{dir}/Player/{dmg}/0".format(dmg=atk.dmg,position=str(g.WorldToIndex(atk.pos))[1:-1].replace(" ",""),AtkName=name,dir=direction,ID=atk.ID), p, HEADER)
 
     elif(cmd=="pos"):
         for p in g.players:
             if(p.ID==playerID):
                 p.setPos(g.WorldToIndex((float(val.split(",")[0]),float(val.split(",")[1]))))
             else:
-                sendMessage("pos","{ID}:{value}/Player".format(ID=p.ID,value=val),p.client.socket,HEADER)
+                sendMessage("pos","{ID}:{value}/Player".format(ID=p.ID,value=val),p,HEADER)
     elif(cmd=="kil"):
         for p in g.players:
             if str(p.ID)==playerID:
-                g.players.remove(p)
+                p.isDead=True
+                p.change=(0,0)
                 continue
-            sendMessage("kil","{ID}:69".format(ID=playerID))
+            sendMessage("kil","{ID}:Player".format(ID=playerID), p,HEADER)
             
             
                 
@@ -540,7 +562,7 @@ swp: request to change room
 end: finish game
 '''
 
-
+        
 
 def remove_client(client, clients):
     clients.remove(client)
