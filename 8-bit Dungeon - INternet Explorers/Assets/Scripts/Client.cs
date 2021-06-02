@@ -34,7 +34,7 @@ public class Client : MonoBehaviour
         GameObject cl = GameObject.Find("Player");
         cl.GetComponent<gameIDHandler>().gameID = gameIDHolder.value;
         cl.GetComponent<UUIDHandler>().UUID = uuidHolder.value;
-        sendMessage("crt", player.GetComponent<gameIDHandler>().gameID, player.GetComponent<UUIDHandler>().UUID, "warrior/1", s,HEADER);
+        sendMessage("crt", player.GetComponent<gameIDHandler>().gameID, player.GetComponent<UUIDHandler>().UUID, player.character.title + "/1", s,HEADER);
         string msg=recvMessage((s,HEADER));
         Debug.Log("RECIEVED: " + msg);
 

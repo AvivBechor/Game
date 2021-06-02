@@ -2,7 +2,7 @@
 
 	"Warrior": {
 		"HP": {
-			"Base": 150,
+			"Base": 250,
 			"LvlMult": 0.5
 		},
 
@@ -33,7 +33,7 @@
 
 	"Mage": {
 		"HP": {
-			"Base": 100,
+			"Base": 150,
 			"LvlMult": 0.3
 		},
 

@@ -98,9 +98,9 @@ public class QueueServer : MonoBehaviour
                     serverPlayer.character.title = currentMessage.data[0];
                     serverPlayer.gender = currentMessage.data[1].Equals("1");
                     //serverPlayer.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>(@"MightyPack and more\MV\Characters\Actors_2")[54];
-                    serverPlayer.GetComponent<Animator>().runtimeAnimatorController = (serverPlayer.character.title.Equals("mage") ? mageController : warriorController);
+                    serverPlayer.GetComponent<Animator>().runtimeAnimatorController = (serverPlayer.character.title.ToLower().Equals("mage") ? mageController : warriorController);
                     //This is beautiful and is my son alive i love it ^
-                    serverPlayer.CurrentHP.value = (serverPlayer.character.title.Equals("mage") ? 100 : 150);
+                    serverPlayer.CurrentHP.value = (serverPlayer.character.title.Equals("mage") ? 150 : 250);
                     //This is also my son but i don't love it as much ^
                     serverPlayer.transform.position = new Vector3(float.Parse(currentMessage.data[2].Split(',')[0]), float.Parse(currentMessage.data[2].Split(',')[1]), 83.19981f);
                     //serverPlayer.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load(@"MightyPack and more\MV\Characters\Actors_2_54", typeof(Sprite)) as Sprite;
@@ -130,7 +130,7 @@ public class QueueServer : MonoBehaviour
                     break;
                 case "kil":
                     Debug.Log("WE ARE KILLING A " + currentMessage.data[0] + " AND IT'S UUID IS " + currentMessage.uuid);
-                    if(currentMessage.data[1].Equals("Player"))
+                    if(currentMessage.data[0].Equals("Player"))
                     {
                         foreach (Transform child in GameObject.Find("PlayersContainer").transform)
                         {
@@ -165,13 +165,19 @@ public class QueueServer : MonoBehaviour
                     client.s.Close();
                     SceneManager.LoadScene("WIN");
                     break;
+                case "los":
+                    messages.Clear();
+                    client.s.Close();
+                    SceneManager.LoadScene("LOSE");
+                    break;
+
                 case "ehp":
                     foreach(Transform child in GameObject.Find("EnemyContainer").transform)
                     {
                         if(currentMessage.uuid == child.GetComponent<UUIDHandler>().UUID)
                         {
                             Debug.Log("HP is: " + currentMessage.data[0]);
-                            child.GetComponent<Enemy>().HP = int.Parse(currentMessage.data[0]);
+                            child.GetComponent<Enemy>().HP = (int)(float.Parse(currentMessage.data[0]));
                             break;
                         }
                     }
@@ -213,7 +219,10 @@ public class QueueServer : MonoBehaviour
                     if (hurt.CurrentHP.value <= 0)
                     {
                         hurt.isDead = true;
-                        sendQueue.addMessage("kil" +":" + child.GetComponent<gameIDHandler>().gameID + ":" + uuid + ":"+"Player");
+                        if(uuid == GameObject.Find("Player").GetComponent<UUIDHandler>().UUID)
+                        {
+                            sendQueue.addMessage("kil" + ":" + child.GetComponent<gameIDHandler>().gameID + ":" + uuid + ":" + "Player");
+                        }
                         
                     }
 

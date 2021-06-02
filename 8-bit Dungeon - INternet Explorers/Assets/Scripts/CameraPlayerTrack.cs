@@ -5,10 +5,10 @@ using UnityEngine;
 public class CameraPlayerTrack : MonoBehaviour
 {
     private GameObject player;
-    public int max_x;
-    public int max_y;
-    public int min_y;
-    public int min_x;
+    public float max_x;
+    public float max_y;
+    public float min_y;
+    public float min_x;
     // Start is called before the first frame update
     void Start()
     {

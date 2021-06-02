@@ -22,7 +22,7 @@ public class gotoforestbye : MonoBehaviour
         //=========
         //==========
         //  =====
-        SceneManager.LoadScene("Forest");
+        SceneManager.LoadScene("Character creator");
         //  =====
         //==========
         //=========

@@ -30,7 +30,7 @@ public class PlayerAttack : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(player.inGame)
+        if(player.inGame && !player.isDead)
         {
             if (player.isAttacking) {
                 accum += Time.deltaTime;
