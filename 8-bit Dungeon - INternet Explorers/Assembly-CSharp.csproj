@@ -78,10 +78,12 @@
     <Compile Include="Assets\Scripts\CameraPlayerTrack.cs" />
     <Compile Include="Assets\Scripts\Client.cs" />
     <Compile Include="Assets\Scripts\CreateCharacter.cs" />
+    <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\DummyScript.cs" />
     <Compile Include="Assets\Scripts\EVILopacityController.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EquipmentManager.cs" />
+    <Compile Include="Assets\Scripts\HPBar.cs" />
     <Compile Include="Assets\Scripts\Iinteractable.cs" />
     <Compile Include="Assets\Scripts\Implode.cs" />
     <Compile Include="Assets\Scripts\InteractorScript.cs" />

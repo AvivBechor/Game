@@ -4,10 +4,17 @@ using UnityEngine;
 using Assets.Scripts;
 public class Boss : Enemy
 {
+    void Start()
+    {
+        GameObject music = GameObject.FindGameObjectWithTag("music");
+        Destroy(music);
+        AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = Resources.Load("Boss") as AudioClip;
+        audioSource.Play();
+    }
     public override void Init(string name)
     {
         HP = 200;
-        transform.localScale = new Vector3(3, 3, 1);
         base.Init(name);
         this.stats = new Dictionary<string, Stat>();
         stats.Add("Movespeed", new Stat(2, 0));
